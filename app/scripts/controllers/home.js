@@ -8,6 +8,6 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MainCtrl', function () {
+  .controller('HomeCtrl', function () {
 
   });
