@@ -14,7 +14,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "miceApp",
+  "moduleName": "app",
   "overrides": {
     "bootstrap": {
       "main": [

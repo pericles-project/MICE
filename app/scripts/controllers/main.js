@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name miceApp.controller:MainCtrl
+ * @name app.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the miceApp
+ * Controller of the app
  */
-angular.module('miceApp')
+angular.module('app')
   .controller('MainCtrl', function () {
-    
+
   });

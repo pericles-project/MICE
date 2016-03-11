@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name miceApp
+ * @name app
  * @description
- * # miceApp
+ * # app
  *
  * Main module of the application.
  */
 angular
-  .module('miceApp', [
+  .module('app', [
     'ngCookies',
     'ngResource',
     'ngRoute',
