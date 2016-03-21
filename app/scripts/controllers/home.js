@@ -8,6 +8,13 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('HomeCtrl', function () {
-
-  });
+  .controller('HomeCtrl', function ($scope, $http, Config) {
+    $http.get(Config.api.url + "/data.json").then(
+      function(response) {
+        $scope.val = response.data;
+      },
+      function(error) {
+        throw error;
+      }
+    );
+});
