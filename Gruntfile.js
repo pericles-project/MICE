@@ -19,6 +19,35 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn'
   });
 
+  var getConfig = function (configName) {
+    return {
+      options: {
+        patterns: [{
+          json: grunt.file.readJSON("./config/" + configName + ".json")
+        }]
+      },
+      files: [
+        // {
+        //   expand: true,
+        //   flatten: true,
+        //   // Here "dist/js/app.min.js" is a minified script with my whole application
+        //   src: ["<%= yeoman.dist %>/scripts/scripts.js"],
+        //   dest: "<%= yeoman.dist %>/scripts/"
+        // },
+
+        {
+        expand: true,
+        flatten: true,
+        // Here "dist/js/app.min.js" is a minified script with my whole application
+        src: ["<%= yeoman.app %>/scripts/config.js"],
+        dest: "<%= yeoman.app %>/scripts/constants/"
+      }
+      ,
+
+      ]
+    };
+  };
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -30,6 +59,12 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
+
+    // Replace the configuration according to the profile
+    replace: {
+     development: getConfig("development"),
+     production: getConfig("production")
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -224,7 +259,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -468,6 +503,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'replace:development',
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
@@ -492,6 +528,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'replace:production',
     'useminPrepare',
     'concurrent:dist',
     'postcss',
