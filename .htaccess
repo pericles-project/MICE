@@ -1,1 +1,11 @@
-Header add Access-Control-Allow-Origin "*"
+# ------------------------------------------------------------------------------
+# | Cross-domain AJAX requests                                                 |
+# ------------------------------------------------------------------------------
+
+# Enable cross-origin AJAX requests.
+# http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+# http://enable-cors.org/
+
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+</IfModule>
