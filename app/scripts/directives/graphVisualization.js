@@ -25,6 +25,21 @@
               .attr("width", width)
               .attr("height", height);
 
+          var tip = d3.tip()
+            .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function(d) {
+              var allowedProperties = ["name", "type", "dependencyType", "intention", "value"];
+              var body = '';
+              for(var propt in d){
+                if (allowedProperties.indexOf(propt) >= 0) {
+                  body += '<p>' + propt + ': ' + d[propt] + '</p>'
+                }
+              }
+              return body;
+            });
+          svg.call(tip);
+
           var link = svg.selectAll(".link"),
               node = svg.selectAll(".node"),
               linkpath = svg.selectAll(".linkpath"),
