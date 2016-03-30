@@ -65,42 +65,35 @@
                 .links(links)
                 .start();
 
-            link = link.data(links, function(d) { console.info('linkdata'+d.target.id);return d.target.id; });
-
+            link = link.data(links, function(d) {return d.target.id; });
             link.exit().remove();
-
             link.enter().append("line")
-              .attr("id",function(d,i) {console.info('link'+i);return 'link'+i})
+              .attr("id",function(d,i) {return 'link'+i})
               .attr('marker-end','url(#arrowhead)')
               .attr("class", "link")
               .style("stroke","#ccc")
               .style("pointer-events", "none");
-console.info('nodes');
-            // Update nodes.
-            node = node.data(nodes, function(d) { console.info('node'+d);return d.id; });
 
+            // Update nodes.
+            node = node.data(nodes, function(d) {return d.id; });
             node.exit().remove();
 
             var nodeEnter = node.enter().append("g")
                 .attr("class", "node")
                 .on("click", click)
                 .call(force.drag);
-
             nodeEnter.append("circle")
-                .attr("r", function(d) { return d.type == 'dependency' ? 4.5 : 8; });
-
+                .attr("r", function(d) { return d.type == 'dependency' ? 4.5 : 10; });
             nodeEnter.append("text")
+                .attr("dx", "1em")
                 .attr("dy", ".35em")
                 .text(function(d) { return d.name; });
 
             node.select("circle")
                 .style("fill", color);
 
-            linkpath = linkpath.data(links, function(d) { console.info('path'+d.target.id);return d.target.id; });
-
+            linkpath = linkpath.data(links);
             linkpath.exit().remove();
-
-            // TODO
             linkpath.enter()
                 .append('path')
                 .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
@@ -109,13 +102,11 @@ console.info('nodes');
                        'stroke-opacity':0,
                        'fill':'blue',
                        'stroke':'red',
-                       'id':function(d,i) {console.info('linkpath'+i);return 'linkpath'+i}})
+                       'id':function(d,i) {return 'linkpath'+i}})
                 .style("pointer-events", "none");
 
             linklabel = linklabel.data(links);
-
             linklabel.exit().remove();
-
             linklabel.enter()
                 .append('text')
                 .style("pointer-events", "none")
@@ -124,9 +115,8 @@ console.info('nodes');
                        'dx':80,
                        'dy':0,
                        'font-size':10,
-                       'fill':'#aaa'});
-
-            linklabel.append('textPath')
+                       'fill':'#aaa'})
+                .append('textPath')
                 .attr('xlink:href',function(d,i) {return '#linkpath'+i})
                 .style("pointer-events", "none")
                 .text(function(d,i){return "label" + i});
