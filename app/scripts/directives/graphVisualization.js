@@ -9,12 +9,12 @@
           val: '='
         },
         link: function(scope, element, attrs) {
-          var width = 960,
-              height = 500,
+          var width = 700,
+              height = 800,
               root;
 
           var force = d3.layout.force()
-              .linkDistance(150)
+              .linkDistance(120)
               .charge([-500])
               .theta(0.1)
               .gravity(0.05)
@@ -62,17 +62,9 @@
             .attr('stroke','#ccc');
 
           function update() {
-
             var nodes = flatten(root),
                 links = d3.layout.tree().links(nodes);
 
-            // for (var l in links) {
-            //   if (link.direction == 'self') {
-            //     d._target = d.target;
-            //     d.target = d.source;
-            //     d.source = d._target;
-            //   }
-            // }
 
             // Restart the force layout.
             force
@@ -86,7 +78,7 @@
               .attr("id",function(d,i) {return 'link'+i})
               .attr('marker-end','url(#arrowhead)')
               .attr("class", "link")
-              .style("stroke","#ccc")
+              .style("stroke", "#ccc")
               .style("pointer-events", "none");
 
             // Update nodes.
@@ -95,7 +87,12 @@
 
             var nodeEnter = node.enter().append("g")
                 .attr("class", "node")
-                .on("click", click)
+                .on("click", function(d){
+                    click(d);
+                    tip.hide(d);
+                })
+                .on('mouseover', tip.show)
+                .on('mouseout', tip.hide)
                 .call(force.drag);
             nodeEnter.append("circle")
                 .attr("r", function(d) { return d.type == 'dependency' ? 4.5 : 10; });
@@ -105,6 +102,7 @@
                 .text(function(d) { return d.name; });
 
             node.select("circle")
+                // .style("stroke", function(d){return d.isRoot ? 'black' : 'steelblue';})
                 .style("fill", color);
 
             linkpath = linkpath.data(links);
@@ -127,23 +125,33 @@
                 .style("pointer-events", "none")
                 .attr({'class':'linklabel',
                        'id':function(d,i){return 'linklabel'+i},
-                       'dx':80,
+                       'dx':60,
                        'dy':0,
                        'font-size':10,
                        'fill':'#aaa'})
                 .append('textPath')
                 .attr('xlink:href',function(d,i) {return '#linkpath'+i})
                 .style("pointer-events", "none")
-                .text(function(d,i){return "label" + i});
+                .text(function(d,i){return d.target.link.label;});
           }
 
           function tick() {
-            link.attr({"x1": function(d){return d.source.x;},
-                    "y1": function(d){return d.source.y;},
-                    "x2": function(d){return d.target.x;},
-                    "y2": function(d){return d.target.y;}
+            // Custom function that swaps the link's source and target. This is needed in order to change the direction of the arrows for nodes of type dependency.
+            function getPositionFrom(d, type) {
+              var posFrom;
+              if ((d.source.link && d.source.link.direction == 'self') ||
+                d.target.link && d.target.link.direction == 'parent') {
+                type = (type == 'source') ? 'target' : 'source';
+              }
+              return type;
+            }
+            link.attr({"x1": function(d){var type=getPositionFrom(d,'source'); return d[type].x;},
+                    "y1": function(d){var type=getPositionFrom(d,'source'); return d[type].y;},
+                    "x2": function(d){var type=getPositionFrom(d,'target'); return d[type].x;},
+                    "y2": function(d){var type=getPositionFrom(d,'target'); return d[type].y;}
             });
 
+            //if (d.isRoot) {d.x=480; d.y=50;};
             node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
             linkpath.attr('d', function(d) {
@@ -165,14 +173,28 @@
           }
 
           function color(d) {
-            return d._children ? "#3182bd" // collapsed package
-                : d.children ? "#c6dbef" // expanded package
-                : "#fd8d3c"; // leaf node
+            // return d._children ? "#3182bd" // collapsed package
+            //     : d.children ? "#c6dbef" // expanded package
+            //     : "#fd8d3c"; // leaf node
+            return d.impacted ? "red" : d.impacted === false ? "green" : (d._children ? "#3182bd" // collapsed package
+                : "#c6dbef"); // expanded package
           }
 
           // Toggle children on click.
           function click(d) {
             if (d3.event.defaultPrevented) return; // ignore drag
+            toggleChildren(d);
+            if (d.children) {
+              d.children.forEach(function(c){
+                if (c.type == 'dependency') {
+                  toggleChildren(c);
+                }
+              });
+            }
+            update();
+          }
+
+          function toggleChildren(d) {
             if (d.children) {
               d._children = d.children;
               d.children = null;
@@ -180,7 +202,6 @@
               d.children = d._children;
               d._children = null;
             }
-            update();
           }
 
           // Returns a list of all nodes under the root.
@@ -203,6 +224,25 @@
             }
 
             root = graphData;
+            root.isRoot = true;
+            root.fixed = true;
+            root.x = width / 2;
+            root.y = 50;
+
+            function collapse(d) {
+              if (d.children) {
+                d._children = d.children;
+                d._children.forEach(collapse);
+                d.children = null;
+              }
+            }
+
+            // root.children.forEach(function(c){
+            //   collapse(c);
+            //   if (c.type == 'dependency') {
+            //     toggleChildren(c);
+            //   }
+            // });
             update();
           });
         }
