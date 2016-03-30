@@ -21,7 +21,7 @@
               .size([width, height])
               .on("tick", tick);
 
-          var svg = d3.select("body").append("svg")
+          var svg = d3.select("#content").append("svg")
               .attr("width", width)
               .attr("height", height);
 
