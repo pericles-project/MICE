@@ -95,15 +95,12 @@
                 .on('mouseout', tip.hide)
                 .call(force.drag);
             nodeEnter.append("circle")
-                .attr("r", function(d) { return d.type == 'dependency' ? 4.5 : 10; });
+                .attr("r", function(d) { return d.type == 'dependency' ? 4.5 : 10; })
+                .style("fill", color);
             nodeEnter.append("text")
                 .attr("dx", "1em")
                 .attr("dy", ".35em")
                 .text(function(d) { return d.name; });
-
-            node.select("circle")
-                // .style("stroke", function(d){return d.isRoot ? 'black' : 'steelblue';})
-                .style("fill", color);
 
             linkpath = linkpath.data(links);
             linkpath.exit().remove();
