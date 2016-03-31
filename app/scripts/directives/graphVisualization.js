@@ -11,7 +11,9 @@
         link: function(scope, element, attrs) {
           var width = 700,
               height = 800,
-              root;
+              root,
+              nodes,
+              links;
 
           var force = d3.layout.force()
               .linkDistance(120)
@@ -62,9 +64,8 @@
             .attr('stroke','#ccc');
 
           function update() {
-            var nodes = flatten(root),
-                links = d3.layout.tree().links(nodes);
-
+            nodes = flatten(root);
+            links = d3.layout.tree().links(nodes);
 
             // Restart the force layout.
             force
@@ -179,11 +180,11 @@
 
           // Toggle children on click.
           function click(d) {
-            if (d3.event.defaultPrevented) return; // ignore drag
+            if (d3.event && d3.event.defaultPrevented) return; // ignore drag
             toggleChildren(d);
             if (d.children) {
               d.children.forEach(function(c){
-                if (c.type == 'dependency') {
+                if (c.type == 'dependency' && !c.children) {
                   toggleChildren(c);
                 }
               });
@@ -226,21 +227,17 @@
             root.x = width / 2;
             root.y = 50;
 
-            function collapse(d) {
-              if (d.children) {
-                d._children = d.children;
-                d._children.forEach(collapse);
-                d.children = null;
-              }
-            }
+            update();
 
-            // root.children.forEach(function(c){
-            //   collapse(c);
-            //   if (c.type == 'dependency') {
-            //     toggleChildren(c);
+            // Make all nodes collapsed by default. This is needed due to possible bug in d3 force layout.
+            // nodes.forEach(function(d){
+            //   if (d.children) {
+            //     d._children = d.children;
+            //     d.children = null;
             //   }
             // });
-            update();
+            // // click(root);
+            // update();
           });
         }
       }
