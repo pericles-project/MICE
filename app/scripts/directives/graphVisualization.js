@@ -9,7 +9,7 @@
           val: '='
         },
         link: function(scope, element, attrs) {
-          var width = 700,
+          var width = 1200,
               height = 800,
               root,
               nodes,
@@ -23,7 +23,7 @@
               .size([width, height])
               .on("tick", tick);
 
-          var svg = d3.select("#content").append("svg")
+          var svg = d3.select("#graph").append("svg")
               .attr("width", width)
               .attr("height", height);
 
@@ -31,11 +31,19 @@
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              var allowedProperties = ["name", "type", "dependencyType", "intention", "value"];
-              var body = '';
+              var allowedProperties = ["name", "type", "dependencyType", "intention", "value", "change"];
+              var mapProperties = ["Name", "Type", "Dependency type", "Intention", "Value", "Change"];
+              var body = '', value;
               for(var propt in d){
-                if (allowedProperties.indexOf(propt) >= 0) {
-                  body += '<p>' + propt + ': ' + d[propt] + '</p>'
+                var index = allowedProperties.indexOf(propt);
+                if (index >= 0) {
+                  if (propt == 'dependencyType') {
+                    value = (d[propt] == 'conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent";
+                  } else {
+                    value = d[propt];
+                  }
+
+                  body += '<p>' + mapProperties[index] + ': ' + value + '</p>'
                 }
               }
               return body;
@@ -79,7 +87,8 @@
               .attr("id",function(d,i) {return 'link'+i})
               .attr('marker-end','url(#arrowhead)')
               .attr("class", "link")
-              .style("stroke", "#ccc")
+              .style("stroke", function(d) {return d.target.children || d.target.isTerminal ? "#000" : "#ccc";})
+              // .style("stroke-dasharray", function(d) {return d.target.children || d.target.isTerminal ? ("0, 0") : ("3", "3");})
               .style("pointer-events", "none");
 
             // Update nodes.
@@ -95,8 +104,11 @@
                 .on('mouseover', tip.show)
                 .on('mouseout', tip.hide)
                 .call(force.drag);
-            nodeEnter.append("circle")
-                .attr("r", function(d) { return d.type == 'dependency' ? 4.5 : 10; })
+            nodeEnter.append("path")
+                .attr("d", d3.svg.symbol()
+                  .size(function(d) { return (d.type == 'Dependency' ? 4.5 : 10) * 40; })
+                  .type(function(d) { return d.type == 'Dependency' ? "diamond" : "circle";}))
+                // .attr("r", function(d) { return d.type == 'Dependency' ? 4.5 : 10; })
                 .style("fill", color);
             nodeEnter.append("text")
                 .attr("dx", "1em")
@@ -126,7 +138,7 @@
                        'dx':60,
                        'dy':0,
                        'font-size':10,
-                       'fill':'#aaa'})
+                       'fill':function(d){return d.target.children || d.target.isTerminal ? "#000" : "#ccc";}})
                 .append('textPath')
                 .attr('xlink:href',function(d,i) {return '#linkpath'+i})
                 .style("pointer-events", "none")
@@ -174,8 +186,21 @@
             // return d._children ? "#3182bd" // collapsed package
             //     : d.children ? "#c6dbef" // expanded package
             //     : "#fd8d3c"; // leaf node
-            return d.impacted ? "red" : d.impacted === false ? "green" : (d._children ? "#3182bd" // collapsed package
-                : "#c6dbef"); // expanded package
+            var color = '#c6dbef';
+            if (d.type == 'Dependency') {
+              color = '#ccc';
+            } else {
+              if (d.impacted === true) {
+                color = 'red';
+              } else if (d.impacted === false) {
+                color = 'green';
+              } else {
+                if (d._children) {
+                  color = '#3182bd';
+                }
+              }
+            }
+            return color;
           }
 
           // Toggle children on click.
@@ -184,7 +209,7 @@
             toggleChildren(d);
             if (d.children) {
               d.children.forEach(function(c){
-                if (c.type == 'dependency' && !c.children) {
+                if (c.type == 'Dependency' && !c.children) {
                   toggleChildren(c);
                 }
               });
@@ -236,7 +261,7 @@
             //     d.children = null;
             //   }
             // });
-            // // click(root);
+            // click(root);
             // update();
           });
         }
