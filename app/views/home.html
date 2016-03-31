@@ -1,1 +1,61 @@
-<graph-visualization val="val"></graph-visualization>
+
+  <!-- End Navigation -->
+  <div class="container-fluid main-content">
+
+    <!-- Statistics -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="widget-container stats-container">
+          <div class="col-md-4">
+            <div class="number">
+              13
+            </div>
+            <div class="text">
+              Total resources
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="number text text-danger">
+              2
+            </div>
+            <div class="text">
+              Impacted
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="number text text-success">
+              <small>9</small>
+            </div>
+            <div class="text">
+              Not impacted
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="widget-container fluid-height" id="graph">
+          <graph-visualization val="val"></graph-visualization>
+          <div id="graphChange">
+              <h4>Change</h4>
+              <p>Deletion: 1 GB RAM</p>
+          </div>
+          <div id="graphNotes">
+              <h4>Notes</h4>
+              <strong>Shapes:</strong>
+              <p>Circle: Resource</p>
+              <p>Diamond: Dependency</p>
+              <br />
+              <strong>Colors:</strong>
+              <p>Green: Impacted resource</p>
+              <p>Red: Not impacted resource</p>
+              <br />
+              <strong>Lines:</strong>
+              <p>Dark: Represent links to dependent resources</p>
+              <p>Light: Represent links to non-dependent resources</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
