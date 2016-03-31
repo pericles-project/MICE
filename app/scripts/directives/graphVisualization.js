@@ -96,7 +96,7 @@
             node.exit().remove();
 
             var nodeEnter = node.enter().append("g")
-                .attr("class", "node")
+                .attr("class", function(d){return d.children || d._children ? "node" : "node terminal"})
                 .on("click", function(d){
                     click(d);
                     tip.hide(d);
@@ -106,12 +106,15 @@
                 .call(force.drag);
             nodeEnter.append("path")
                 .attr("d", d3.svg.symbol()
-                  .size(function(d) { return (d.type == 'Dependency' ? 4.5 : 10) * 40; })
+                  .size(function(d) { return (d.type == 'Dependency' ? 30 : 8) * 40; })
                   .type(function(d) { return d.type == 'Dependency' ? "diamond" : "circle";}))
+                  .style("stroke", function(d) {return d.children || d._children ? "none" : "#444";})
+                  .style("stroke-width", function(d) {return d.children || d._children ? "none" : "2px";})
                 // .attr("r", function(d) { return d.type == 'Dependency' ? 4.5 : 10; })
                 .style("fill", color);
             nodeEnter.append("text")
-                .attr("dx", "1em")
+                .attr("class", function(d) { return d.type == 'Dependency' ? "diamond" : "circle"; })
+                .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1em";})
                 .attr("dy", ".35em")
                 .text(function(d) { return d.name; });
 
@@ -188,12 +191,12 @@
             //     : "#fd8d3c"; // leaf node
             var color = '#c6dbef';
             if (d.type == 'Dependency') {
-              color = '#ccc';
+              color = d.dependencyType == 'disjunctive' ? '#3182bd' : '#756bb1';
             } else {
               if (d.impacted === true) {
-                color = 'red';
+                color = '#e6550d';
               } else if (d.impacted === false) {
-                color = 'green';
+                color = '#31a354';
               } else {
                 if (d._children) {
                   color = '#3182bd';

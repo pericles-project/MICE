@@ -84,6 +84,14 @@ body.page-header-fixed {
   font: 13px sans-serif;
 }
 
+.node .diamond {
+  font-size: 10px;
+}
+
+.node.terminal:hover {
+  cursor: default;
+}
+
 .linkpath {
   fill: none;
   stroke: #ccc;
