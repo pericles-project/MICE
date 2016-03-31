@@ -38,7 +38,7 @@
                 var index = allowedProperties.indexOf(propt);
                 if (index >= 0) {
                   if (propt == 'dependencyType') {
-                    value = (d[propt] == 'conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent";
+                    value = (d[propt] == 'Conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent (" + d[propt] + ")";
                   } else {
                     value = d[propt];
                   }
@@ -114,7 +114,7 @@
                 .style("fill", color);
             nodeEnter.append("text")
                 .attr("class", function(d) { return d.type == 'Dependency' ? "diamond" : "circle"; })
-                .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1em";})
+                .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1em"; })
                 .attr("dy", ".35em")
                 .text(function(d) { return d.name; });
 
@@ -191,12 +191,12 @@
             //     : "#fd8d3c"; // leaf node
             var color = '#c6dbef';
             if (d.type == 'Dependency') {
-              color = d.dependencyType == 'disjunctive' ? '#3182bd' : '#756bb1';
+              color = d.dependencyType == 'Disjunctive' ? '#6baed6' : '#9e9ac8';
             } else {
               if (d.impacted === true) {
                 color = '#e6550d';
               } else if (d.impacted === false) {
-                color = '#31a354';
+                color = '#74c476';
               } else {
                 if (d._children) {
                   color = '#3182bd';
