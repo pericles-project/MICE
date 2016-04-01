@@ -9,7 +9,7 @@
  */
 angular.module('app')
   .controller('HomeCtrl', function ($scope, $http, Config) {
-    $http.get(Config.api.url + "/data.json").then(
+    $http.get("/data.json").then(
       function(response) {
         $scope.val = response.data;
       },
