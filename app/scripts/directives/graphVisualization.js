@@ -38,7 +38,7 @@
                 var index = allowedProperties.indexOf(propt);
                 if (index >= 0) {
                   if (propt == 'dependencyType') {
-                    value = (d[propt] == 'Conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent (" + d[propt] + ")";
+                    value = d[propt] + " dependency (" + (d[propt] == 'Conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent" + ")";
                   } else {
                     value = d[propt];
                   }
