@@ -31,14 +31,16 @@
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              var allowedProperties = ["name", "type", "dependencyType", "intention", "value", "change"];
-              var mapProperties = ["Name", "Type", "Dependency type", "Intention", "Value", "Change"];
+              var allowedProperties = ["name", "type", "dependencyType", "intention", "value", "change", "impacted", "reason"];
+              var mapProperties = ["Name", "Type", "Dependency type", "Intention", "Value", "Change", "Status", "Reason"];
               var body = '', value;
               for(var propt in d){
                 var index = allowedProperties.indexOf(propt);
                 if (index >= 0) {
                   if (propt == 'dependencyType') {
                     value = d[propt] + " dependency (" + (d[propt] == 'Conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent" + ")";
+                  } else if (propt == 'impacted') {
+                    value = d[propt] ? "Impacted" : "Not impacted";
                   } else {
                     value = d[propt];
                   }

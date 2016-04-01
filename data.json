@@ -27,6 +27,7 @@
           "name": "Windows 7",
           "type": "Resource",
           "impacted": true,
+          "reason": "Hardware Dependency 2 requires all 'from' requirements to be consistent.",
           "link": {
             "label": "to",
             "direction": "self"
