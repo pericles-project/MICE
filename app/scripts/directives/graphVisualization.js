@@ -57,19 +57,34 @@
 
           // build the arrow.
           svg.append('defs').append('marker')
-        .attr({'id':'arrowhead',
-               'viewBox':'-0 -5 10 10',
-               'refX':20,
-               'refY':0,
-               //'markerUnits':'strokeWidth',
-               'orient':'auto',
-               'markerWidth':10,
-               'markerHeight':10,
-               'xoverflow':'visible'})
-        .append('svg:path')
-            .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
-            .attr('fill', '#ccc')
-            .attr('stroke','#ccc');
+            .attr({'id':'arrowhead',
+                   'viewBox':'-0 -5 10 10',
+                   'refX':20,
+                   'refY':0,
+                   //'markerUnits':'strokeWidth',
+                   'orient':'auto',
+                   'markerWidth':10,
+                   'markerHeight':10,
+                   'xoverflow':'visible'})
+            .append('svg:path')
+                .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+                .attr('fill', '#ccc')
+                .attr('stroke','#ccc');
+
+          svg.append('defs').append('marker')
+              .attr({'id':'arrowhead-dark',
+                     'viewBox':'-0 -5 10 10',
+                     'refX':20,
+                     'refY':0,
+                     //'markerUnits':'strokeWidth',
+                     'orient':'auto',
+                     'markerWidth':10,
+                     'markerHeight':10,
+                     'xoverflow':'visible'})
+              .append('svg:path')
+                  .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+                  .attr('fill', '#000')
+                  .attr('stroke','#000');
 
           function update() {
             nodes = flatten(root);
@@ -85,7 +100,7 @@
             link.exit().remove();
             link.enter().append("line")
               .attr("id",function(d,i) {return 'link'+i})
-              .attr('marker-end','url(#arrowhead)')
+              .attr('marker-end', function(d) {return d.target.children || d.target.isTerminal ? "url(#arrowhead-dark)" : 'url(#arrowhead)';})
               .attr("class", "link")
               .style("stroke", function(d) {return d.target.children || d.target.isTerminal ? "#000" : "#ccc";})
               // .style("stroke-dasharray", function(d) {return d.target.children || d.target.isTerminal ? ("0, 0") : ("3", "3");})
