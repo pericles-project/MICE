@@ -8,7 +8,7 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('HomeCtrl', function ($scope, $http, Config) {
+  .controller('HomeCtrl', function ($scope, $http) {
     $http.get("/data.json").then(
       function(response) {
         $scope.val = response.data;
