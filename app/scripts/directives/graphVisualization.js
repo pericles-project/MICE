@@ -100,13 +100,11 @@
                 .links(links)
                 .start();
 
-            link = link.data(links, function(d) {return d.target.id; });
+            link = link.data(links, function(d) {return d.source.id + "_" + d.target.id; });
             link.exit().remove();
             var linkEnter = link.enter().insert("g")
-              .attr("id",function(d,i) {return 'link'+i})
               .attr("class", "link");
             var linkline = linkEnter.append("line")
-              .attr("id",function(d,i) {return 'linkline'+i})
               .attr('marker-end', function(d) {return d.target.children || d.target.isTerminal ? "url(#arrowhead-dark)" : 'url(#arrowhead)';})
               .attr("class", "linkline")
               .style("stroke", function(d) {return d.target.children || d.target.isTerminal ? "#000" : "#ccc";})
@@ -116,19 +114,18 @@
             var linkpath = linkEnter.append('path')
                 .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
                        'class':'linkpath',
-                       'id':function(d,i) {return 'linkpath'+i}})
+                       'id':function(d,i) {return 'linkpath'+ d.source.id + "_" + d.target.id}})
                 .style("pointer-events", "none");
 
             var linklabel = linkEnter.append('text')
                 .style("pointer-events", "none")
                 .attr({'class':'linklabel',
-                       'id':function(d,i){return 'linklabel'+i},
                        'dx':60,
                        'dy':0,
                        'font-size':10,
                        'fill':function(d){return d.target.children || d.target.isTerminal ? "#000" : "#ccc";}})
                 .append('textPath')
-                  .attr('xlink:href',function(d,i) {return '#linkpath'+i})
+                  .attr('xlink:href',function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id})
                   .style("pointer-events", "none")
                   .text(function(d,i){return d.target.link.label;});
 
@@ -274,13 +271,13 @@
             update();
 
             // Make all nodes collapsed by default. This is needed due to possible bug in d3 force layout.
-            // nodes.forEach(function(d){
-            //   if (d.children) {
-            //     d._children = d.children;
-            //     d.children = null;
-            //   }
-            // });
-            // click(root);
+            nodes.forEach(function(d){
+              if (d.children) {
+                d._children = d.children;
+                d.children = null;
+              }
+            });
+            click(root);
             // update();
           });
         }
