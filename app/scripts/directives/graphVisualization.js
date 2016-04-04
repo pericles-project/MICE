@@ -23,9 +23,14 @@
               .size([width, height])
               .on("tick", tick);
 
-          var svg = d3.select("#graph").append("svg")
-              .attr("width", width)
-              .attr("height", height);
+              var svg = d3.select("#graph").append("svg")
+                               .attr("width", '100%')
+                               .attr("height", '100%');
+             var realWidth = $("svg").parent().width();
+             svg.attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
+                 .attr('preserveAspectRatio','xMinYMin')
+                 .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
+
 
           var tip = d3.tip()
             .attr('class', 'd3-tip')
@@ -266,7 +271,7 @@
             root.isRoot = true;
             root.fixed = true;
             root.x = width / 2;
-            root.y = 50;
+            root.y = 20;
 
             update();
 

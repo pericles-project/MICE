@@ -446,6 +446,7 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
+            'data{,*/}*',
             '*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
@@ -460,7 +461,7 @@ module.exports = function (grunt) {
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
-        }]
+        },]
       },
       styles: {
         expand: true,
@@ -480,7 +481,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
+        //'imagemin',
         'svgmin'
       ]
     },
@@ -528,7 +529,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'replace:production',
+    //'replace:production',
     'useminPrepare',
     'concurrent:dist',
     'postcss',

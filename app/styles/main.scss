@@ -21,7 +21,7 @@ h1 {
 }
 
 .navbar .container-fluid.top-bar {
-  height: 52px;
+  height: auto;
 }
 
 .navbar {
@@ -57,17 +57,17 @@ body.page-header-fixed {
 }
 
 #graphChange {
-  position: absolute;
-  top:20px;
-  left:20px;
-  text-align: left;
+  // position: absolute;
+  // top:20px;
+  // left:20px;
+  // text-align: left;
 }
 
 #graphNotes {
-  position: absolute;
-  top:20px;
-  right:20px;
-  text-align: left;
+  // position: absolute;
+  // top:20px;
+  // right:20px;
+  // text-align: left;
 }
 
 .node.resource {
