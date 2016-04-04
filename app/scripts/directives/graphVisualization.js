@@ -58,22 +58,23 @@
               linklabel = svg.selectAll(".linklabel");
 
           // build the arrow.
-          svg.append('defs').append('marker')
-            .attr({'id':'arrowhead',
-                   'viewBox':'-0 -5 10 10',
-                   'refX':20,
-                   'refY':0,
-                   //'markerUnits':'strokeWidth',
-                   'orient':'auto',
-                   'markerWidth':10,
-                   'markerHeight':10,
-                   'xoverflow':'visible'})
-            .append('svg:path')
-                .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
-                .attr('fill', '#ccc')
-                .attr('stroke','#ccc');
+          var defs = svg.append('defs');
+          defs.append('marker')
+              .attr({'id':'arrowhead',
+                     'viewBox':'-0 -5 10 10',
+                     'refX':20,
+                     'refY':0,
+                     //'markerUnits':'strokeWidth',
+                     'orient':'auto',
+                     'markerWidth':10,
+                     'markerHeight':10,
+                     'xoverflow':'visible'})
+              .append('svg:path')
+                  .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+                  .attr('fill', '#ccc')
+                  .attr('stroke','#ccc');
 
-          svg.append('defs').append('marker')
+          defs.append('marker')
               .attr({'id':'arrowhead-dark',
                      'viewBox':'-0 -5 10 10',
                      'refX':20,
