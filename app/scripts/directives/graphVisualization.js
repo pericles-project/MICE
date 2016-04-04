@@ -116,10 +116,6 @@
             var linkpath = linkEnter.append('path')
                 .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
                        'class':'linkpath',
-                       'fill-opacity':0,
-                       'stroke-opacity':0,
-                       'fill':'blue',
-                       'stroke':'red',
                        'id':function(d,i) {return 'linkpath'+i}})
                 .style("pointer-events", "none");
 
