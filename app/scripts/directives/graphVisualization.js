@@ -54,6 +54,7 @@
 
           var link = svg.selectAll(".link"),
               node = svg.selectAll(".node"),
+              linkline = svg.selectAll(".linkline"),
               linkpath = svg.selectAll(".linkpath"),
               linklabel = svg.selectAll(".linklabel");
 
@@ -101,13 +102,39 @@
 
             link = link.data(links, function(d) {return d.target.id; });
             link.exit().remove();
-            link.enter().append("line")
+            var linkEnter = link.enter().insert("g")
               .attr("id",function(d,i) {return 'link'+i})
+              .attr("class", "link");
+            var linkline = linkEnter.append("line")
+              .attr("id",function(d,i) {return 'linkline'+i})
               .attr('marker-end', function(d) {return d.target.children || d.target.isTerminal ? "url(#arrowhead-dark)" : 'url(#arrowhead)';})
-              .attr("class", "link")
+              .attr("class", "linkline")
               .style("stroke", function(d) {return d.target.children || d.target.isTerminal ? "#000" : "#ccc";})
               // .style("stroke-dasharray", function(d) {return d.target.children || d.target.isTerminal ? ("0, 0") : ("3", "3");})
               .style("pointer-events", "none");
+
+            var linkpath = linkEnter.append('path')
+                .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+                       'class':'linkpath',
+                       'fill-opacity':0,
+                       'stroke-opacity':0,
+                       'fill':'blue',
+                       'stroke':'red',
+                       'id':function(d,i) {return 'linkpath'+i}})
+                .style("pointer-events", "none");
+
+            var linklabel = linkEnter.append('text')
+                .style("pointer-events", "none")
+                .attr({'class':'linklabel',
+                       'id':function(d,i){return 'linklabel'+i},
+                       'dx':60,
+                       'dy':0,
+                       'font-size':10,
+                       'fill':function(d){return d.target.children || d.target.isTerminal ? "#000" : "#ccc";}})
+                .append('textPath')
+                  .attr('xlink:href',function(d,i) {return '#linkpath'+i})
+                  .style("pointer-events", "none")
+                  .text(function(d,i){return d.target.link.label;});
 
             // Update nodes.
             node = node.data(nodes, function(d) {return d.id; });
@@ -135,35 +162,6 @@
                 .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1em"; })
                 .attr("dy", ".35em")
                 .text(function(d) { return d.name; });
-
-            linkpath = linkpath.data(links, function(d) {return d.target.id; });
-            linkpath.exit().remove();
-            linkpath.enter()
-                .append('path')
-                .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
-                       'class':'linkpath',
-                       'fill-opacity':0,
-                       'stroke-opacity':0,
-                       'fill':'blue',
-                       'stroke':'red',
-                       'id':function(d,i) {return 'linkpath'+i}})
-                .style("pointer-events", "none");
-
-            linklabel = linklabel.data(links, function(d) {return d.target.id; });
-            linklabel.exit().remove();
-            linklabel.enter()
-                .append('text')
-                .style("pointer-events", "none")
-                .attr({'class':'linklabel',
-                       'id':function(d,i){return 'linklabel'+i},
-                       'dx':60,
-                       'dy':0,
-                       'font-size':10,
-                       'fill':function(d){return d.target.children || d.target.isTerminal ? "#000" : "#ccc";}})
-                .append('textPath')
-                .attr('xlink:href',function(d,i) {return '#linkpath'+i})
-                .style("pointer-events", "none")
-                .text(function(d,i){return d.target.link.label;});
           }
 
           function tick() {
@@ -176,21 +174,20 @@
               }
               return type;
             }
-            link.attr({"x1": function(d){var type=getPositionFrom(d,'source'); return d[type].x;},
-                    "y1": function(d){var type=getPositionFrom(d,'source'); return d[type].y;},
-                    "x2": function(d){var type=getPositionFrom(d,'target'); return d[type].x;},
-                    "y2": function(d){var type=getPositionFrom(d,'target'); return d[type].y;}
+
+            link.select('.linkline').attr({
+              "x1": function(d){var type=getPositionFrom(d,'source'); return d[type].x;},
+              "y1": function(d){var type=getPositionFrom(d,'source'); return d[type].y;},
+              "x2": function(d){var type=getPositionFrom(d,'target'); return d[type].x;},
+              "y2": function(d){var type=getPositionFrom(d,'target'); return d[type].y;}
             });
 
-            //if (d.isRoot) {d.x=480; d.y=50;};
-            node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-            linkpath.attr('d', function(d) {
+            link.select('.linkpath').attr('d', function(d) {
               var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
               return path;
             });
 
-            linklabel.attr('transform',function(d,i){
+            link.select('.linklabel').attr('transform',function(d,i){
                 if (d.target.x<d.source.x){
                     var bbox = this.getBBox();
                     var rx = bbox.x+bbox.width/2;
@@ -201,6 +198,9 @@
                     return 'rotate(0)';
                     }
             });
+
+            //if (d.isRoot) {d.x=480; d.y=50;};
+            node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
           }
 
           function color(d) {
