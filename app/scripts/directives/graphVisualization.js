@@ -137,7 +137,7 @@
             node.exit().remove();
 
             var nodeEnter = node.enter().append("g")
-                .attr("class", function(d){return d.children || d._children ? "node" : "node terminal"})
+                .attr("class", function(d){return "node" + (d.children || d._children ? "" : " terminal") + (d.type == "Resource" ? " resource" : " dependency")})
                 .on("click", function(d){
                     click(d);
                     tip.hide(d);
@@ -223,7 +223,9 @@
           // Toggle children on click.
           function click(d) {
             if (d3.event && d3.event.defaultPrevented) return; // ignore drag
-            toggleChildren(d);
+            if (d.type != 'Dependency') {
+              toggleChildren(d);
+            }
             if (d.children) {
               d.children.forEach(function(c){
                 if (c.type == 'Dependency' && !c.children) {
