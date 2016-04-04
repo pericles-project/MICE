@@ -136,7 +136,7 @@
                 .attr("dy", ".35em")
                 .text(function(d) { return d.name; });
 
-            linkpath = linkpath.data(links);
+            linkpath = linkpath.data(links, function(d) {return d.target.id; });
             linkpath.exit().remove();
             linkpath.enter()
                 .append('path')
@@ -149,7 +149,7 @@
                        'id':function(d,i) {return 'linkpath'+i}})
                 .style("pointer-events", "none");
 
-            linklabel = linklabel.data(links);
+            linklabel = linklabel.data(links, function(d) {return d.target.id; });
             linklabel.exit().remove();
             linklabel.enter()
                 .append('text')
