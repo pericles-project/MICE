@@ -1,8 +1,6 @@
+/vendor
 /node_modules
-/bower_components
-/dist
-/.tmp
-/.sass-cache
-/config
-/app/scripts/constants/config.js
-/data.json
+/public/storage
+Homestead.yaml
+Homestead.json
+.env
