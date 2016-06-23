@@ -7,7 +7,7 @@
   <!-- Statistics -->
   <div class="widget-container stats-container row">
     <div class="col-md-4">
-      <div class="number">
+      <div class="number" id="totalResourcesCount">
         10
       </div>
       <div class="text">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="number text text-danger">
+      <div class="number text text-danger" id="impactedResourcesCount">
         2
       </div>
       <div class="text">
@@ -23,16 +23,14 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="number text text-success">
-        <small>8</small>
+      <div class="number text text-success" id="notImpactedResourcesCount">
+        8
       </div>
       <div class="text">
         Not impacted
       </div>
     </div>
   </div>
-
-
 
   <div class="row widget-container fluid-height">
     <div class="col-md-9" >
