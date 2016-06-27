@@ -11,8 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('getData',array('as'=>'getData','uses'=>'MainController@getData'));
+Route::get('/', array('uses'=>'MainController@index'));
+Route::get('graph', array('uses'=>'MainController@graph'));

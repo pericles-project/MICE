@@ -2,18 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
-class MainController extends Controller
+class MainController extends BaseController
 {
     /**
-     * Get data
+     * Display change impact
      *
      * @return Response
      */
-    public function getData()
+    public function index(Request $request)
     {
-        return view('user.profile', ['user' => User::findOrFail($id)]);
+        $action = Input::get("action");
+        $uuid = Input::get("uuid");
+        $repository_name = Input::get("repository_name");
+        $resource_uri = Input::get("resource_uri");
+        $change = Input::get("change");
+
+        if (!$uuid) {
+            $case = Input::get("case") ? : 1;
+            $request->session()->put('case', $case);
+        }
+        return view('home');
+    }
+
+    /**
+     * Get the dependency graph
+     *
+     * @return Response
+     */
+    public function graph(Request $request)
+    {
+        $case = $request->session()->get('case');
+        $filename = 'data' . $case . '.json';
+        echo file_get_contents($filename);
     }
 }
