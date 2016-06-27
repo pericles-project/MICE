@@ -1,6 +1,8 @@
 (function () {
-  $.get( "data.json", function( data ) {
-    createGraph(data);
+  $(document).ready(function(){
+      $.get( "/graph", function( data ) {
+        createGraph(data);
+      });
   });
 
   function createGraph(data) {
@@ -8,7 +10,10 @@
         height = 800,
         root,
         nodes,
-        links;
+        links,
+        total_resources = [],
+        impacted_resources = [],
+        not_impacted_resources = [];
 
     var force = d3.layout.force()
         .linkDistance(120)
@@ -265,6 +270,21 @@
     root.y = 20;
 
     update();
+
+    // Find counts of total, impacted, not impacted nodes.
+    nodes.forEach(function(d){
+        if (d.type == 'Resource') {
+            total_resources.push(d);
+            if (d.impacted == true) {
+                impacted_resources.push(d);
+            } else if (d.impacted == false) {
+                not_impacted_resources.push(d);
+            }
+        }
+    });
+    $('#totalResourcesCount').html(total_resources.length);
+    $('#impactedResourcesCount').html(impacted_resources.length);
+    $('#notImpactedResourcesCount').html(not_impacted_resources.length);
 
     // Make all nodes collapsed by default. This is needed due to possible bug in d3 force layout.
     nodes.forEach(function(d){

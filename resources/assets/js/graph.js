@@ -1,6 +1,8 @@
 (function () {
-  $.get( "data.json", function( data ) {
-    createGraph(data);
+  $(document).ready(function(){
+      $.get( "/graph", function( data ) {
+        createGraph(data);
+      });
   });
 
   function createGraph(data) {

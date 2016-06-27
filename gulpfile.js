@@ -28,14 +28,14 @@ elixir(function(mix) {
     mix.styles([
         'bootstrap.css',
         'theme.css',
-        'main.css'
+        'app.css'
       ])
       .scripts([
         'jquery.js',
         'bootstrap.js',
         'd3.js',
         'd3-tip.js',
-        'graph.js'
+        // 'graph.js'
       ]);
 
     // Version
