@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="file:///C:/Users/viondury/PERICLESEU/Ontology/LRM-reflexive.ttl" uri="LRM-v.2.2.1/LRM-reflexive.ttl"/>
+    <uri id="User Entered Import Resolution" name="file:///C:/Users/viondury/PERICLESEU/Ontology/time-schema.ttl" uri="LRM-v.2.2.1/time-schema.ttl"/>
+    <uri id="User Entered Import Resolution" name="file:///C:/Users/viondury/PERICLESEU/Ontology/LRM-semantic-versioning-schema.ttl" uri="LRM-v.2.2.1/LRM-semantic-versioning-schema.ttl"/>
+    <uri id="User Entered Import Resolution" name="file:///C:/Users/viondury/PERICLESEU/Ontology/LRM-ReAL-schema.ttl" uri="LRM-v.2.2.1/LRM-ReAL-schema.ttl"/>
+    <uri id="User Entered Import Resolution" name="file:///C:/Users/viondury/PERICLESEU/Ontology/LRM-dynamic-schema.ttl" uri="LRM-v.2.2.1/LRM-dynamic-schema.ttl"/>
+    <uri id="User Entered Import Resolution" name="file:///C:/Users/viondury/PERICLESEU/Ontology/LRM-static-schema.ttl" uri="LRM-v.2.2.1/LRM-static-schema.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://xrce.xerox.com/LRM#LRM-schema" uri="LRM-v.2.2.1/LRM-schema.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1466686997937" name="http://www.w3.org/2002/07/owl" uri="dva_t_rdfxlm.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1466686997937" name="https://dl.dropboxusercontent.com/u/27469926/dva_t.owl" uri="dva_t.owl"/>
+    </group>
+</catalog>

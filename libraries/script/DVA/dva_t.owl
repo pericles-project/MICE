@@ -1,0 +1,4446 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://dl.dropboxusercontent.com/u/27469926/dva_t.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://dl.dropboxusercontent.com/u/27469926/dva_t.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="LRM" IRI="http://xrce.xerox.com/LRM#"/>
+    <Prefix name="dva" IRI="https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="TIME" IRI="http://xrce.xerox.com/TIME#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://xrce.xerox.com/LRM#LRM-schema</Import>
+    <Import>https://dl.dropboxusercontent.com/u/3157623/ontologies/crmdig/crmdig.owl</Import>
+    <Declaration>
+        <Class IRI="#AccessActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AcquisitionActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AnalogBroadcastStandard"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ArchivingCost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Artist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AspectRatio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AssessmentActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AssistantCurator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AudioCodec"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AudioStream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BitRate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChromaFormat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Codec"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CodecDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CodingStandard"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ColourSpaceType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CompressionType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conservator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Container"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CopyActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CreationActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Creator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DataDependency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DestructionActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DigitalPreservationManager"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DigitalVideo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DigitalVideoArt"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DigitalVideoArtwork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DisplayActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DisplayCost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DisplayDevice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Document"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DocumentationActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EditingSoftware"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EmbeddingType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Equipment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EquipmentCost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ErrorItem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ExaminationActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FrameRate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Group"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HDD"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HardwareDependency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LTO"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LoanActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaintenanceActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MediaPlayer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Memory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigrationActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Monitor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OperatingSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OpticalDisc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlaybackActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Processor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Projector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RangeType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Registrar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Representative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SampleRate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ScanType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SetOfStandards"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShootingDevice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Size"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SoftwareDependency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StaffMember"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StorageActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StorageDevice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SubtitleStream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SubtitleTextFormat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Supplier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Technician"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoCodec"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoCodecLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoCodecProfile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoQualityMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoQualityMetric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoStream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WarningItem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#YUVSampleRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#accessesResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#acquiresResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#acquisitionActivityPerformedByProvider"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#acquisitionActivityPerformedToReceiver"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#activityLocation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#createsResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#destroysResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#displaysResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#documentsResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAnalogBroadcastStandard"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAspectRatio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAudioStream"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBitRate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasChromaFormat"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCodec"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCodingStandard"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasColourSpaceType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCompressionType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasContainer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCopyInput"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCopyOutput"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEmbeddingType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFrameRate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFrameSize"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPlaybackDuration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRangeType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSampleRate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasScanType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSetOfStandards"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSize"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStream"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSubtitleStream"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSubtitleTextFormat"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasVideoCodecLevel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasVideoCodecProfile"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasVideoQualityMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasVideoQualityMetric"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasVideoStream"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasYUVSampleRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isBorrowerInLoanActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCopyOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isLenderInLoanActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isProviderInAcquisitionActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isReceiverInAcquisitionActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#loanActivityPerformedFromAgent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#loanActivityPerformedToAgent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#loansResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maintainsResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#migratesFromResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#migratesToResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#playsResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#storesResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#targetedByActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#targetsResource"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#atTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDescription"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasErrorText"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasStatusFlag"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVersion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasWarningText"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#includesAspectRatio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#includesMetadata"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#value"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="LRM:to"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="LRM:used"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#artist_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#artist_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aspect_ratio_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aspect_ratio_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aspect_ratio_dependency_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aspect_ratio_dependency_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#audio_stream_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#audio_stream_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#audio_stream_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#audio_stream_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#audio_stream_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#codec_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#delta_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#delta_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#delta_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#delta_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_artwork_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#digital_video_artwork_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#duration_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#duration_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#endogenous_activity_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#frame_size_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#frame_size_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#hasAspectRatio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#hasFrameSize"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#identity_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#identity_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#intention_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#intention_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#media_player_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#media_player_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#media_player_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#media_player_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#media_player_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#memory_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#memory_size_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#operating_system_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#operating_system_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#operating_system_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#operating_system_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#playback_activity_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#playback_activity_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#playback_dep_desc_intention"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#playback_dep_desc_specification"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#playback_dep_impact"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#playback_dep_precondition"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#player_dep_impact"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#player_dep_precondition"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#processor_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#processor_size_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#projector_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#projector_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#projector_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#software_dependency_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#software_dependency_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#specification_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#specification_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#specification_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#specification_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#specification_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_10"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#statement_9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#subrip_subtitle_stream_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#subrip_subtitle_stream_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#time_instant_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#time_instant_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#transformation_event_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_container_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_container_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_container_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_stream_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_stream_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_stream_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_stream_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#video_stream_5"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E21_Person"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E31_Document"/>
+        <Class IRI="#Document"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E74_Group"/>
+        <Class IRI="#Group"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#AccessActivity"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#accessesResource"/>
+            <Class abbreviatedIRI="LRM:DigitalResource"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CopyActivity"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasCopyOutput"/>
+                <Class abbreviatedIRI="LRM:Resource"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasCopyInput"/>
+                <Class abbreviatedIRI="LRM:Resource"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CreationActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#createsResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DestructionActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#destroysResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DigitalVideo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasVideoStream"/>
+            <Class IRI="#VideoStream"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DisplayActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#displaysResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DocumentationActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#documentsResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HardwareDependency"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="LRM:Dependency"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="LRM:from"/>
+                <Class IRI="#Equipment"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LoanActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#loansResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MaintenanceActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maintainsResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigrationActivity"/>
+        <ObjectIntersectionOf>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#migratesFromResource"/>
+                <Class abbreviatedIRI="LRM:Resource"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#migratesToResource"/>
+                <Class abbreviatedIRI="LRM:Resource"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SoftwareDependency"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="LRM:Dependency"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="LRM:from"/>
+                <Class abbreviatedIRI="LRM:SoftwareAgent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#StorageActivity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#storesResource"/>
+            <Class abbreviatedIRI="LRM:Resource"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AccessActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AcquisitionActivity"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E8_Acquisition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AcquisitionActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnalogBroadcastStandard"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ArchivingCost"/>
+        <Class IRI="#Cost"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Artist"/>
+        <Class IRI="#Creator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AspectRatio"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AssessmentActivity"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AssistantCurator"/>
+        <Class IRI="#StaffMember"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AudioCodec"/>
+        <Class IRI="#Codec"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AudioStream"/>
+        <Class IRI="#Stream"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BitRate"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChromaFormat"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Codec"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Codec"/>
+        <Class abbreviatedIRI="LRM:SoftwareAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CodecDescription"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CodingStandard"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ColourSpaceType"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CompressionType"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conservator"/>
+        <Class IRI="#StaffMember"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Container"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Container"/>
+        <Class abbreviatedIRI="LRM:SoftwareAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CopyActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cost"/>
+        <Class abbreviatedIRI="LRM:Description"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CreationActivity"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E65_Creation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CreationActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Creator"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DataDependency"/>
+        <Class abbreviatedIRI="LRM:Dependency"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DestructionActivity"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E6_Destruction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DestructionActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalPreservationManager"/>
+        <Class IRI="#StaffMember"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalVideo"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalVideo"/>
+        <Class abbreviatedIRI="LRM:DigitalResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalVideoArt"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E28_Conceptual_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalVideoArt"/>
+        <Class abbreviatedIRI="LRM:AbstractResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalVideoArtwork"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E71_Man-Made_Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DigitalVideoArtwork"/>
+        <Class abbreviatedIRI="LRM:ConcreteResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DisplayActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DisplayCost"/>
+        <Class IRI="#Cost"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DisplayDevice"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D8_Digital_Device"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DisplayDevice"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Document"/>
+        <Class abbreviatedIRI="LRM:ConcreteResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DocumentationActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EditingSoftware"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EditingSoftware"/>
+        <Class abbreviatedIRI="LRM:SoftwareAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EmbeddingType"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Equipment"/>
+        <Class abbreviatedIRI="LRM:ConcreteResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EquipmentCost"/>
+        <Class IRI="#Cost"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ErrorItem"/>
+        <Class abbreviatedIRI="LRM:AbstractResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ExaminationActivity"/>
+        <Class IRI="#AssessmentActivity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FrameRate"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Group"/>
+        <Class abbreviatedIRI="LRM:HumanAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HDD"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D13_Digital_Information_Carrier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HDD"/>
+        <Class IRI="#StorageDevice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LTO"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D13_Digital_Information_Carrier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LTO"/>
+        <Class IRI="#StorageDevice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LoanActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaintenanceActivity"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E11_Modification"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaintenanceActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MediaPlayer"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MediaPlayer"/>
+        <Class abbreviatedIRI="LRM:SoftwareAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Memory"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigrationActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Monitor"/>
+        <Class IRI="#DisplayDevice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OperatingSystem"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OperatingSystem"/>
+        <Class abbreviatedIRI="LRM:SoftwareAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OpticalDisc"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D13_Digital_Information_Carrier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OpticalDisc"/>
+        <Class IRI="#StorageDevice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organization"/>
+        <Class IRI="#Group"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class abbreviatedIRI="LRM:HumanAgent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlaybackActivity"/>
+        <Class IRI="#AssessmentActivity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processor"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Projector"/>
+        <Class IRI="#DisplayDevice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RangeType"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Registrar"/>
+        <Class IRI="#StaffMember"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Representative"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SampleRate"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ScanType"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SetOfStandards"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShootingDevice"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D8_Digital_Device"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShootingDevice"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Size"/>
+        <Class abbreviatedIRI="LRM:Description"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StaffMember"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StorageActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StorageDevice"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D8_Digital_Device"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StorageDevice"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stream"/>
+        <Class IRI="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stream"/>
+        <Class abbreviatedIRI="LRM:DigitalResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubtitleStream"/>
+        <Class IRI="#Stream"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubtitleTextFormat"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Supplier"/>
+        <Class IRI="#Group"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Supplier"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Technician"/>
+        <Class IRI="#StaffMember"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoCodec"/>
+        <Class IRI="#Codec"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoCodecLevel"/>
+        <Class IRI="#CodecDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoCodecProfile"/>
+        <Class IRI="#CodecDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoDescription"/>
+        <Class abbreviatedIRI="LRM:Description"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoQualityMeasurement"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoQualityMetric"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoStream"/>
+        <Class IRI="#Stream"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WarningItem"/>
+        <Class abbreviatedIRI="LRM:AbstractResource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#YUVSampleRange"/>
+        <Class IRI="#VideoDescription"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#AccessActivity"/>
+        <Class IRI="#AcquisitionActivity"/>
+        <Class IRI="#CopyActivity"/>
+        <Class IRI="#CreationActivity"/>
+        <Class IRI="#DestructionActivity"/>
+        <Class IRI="#DisplayActivity"/>
+        <Class IRI="#LoanActivity"/>
+        <Class IRI="#MaintenanceActivity"/>
+        <Class IRI="#StorageActivity"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AudioStream"/>
+        <Class IRI="#SubtitleStream"/>
+        <Class IRI="#VideoStream"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Codec"/>
+        <Class IRI="#Container"/>
+        <Class IRI="#EditingSoftware"/>
+        <Class IRI="#MediaPlayer"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Creator"/>
+        <Class IRI="#Representative"/>
+        <Class IRI="#StaffMember"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ExaminationActivity"/>
+        <Class IRI="#PlaybackActivity"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HDD"/>
+        <Class IRI="#LTO"/>
+        <Class IRI="#OpticalDisc"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Monitor"/>
+        <Class IRI="#Projector"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:topObjectProperty"/>
+        <NamedIndividual abbreviatedIRI="LRM:to"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:topObjectProperty"/>
+        <NamedIndividual abbreviatedIRI="LRM:used"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:AggregatedResource"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideoArtwork"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artist"/>
+        <NamedIndividual IRI="#artist_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artist"/>
+        <NamedIndividual IRI="#artist_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AspectRatio"/>
+        <NamedIndividual IRI="#aspect_ratio_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AspectRatio"/>
+        <NamedIndividual IRI="#aspect_ratio_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Dependency"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:DisjunctiveDependency"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Dependency"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:DisjunctiveDependency"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AudioCodec"/>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AudioStream"/>
+        <NamedIndividual IRI="#audio_stream_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AudioStream"/>
+        <NamedIndividual IRI="#audio_stream_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AudioStream"/>
+        <NamedIndividual IRI="#audio_stream_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AudioStream"/>
+        <NamedIndividual IRI="#audio_stream_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AudioStream"/>
+        <NamedIndividual IRI="#audio_stream_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VideoCodec"/>
+        <NamedIndividual IRI="#codec_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:RDF-Delta"/>
+        <NamedIndividual IRI="#delta_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:RDF-Delta"/>
+        <NamedIndividual IRI="#delta_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:RDF-Delta"/>
+        <NamedIndividual IRI="#delta_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:RDF-Delta"/>
+        <NamedIndividual IRI="#delta_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideo"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideo"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideo"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideo"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideo"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideoArt"/>
+        <NamedIndividual IRI="#digital_video_artwork_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DigitalVideoArt"/>
+        <NamedIndividual IRI="#digital_video_artwork_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Size"/>
+        <NamedIndividual IRI="#duration_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Size"/>
+        <NamedIndividual IRI="#duration_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:EndogenousActivity"/>
+        <NamedIndividual IRI="#endogenous_activity_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Size"/>
+        <NamedIndividual IRI="#frame_size_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Size"/>
+        <NamedIndividual IRI="#frame_size_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HardwareDependency"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:ConjunctiveDependency"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HardwareDependency"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:topObjectProperty"/>
+        <NamedIndividual IRI="#hasAspectRatio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:topObjectProperty"/>
+        <NamedIndividual IRI="#hasFrameSize"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Identity"/>
+        <NamedIndividual IRI="#identity_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Identity"/>
+        <NamedIndividual IRI="#identity_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Description"/>
+        <NamedIndividual IRI="#intention_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Description"/>
+        <NamedIndividual IRI="#intention_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MediaPlayer"/>
+        <NamedIndividual IRI="#media_player_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MediaPlayer"/>
+        <NamedIndividual IRI="#media_player_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MediaPlayer"/>
+        <NamedIndividual IRI="#media_player_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MediaPlayer"/>
+        <NamedIndividual IRI="#media_player_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MediaPlayer"/>
+        <NamedIndividual IRI="#media_player_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Memory"/>
+        <NamedIndividual IRI="#memory_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Size"/>
+        <NamedIndividual IRI="#memory_size_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperatingSystem"/>
+        <NamedIndividual IRI="#operating_system_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperatingSystem"/>
+        <NamedIndividual IRI="#operating_system_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperatingSystem"/>
+        <NamedIndividual IRI="#operating_system_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperatingSystem"/>
+        <NamedIndividual IRI="#operating_system_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PlaybackActivity"/>
+        <NamedIndividual IRI="#playback_activity_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PlaybackActivity"/>
+        <NamedIndividual IRI="#playback_activity_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Description"/>
+        <NamedIndividual IRI="#playback_dep_desc_intention"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Description"/>
+        <NamedIndividual IRI="#playback_dep_desc_specification"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Plan"/>
+        <NamedIndividual IRI="#playback_dep_impact"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Plan"/>
+        <NamedIndividual IRI="#playback_dep_precondition"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Plan"/>
+        <NamedIndividual IRI="#player_dep_impact"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Plan"/>
+        <NamedIndividual IRI="#player_dep_precondition"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Processor"/>
+        <NamedIndividual IRI="#processor_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Size"/>
+        <NamedIndividual IRI="#processor_size_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Projector"/>
+        <NamedIndividual IRI="#projector_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Projector"/>
+        <NamedIndividual IRI="#projector_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Projector"/>
+        <NamedIndividual IRI="#projector_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:DisjunctiveDependency"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareDependency"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:DisjunctiveDependency"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareDependency"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Specification"/>
+        <NamedIndividual IRI="#specification_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Specification"/>
+        <NamedIndividual IRI="#specification_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Specification"/>
+        <NamedIndividual IRI="#specification_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Specification"/>
+        <NamedIndividual IRI="#specification_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:Specification"/>
+        <NamedIndividual IRI="#specification_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_10"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="rdf:Statement"/>
+        <NamedIndividual IRI="#statement_9"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SubtitleStream"/>
+        <NamedIndividual IRI="#subrip_subtitle_stream_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SubtitleStream"/>
+        <NamedIndividual IRI="#subrip_subtitle_stream_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:TimeInstant"/>
+        <NamedIndividual IRI="#time_instant_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:TimeInstant"/>
+        <NamedIndividual IRI="#time_instant_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="LRM:TransformationEvent"/>
+        <NamedIndividual IRI="#transformation_event_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Container"/>
+        <NamedIndividual IRI="#video_container_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Container"/>
+        <NamedIndividual IRI="#video_container_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Container"/>
+        <NamedIndividual IRI="#video_container_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VideoStream"/>
+        <NamedIndividual IRI="#video_stream_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VideoStream"/>
+        <NamedIndividual IRI="#video_stream_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VideoStream"/>
+        <NamedIndividual IRI="#video_stream_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VideoStream"/>
+        <NamedIndividual IRI="#video_stream_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VideoStream"/>
+        <NamedIndividual IRI="#video_stream_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:hasPart"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:hasPart"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:hasPart"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:hasPart"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_1"/>
+        <NamedIndividual IRI="#aspect_ratio_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_1"/>
+        <NamedIndividual IRI="#media_player_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_1"/>
+        <NamedIndividual IRI="#media_player_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_2"/>
+        <NamedIndividual IRI="#aspect_ratio_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_2"/>
+        <NamedIndividual IRI="#media_player_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#aspect_ratio_dependency_2"/>
+        <NamedIndividual IRI="#media_player_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:creationTime"/>
+        <NamedIndividual IRI="#delta_1"/>
+        <NamedIndividual IRI="#time_instant_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:deletion"/>
+        <NamedIndividual IRI="#delta_1"/>
+        <NamedIndividual IRI="#statement_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:insertion"/>
+        <NamedIndividual IRI="#delta_1"/>
+        <NamedIndividual IRI="#statement_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:preceding"/>
+        <NamedIndividual IRI="#delta_1"/>
+        <NamedIndividual IRI="#delta_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:creationTime"/>
+        <NamedIndividual IRI="#delta_2"/>
+        <NamedIndividual IRI="#time_instant_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:deletion"/>
+        <NamedIndividual IRI="#delta_2"/>
+        <NamedIndividual IRI="#statement_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:insertion"/>
+        <NamedIndividual IRI="#delta_2"/>
+        <NamedIndividual IRI="#statement_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:deletion"/>
+        <NamedIndividual IRI="#delta_3"/>
+        <NamedIndividual IRI="#statement_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:insertion"/>
+        <NamedIndividual IRI="#delta_3"/>
+        <NamedIndividual IRI="#statement_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:deletion"/>
+        <NamedIndividual IRI="#delta_4"/>
+        <NamedIndividual IRI="#statement_9"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:deletion"/>
+        <NamedIndividual IRI="#delta_4"/>
+        <NamedIndividual IRI="#statement_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:insertion"/>
+        <NamedIndividual IRI="#delta_4"/>
+        <NamedIndividual IRI="#statement_10"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:insertion"/>
+        <NamedIndividual IRI="#delta_4"/>
+        <NamedIndividual IRI="#statement_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAspectRatio"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#aspect_ratio_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContainer"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#video_container_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#duration_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#subrip_subtitle_stream_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#audio_stream_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#video_stream_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+        <NamedIndividual IRI="#codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContainer"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+        <NamedIndividual IRI="#video_container_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+        <NamedIndividual IRI="#duration_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+        <NamedIndividual IRI="#video_stream_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+        <NamedIndividual IRI="#audio_stream_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+        <NamedIndividual IRI="#codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContainer"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+        <NamedIndividual IRI="#video_container_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+        <NamedIndividual IRI="#duration_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+        <NamedIndividual IRI="#video_stream_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+        <NamedIndividual IRI="#audio_stream_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <NamedIndividual IRI="#digital_video_3"/>
+        <NamedIndividual IRI="#codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContainer"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+        <NamedIndividual IRI="#video_container_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+        <NamedIndividual IRI="#duration_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+        <NamedIndividual IRI="#video_stream_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+        <NamedIndividual IRI="#audio_stream_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <NamedIndividual IRI="#digital_video_4"/>
+        <NamedIndividual IRI="#codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+        <NamedIndividual IRI="#audio_codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContainer"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+        <NamedIndividual IRI="#video_container_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+        <NamedIndividual IRI="#duration_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+        <NamedIndividual IRI="#audio_stream_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasStream"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+        <NamedIndividual IRI="#video_stream_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+        <NamedIndividual IRI="#codec_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:identification"/>
+        <NamedIndividual IRI="#digital_video_artwork_1"/>
+        <NamedIndividual IRI="#identity_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:realizedAs"/>
+        <NamedIndividual IRI="#digital_video_artwork_1"/>
+        <NamedIndividual IRI="#aggregated_resource_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:identification"/>
+        <NamedIndividual IRI="#digital_video_artwork_2"/>
+        <NamedIndividual IRI="#identity_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:realizedAs"/>
+        <NamedIndividual IRI="#digital_video_artwork_2"/>
+        <NamedIndividual IRI="#digital_video_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:created"/>
+        <NamedIndividual IRI="#endogenous_activity_1"/>
+        <NamedIndividual IRI="#delta_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:created"/>
+        <NamedIndividual IRI="#endogenous_activity_1"/>
+        <NamedIndividual IRI="#delta_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:transformed"/>
+        <NamedIndividual IRI="#endogenous_activity_1"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:changedBy"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+        <NamedIndividual IRI="#delta_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:changedBy"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+        <NamedIndividual IRI="#delta_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:intention"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+        <NamedIndividual IRI="#intention_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:specification"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+        <NamedIndividual IRI="#specification_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#hardware_dependency_1"/>
+        <NamedIndividual IRI="#projector_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+        <NamedIndividual IRI="#processor_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+        <NamedIndividual IRI="#memory_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:intention"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+        <NamedIndividual IRI="#intention_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:specification"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+        <NamedIndividual IRI="#specification_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#hardware_dependency_2"/>
+        <NamedIndividual IRI="#operating_system_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#memory_1"/>
+        <NamedIndividual IRI="#memory_size_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:used"/>
+        <NamedIndividual IRI="#playback_activity_1"/>
+        <NamedIndividual IRI="#media_player_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#playsResource"/>
+        <NamedIndividual IRI="#playback_activity_1"/>
+        <NamedIndividual IRI="#digital_video_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:changedBy"/>
+        <NamedIndividual IRI="#playback_activity_2"/>
+        <NamedIndividual IRI="#delta_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:used"/>
+        <NamedIndividual IRI="#playback_activity_2"/>
+        <NamedIndividual IRI="#media_player_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#playsResource"/>
+        <NamedIndividual IRI="#playback_activity_2"/>
+        <NamedIndividual IRI="#digital_video_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSize"/>
+        <NamedIndividual IRI="#processor_1"/>
+        <NamedIndividual IRI="#processor_size_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+        <NamedIndividual IRI="#media_player_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+        <NamedIndividual IRI="#media_player_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+        <NamedIndividual IRI="#media_player_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:intention"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+        <NamedIndividual IRI="#intention_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:specification"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+        <NamedIndividual IRI="#specification_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#software_dependency_1"/>
+        <NamedIndividual IRI="#video_container_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+        <NamedIndividual IRI="#operating_system_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+        <NamedIndividual IRI="#operating_system_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:from"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+        <NamedIndividual IRI="#operating_system_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:intention"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+        <NamedIndividual IRI="#intention_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:specification"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+        <NamedIndividual IRI="#specification_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:to"/>
+        <NamedIndividual IRI="#software_dependency_3"/>
+        <NamedIndividual IRI="#media_player_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_1"/>
+        <NamedIndividual IRI="#projector_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_1"/>
+        <NamedIndividual abbreviatedIRI="LRM:to"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_10"/>
+        <NamedIndividual IRI="#frame_size_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_10"/>
+        <NamedIndividual IRI="#hasFrameSize"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_2"/>
+        <NamedIndividual IRI="#projector_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_2"/>
+        <NamedIndividual abbreviatedIRI="LRM:to"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_3"/>
+        <NamedIndividual IRI="#projector_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_3"/>
+        <NamedIndividual abbreviatedIRI="LRM:to"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_4"/>
+        <NamedIndividual IRI="#projector_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_4"/>
+        <NamedIndividual abbreviatedIRI="LRM:to"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_5"/>
+        <NamedIndividual IRI="#media_player_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_5"/>
+        <NamedIndividual abbreviatedIRI="LRM:used"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_6"/>
+        <NamedIndividual IRI="#media_player_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_6"/>
+        <NamedIndividual abbreviatedIRI="LRM:used"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_7"/>
+        <NamedIndividual IRI="#aspect_ratio_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_7"/>
+        <NamedIndividual IRI="#hasAspectRatio"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_8"/>
+        <NamedIndividual IRI="#aspect_ratio_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_8"/>
+        <NamedIndividual IRI="#hasAspectRatio"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:object"/>
+        <NamedIndividual IRI="#statement_9"/>
+        <NamedIndividual IRI="#frame_size_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="rdf:predicate"/>
+        <NamedIndividual IRI="#statement_9"/>
+        <NamedIndividual IRI="#hasFrameSize"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:triggers"/>
+        <NamedIndividual IRI="#transformation_event_1"/>
+        <NamedIndividual IRI="#endogenous_activity_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="LRM:changedBy"/>
+        <NamedIndividual IRI="#video_stream_1"/>
+        <NamedIndividual IRI="#delta_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAspectRatio"/>
+        <NamedIndividual IRI="#video_stream_1"/>
+        <NamedIndividual IRI="#aspect_ratio_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasFrameSize"/>
+        <NamedIndividual IRI="#video_stream_1"/>
+        <NamedIndividual IRI="#frame_size_2"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#aspect_ratio_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">4:3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#aspect_ratio_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">5:4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="TIME:year"/>
+        <NamedIndividual IRI="#digital_video_artwork_1"/>
+        <Literal datatypeIRI="&xsd;integer">2009</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#digital_video_artwork_1"/>
+        <Literal datatypeIRI="&xsd;string">Afyon 2009 is a four screen video projection, lasting 2 minutes on a continuous loop. The videos are projected simultaneously on the four gallery walls, from floor to ceiling, enveloping the viewer in images of poppy fields, from close-ups of buds and stems to panoramic views of the fields...</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="TIME:year"/>
+        <NamedIndividual IRI="#digital_video_artwork_2"/>
+        <Literal datatypeIRI="&xsd;integer">1999</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#digital_video_artwork_2"/>
+        <Literal datatypeIRI="&xsd;string">How I Became a Ramblin’ Man, is the second in a film trilogy of short costume dramas that he produced between 1997 and 2000. How I Became a Ramblin’ Man provides an amused vision of the American movie epic from the point of view of the western tradition featuring a lone hero.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#duration_1"/>
+        <Literal datatypeIRI="&xsd;string">seconds</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#duration_1"/>
+        <Literal datatypeIRI="&xsd;string">1778</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#duration_2"/>
+        <Literal datatypeIRI="&xsd;string">seconds</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#duration_2"/>
+        <Literal datatypeIRI="&xsd;string">540</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#frame_size_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pixels</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#frame_size_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">800x600</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#frame_size_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pixels</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#frame_size_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">720x576</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#intention_1"/>
+        <Literal datatypeIRI="&xsd;string">Compatibility</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#intention_2"/>
+        <Literal datatypeIRI="&xsd;string">Functional</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVersion"/>
+        <NamedIndividual IRI="#media_player_3"/>
+        <Literal datatypeIRI="&xsd;string">12</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#memory_size_1"/>
+        <Literal datatypeIRI="&xsd;string">GB</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#memory_size_1"/>
+        <Literal datatypeIRI="&xsd;string">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#playback_dep_desc_intention"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Playback dependency intention (answers why):</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#playback_dep_desc_specification"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Playback dependency specification (answers what):</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#processor_size_1"/>
+        <Literal datatypeIRI="&xsd;string">GHz</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#processor_size_1"/>
+        <Literal datatypeIRI="&xsd;string">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#specification_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The AVI container is supported by certain media players.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#specification_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The function of the artwork is dependent on the existence of a specific projector in order for the artwork to be displayed properly.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#specification_3"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The MATROSKA container is supported by certain media players.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#specification_4"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Windows Media Player is supported by certain operating systems.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#specification_5"/>
+        <Literal datatypeIRI="&xsd;string">Windows 7 requires at minimum:
+1GHz processor
+1GB RAM
+...</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="TIME:when"/>
+        <NamedIndividual IRI="#time_instant_1"/>
+        <Literal datatypeIRI="&xsd;dateTime">2015-02-15T12:00:52</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="TIME:when"/>
+        <NamedIndividual IRI="#time_instant_2"/>
+        <Literal datatypeIRI="&xsd;dateTime">2016-02-15T12:00:52</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="TIME:when"/>
+        <NamedIndividual IRI="#transformation_event_1"/>
+        <Literal datatypeIRI="&xsd;dateTime">2015-02-15T12:30:00</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#includesAspectRatio"/>
+        <NamedIndividual IRI="#video_container_1"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#includesAspectRatio"/>
+        <NamedIndividual IRI="#video_container_2"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <EquivalentObjectProperties>
+        <ObjectProperty abbreviatedIRI="LRM:executedBy"/>
+        <ObjectProperty IRI="#performedBy"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
+        <ObjectProperty abbreviatedIRI="LRM:executes"/>
+        <ObjectProperty IRI="#performs"/>
+    </EquivalentObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#accessesResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#acquiresResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+        <ObjectProperty IRI="#performedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#acquisitionActivityPerformedByProvider"/>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#acquisitionActivityPerformedToReceiver"/>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#createsResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#destroysResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#displaysResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#documentsResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <ObjectProperty IRI="#hasCodec"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasAudioStream"/>
+        <ObjectProperty IRI="#hasStream"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFrameSize"/>
+        <ObjectProperty IRI="#hasSize"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSubtitleStream"/>
+        <ObjectProperty IRI="#hasStream"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <ObjectProperty IRI="#hasCodec"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasVideoStream"/>
+        <ObjectProperty IRI="#hasStream"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isBorrowerInLoanActivity"/>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isLenderInLoanActivity"/>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isProviderInAcquisitionActivity"/>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isReceiverInAcquisitionActivity"/>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+        <ObjectProperty IRI="#performedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#loanActivityPerformedFromAgent"/>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#loanActivityPerformedToAgent"/>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#loansResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maintainsResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#migratesFromResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#migratesToResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+        <ObjectProperty IRI="#performs"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+        <ObjectProperty IRI="#performs"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#playsResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#storesResource"/>
+        <ObjectProperty IRI="#targetsResource"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#acquisitionActivityPerformedByProvider"/>
+        <ObjectProperty IRI="#isReceiverInAcquisitionActivity"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isProviderInAcquisitionActivity"/>
+        <ObjectProperty IRI="#acquisitionActivityPerformedToReceiver"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#loanActivityPerformedToAgent"/>
+        <ObjectProperty IRI="#isBorrowerInLoanActivity"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isLenderInLoanActivity"/>
+        <ObjectProperty IRI="#loanActivityPerformedFromAgent"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#performedBy"/>
+        <ObjectProperty IRI="#performs"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#targetsResource"/>
+        <ObjectProperty IRI="#targetedByActivity"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#createsResource"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#destroysResource"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#displaysResource"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasCopyInput"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#maintainsResource"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#storesResource"/>
+    </FunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#accessesResource"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#createsResource"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#destroysResource"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#displaysResource"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#hasCopyInput"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#hasCopyOutput"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#hasSize"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#maintainsResource"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#performedBy"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#performs"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#storesResource"/>
+    </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isCopyOf"/>
+    </TransitiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#accessesResource"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#createsResource"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#destroysResource"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#displaysResource"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasCopyInput"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasCopyOutput"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasSize"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#maintainsResource"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#performedBy"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#performs"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#storesResource"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#accessesResource"/>
+        <Class IRI="#AccessActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#acquiresResource"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#acquisitionActivityPerformedByProvider"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#acquisitionActivityPerformedToReceiver"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#activityLocation"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#createsResource"/>
+        <Class IRI="#CreationActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#destroysResource"/>
+        <Class IRI="#DestructionActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#displaysResource"/>
+        <Class IRI="#DisplayActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#documentsResource"/>
+        <Class IRI="#DocumentationActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAnalogBroadcastStandard"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAspectRatio"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAudioStream"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBitRate"/>
+        <ObjectUnionOf>
+            <Class IRI="#AudioStream"/>
+            <Class IRI="#VideoStream"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasChromaFormat"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCodec"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCodingStandard"/>
+        <ObjectUnionOf>
+            <Class IRI="#AudioStream"/>
+            <Class IRI="#VideoStream"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasColourSpaceType"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCompressionType"/>
+        <ObjectUnionOf>
+            <Class IRI="#AudioCodec"/>
+            <Class IRI="#VideoCodec"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasContainer"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCopyInput"/>
+        <Class IRI="#CopyActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCopyOutput"/>
+        <Class IRI="#CopyActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDate"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasEmbeddingType"/>
+        <Class IRI="#SubtitleStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFrameRate"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFrameSize"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPlaybackDuration"/>
+        <ObjectUnionOf>
+            <Class IRI="#AudioStream"/>
+            <Class IRI="#DigitalVideo"/>
+            <Class IRI="#VideoStream"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRangeType"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSampleRate"/>
+        <ObjectUnionOf>
+            <Class IRI="#AudioStream"/>
+            <Class IRI="#VideoStream"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasScanType"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSetOfStandards"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSize"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStream"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSubtitleStream"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSubtitleTextFormat"/>
+        <Class IRI="#SubtitleStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasVideoCodecLevel"/>
+        <Class IRI="#VideoCodec"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasVideoCodecProfile"/>
+        <Class IRI="#VideoCodec"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasVideoQualityMeasurement"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasVideoQualityMetric"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasVideoStream"/>
+        <Class IRI="#DigitalVideo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasYUVSampleRange"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isBorrowerInLoanActivity"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isCopyOf"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isLenderInLoanActivity"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isProviderInAcquisitionActivity"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isReceiverInAcquisitionActivity"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#loanActivityPerformedFromAgent"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#loanActivityPerformedToAgent"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#loansResource"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maintainsResource"/>
+        <Class IRI="#MaintenanceActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#migratesFromResource"/>
+        <Class IRI="#MigrationActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#migratesToResource"/>
+        <Class IRI="#MigrationActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performedBy"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performs"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#playsResource"/>
+        <Class IRI="#PlaybackActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#storesResource"/>
+        <Class IRI="#StorageActivity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#targetedByActivity"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#accessesResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#acquiresResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#acquisitionActivityPerformedBy"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#acquisitionActivityPerformedByProvider"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#acquisitionActivityPerformedToReceiver"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#activityLocation"/>
+        <Class abbreviatedIRI="LRM:Location"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#createsResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#destroysResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#displaysResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#documentsResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAnalogBroadcastStandard"/>
+        <Class IRI="#AnalogBroadcastStandard"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAspectRatio"/>
+        <Class IRI="#AspectRatio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAudioCodec"/>
+        <Class IRI="#AudioCodec"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAudioStream"/>
+        <Class IRI="#AudioStream"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBitRate"/>
+        <Class IRI="#BitRate"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasChromaFormat"/>
+        <Class IRI="#ChromaFormat"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCodec"/>
+        <Class IRI="#Codec"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCodingStandard"/>
+        <Class IRI="#CodingStandard"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasColourSpaceType"/>
+        <Class IRI="#ColourSpaceType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCompressionType"/>
+        <Class IRI="#CompressionType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasContainer"/>
+        <Class IRI="#Container"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCopyInput"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCopyOutput"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDate"/>
+        <Class IRI="http://purl.org/NET/cidoc-crm/core#E50_Date"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEmbeddingType"/>
+        <Class IRI="#EmbeddingType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFrameRate"/>
+        <Class IRI="#FrameRate"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFrameSize"/>
+        <Class IRI="#Size"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRangeType"/>
+        <Class IRI="#RangeType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSampleRate"/>
+        <Class IRI="#SampleRate"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasScanType"/>
+        <Class IRI="#ScanType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSetOfStandards"/>
+        <Class IRI="#SetOfStandards"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSize"/>
+        <Class IRI="#Size"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStream"/>
+        <Class IRI="#Stream"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSubtitleStream"/>
+        <Class IRI="#SubtitleStream"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSubtitleTextFormat"/>
+        <Class IRI="#SubtitleTextFormat"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasVideoCodec"/>
+        <Class IRI="#VideoCodec"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasVideoCodecLevel"/>
+        <Class IRI="#VideoCodecLevel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasVideoCodecProfile"/>
+        <Class IRI="#VideoCodecProfile"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasVideoQualityMeasurement"/>
+        <Class IRI="#VideoQualityMeasurement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasVideoQualityMetric"/>
+        <Class IRI="#VideoQualityMetric"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasVideoStream"/>
+        <Class IRI="#VideoStream"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasYUVSampleRange"/>
+        <Class IRI="#YUVSampleRange"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isBorrowerInLoanActivity"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isCopyOf"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isLenderInLoanActivity"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isProviderInAcquisitionActivity"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isReceiverInAcquisitionActivity"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#loanActivityPerformedBy"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#loanActivityPerformedFromAgent"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#loanActivityPerformedToAgent"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#loansResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maintainsResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#migratesFromResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#migratesToResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performedBy"/>
+        <Class abbreviatedIRI="LRM:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performs"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performsAcquisitionActivity"/>
+        <Class IRI="#AcquisitionActivity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performsLoanActivity"/>
+        <Class IRI="#LoanActivity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#playsResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#storesResource"/>
+        <Class abbreviatedIRI="LRM:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#targetedByActivity"/>
+        <Class abbreviatedIRI="LRM:Activity"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#includesAspectRatio"/>
+        <DataProperty IRI="#includesMetadata"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasErrorText"/>
+        <Class IRI="#ErrorItem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasWarningText"/>
+        <Class IRI="#WarningItem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#includesAspectRatio"/>
+        <Class IRI="#Container"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#atTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasStatusFlag"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasUnit"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasValue"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasVersion"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#includesAspectRatio"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#includesMetadata"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#value"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AnalogBroadcastStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. NTSC, PAL, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AnalogBroadcastStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The video color encoding system, if the video originates from analog television broadcasts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnalogBroadcastStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Analog Broadcast Standard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ArchivingCost</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Archiving Cost</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AspectRatio</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 16:9, 4:3, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AspectRatio</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The aspect ratio of an image describes the proportional relationship between its width and its height. It is commonly expressed as two numbers separated by a colon, as in 16:9.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AspectRatio</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Aspect Ratio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AudioCodec</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Audio Codec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AudioStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Audio Stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BitRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The bitrate is the data rate for a video file. Video data rates are given in bits per second.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BitRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Bit Rate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChromaFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Chroma Format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CodecDescription</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Codec Description</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CodingStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Also known as coding format or compression format.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CodingStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. H.264/MPEG-4 AVC</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CodingStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Coding Standard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ColourSpaceType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A color space is a specific organization of colors. It allows for reproducible representations of color, in both analog and digital representations. A color space may be arbitrary, with particular colors assigned to a set of physical color swatches and corresponding assigned names or numbers.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ColourSpaceType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. YUV, RGB, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ColourSpaceType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Colour Space Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CompressionType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. lossy, lossless or uncompressed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CompressionType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The type of video compression.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CompressionType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Compression Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DigitalVideo</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Digital Video</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DigitalVideoArt</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Digital Video Art</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DisplayCost</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Display Cost</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EditingSoftware</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Editing Software</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmbeddingType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. hard, prerendered, soft, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmbeddingType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The type of embedment used to attach a subtitle stream to a video.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EmbeddingType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Embedding Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EquipmentCost</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Equipment Cost</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ErrorItem</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Error Item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FrameRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 60 FPS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FrameRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Frame rate, also known as frame frequency, is the frequency (rate) at which an imaging device produces unique consecutive images called frames. The term applies equally well to film and video cameras, computer graphics, and motion capture systems. Frame rate is most often expressed in frames per second (FPS) and is also expressed in progressive scan monitors as hertz (Hz).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FrameRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Frame Rate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MediaPlayer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Media Player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OperatingSystem</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Operating System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RangeType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. Broadcast range or full range.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RangeType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The type of range a video is created for.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RangeType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Range Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 74.25 MHz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 96 kHz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The audio sample rate is the number of samples of audio carried per second, measured in Hz or kHz (one kHz being 1 000 Hz). For example, 44 100 samples per second can be expressed as either 44 100 Hz, or 44.1 kHz.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The video sample rate of a digital video format determines how often the light intensity of each video line is sampled.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Sample Rate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ScanType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Progressive or interlaced scan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ScanType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Scan Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SetOfStandards</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">&apos;BT.709&apos;, &apos;BT.601&apos;, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SetOfStandards</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Sets of standards standardize the format of a video stream.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SetOfStandards</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Set Of Standards</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubtitleStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Subtitle Stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SubtitleTextFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. SubRip, SubViewer, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SubtitleTextFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The file format of subtitles.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubtitleTextFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Subtitle Text Format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoCodec</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Codec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoCodecLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A video codec level is a specified set of constraints that indicate a degree of required decoder performance for a profile.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoCodecLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoCodecLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Codec Level</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoCodecProfile</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. baseline profile, extended profile, main profile, high profile, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoCodecProfile</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The video codec profile is a set of capabilities and constraints apllied in the encoder. It allows the decoder  to recognize the requirements to decode a specific stream.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoCodecProfile</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Codec Profile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoDescription</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Description</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoQualityMeasurement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Measurement carried out according to the video quality metric.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoQualityMeasurement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Quality Measurement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoQualityMetric</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. VQM</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VideoQualityMetric</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Process or software used to measure the quality of a video.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoQualityMetric</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Quality Metric</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VideoStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Video Stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WarningItem</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Warning Item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#YUVSampleRange</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 16-235</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#YUVSampleRange</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">YUV Sample Range</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#YUVSampleRange</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">YUV Sample Range</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#accessesResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item accessed by an access activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#accessesResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">accesses resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#acquiresResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item acquired by an acquisition activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#acquiresResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">acquires resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#acquisitionActivityPerformedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">acquisition activity performed by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#acquisitionActivityPerformedByProvider</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">acquisition activity activity performed by provider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#acquisitionActivityPerformedToReceiver</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">acquisition activity performed to receiver</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#activityLocation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">activity location</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#aggregated_resource_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Afyon videos</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#artist_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Mustafa Hulusi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#artist_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Rodney Graham</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#aspect_ratio_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">4:3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#aspect_ratio_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">5:4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#aspect_ratio_dependency_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Aspect ratio dependency 1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#aspect_ratio_dependency_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Aspect ratio dependency 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#atTime</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Specifies the exact date-time that an Activity or Event took place.
+
+Same as prov:atTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#audio_codec_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MP3 Audio Codec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#codec_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">uncompressed 8-bit video</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#createsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item created by a creation activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#createsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">creates resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#delta_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">delta regarding the change of projector_1 to projector_2 in the hardware dependency of digital_video_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#delta_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">delta regarding the change of projector_2 to projector_3 in the hardware dependency of digital_video_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#delta_3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">delta regarding the change of media player from &apos;windows media player&apos; to &apos;vlc media player&apos;, in order for the activity to support the container of the specific digital video</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#delta_4</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">delta regarding the change of frame size and aspect ratio of a specific digital video artwork</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#destroysResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">destroys resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#digital_video_artwork_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Afyon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#digital_video_artwork_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">How I Became a Ramblin’ Man</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#displaysResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item that is displayed by a display activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#displaysResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">displays resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#documentsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">documents resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#duration_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Duration: 29 min, 38sec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hardware_dependency_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Hardware Dependency 1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hardware_dependency_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Hardware Dependency 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAnalogBroadcastStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video with an analog broadcast standard.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAnalogBroadcastStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has analog broadcast standard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAspectRatio</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with an aspect ratio.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAspectRatio</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has aspect ratio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAudioCodec</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has audio codec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAudioStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video with an audio stream.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAudioStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has audio stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasBitRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates an audio or video stream with a bit rate.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasBitRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has bitrate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasChromaFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a chroma format.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasChromaFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Possible values are &quot;4:2:0&quot;, &quot;4:1:1&quot;, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasChromaFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has chroma format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCodec</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has codec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCodingStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video or audio stream with a coding standard.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCodingStandard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has coding standard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasColourSpaceType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a colour space type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasColourSpaceType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has colour space type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCompressionType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video or audio codec with a compression type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCompressionType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has compression type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasContainer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video file with a container type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasContainer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has container</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCopyInput</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item that is copied by a copy activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCopyInput</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has copy input</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCopyOutput</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item that is generated by a copy activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCopyOutput</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has copy output</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasDescription</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Same as dc:description</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasEmbeddingType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a subtitle stream with an embedding type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasEmbeddingType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has embedding type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasFrameRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a frame rate.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasFrameRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has frame rate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasFrameSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with the dimensions of a video&apos;s frame.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasFrameSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">E.g. 1920 x 1080 pixels</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasFrameSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has frame size</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasPlaybackDuration</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video, a video stream or an audio stream with a playback duration.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasPlaybackDuration</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has playback duration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasRangeType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a range type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasRangeType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has range type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream or audio stream with a sample rate.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSampleRate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has sample rate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasScanType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a scan type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasScanType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has scan type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSetOfStandards</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a set of standards.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSetOfStandards</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has set of standards</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has size</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasStatusFlag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A status flag that describes this artwork copy status, e.g. Duplicating copy, Artist Supplied Master, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video with a stream.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSubtitleStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video with an subtitle stream.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSubtitleStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has subtitle stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSubtitleTextFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a subtitle stream with a subtitle text format.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSubtitleTextFormat</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has subtitle text format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoCodec</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has video codec</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVideoCodecLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video codec with a video codec level.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoCodecLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has video codec level</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVideoCodecProfile</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video codec with a video codec profile.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoCodecProfile</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has video codec profile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVideoQualityMeasurement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a video quality measurement.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoQualityMeasurement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has video quality measurement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVideoQualityMetric</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a video quality metric.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoQualityMetric</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has video quality metric</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVideoStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a digital video with a video stream.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoStream</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has video stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasYUVSampleRange</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Associates a video stream with a YUV sample range.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasYUVSampleRange</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has YUV sample range</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#identity_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">T13578</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#identity_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">T12055</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#intention_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">compatibility intention</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#intention_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">functional intention</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isCopyOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Corresponds an item to another item that occured by a copy activity.
+Should be generated automatically from ItemCopy activities with SWRL rules.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isCopyOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is copy of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#loanActivityPerformedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">loan activity performed by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#loanActivityPerformedFromAgent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">&quot;FromAgent&quot; indicates the lender</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#loanActivityPerformedFromAgent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">loan activity performed from agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#loanActivityPerformedToAgent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">&quot;ToAgent&quot; indicates the borrower</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#loanActivityPerformedToAgent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">loan activity performed to agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#loansResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item loaned by a loan activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#loansResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">loans resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#maintainsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item maintained by a maintenance activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#maintainsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">maintains resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#media_player_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">QuickTime Player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#media_player_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">VLC Media Player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#media_player_3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Windows Media Player 12</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#media_player_4</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">BSPlayer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#media_player_5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">GOM Player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#memory_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">1 GB RAM</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#migratesFromResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">migrates from resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#migratesToResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">migrates to resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#operating_system_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Windows XP</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#operating_system_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Windows 7</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#operating_system_3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Windows 8</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#operating_system_4</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Windows 10</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#performedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">performed  by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#playsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">plays resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#processor_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">1 GHz processor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#software_dependency_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Software Dependency 1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#software_dependency_3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Software Dependency 3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">deletion statement for delta_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_10</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">insertion statement 2 for delta_4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">insertion statement for delta_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">deletion statement for delta_2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_4</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">insertion statement for delta_2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">deletion statement for delta_3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_6</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">insertion statement for delta_3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_7</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">deletion statement 1 for delta_4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_8</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">insertion statement 1 for delta_4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#statement_9</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">deletion statement 2 for delta_4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#storesResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Shows the item stored by a storage activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#storesResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">stores resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#subrip_subtitle_stream_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">.srt file</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#subrip_subtitle_stream_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">subtitle file format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#targetedByActivity</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">targeted by activity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#targetsResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">targets resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#time_instant_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">creation time of delta_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#time_instant_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">creation time of delta_2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#video_container_1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">AVI</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#video_container_2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MATROSKA</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#video_container_3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MP4</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
