@@ -1,0 +1,133 @@
+{
+  "name": "1 GHz Processor",
+  "type": "Resource",
+  "impacted": true,
+  "change": "deletion: 1 GB Processor",
+  "children": [
+    {
+      "name": "Hardware Dependency 2",
+      "type": "Dependency",
+      "dependencyType": "Conjunctive",
+      "intention": "Functional",
+      "link": {
+        "label": "from",
+        "direction": "parent"
+      },
+      "children": [
+        {
+          "name": "1 GB RAM",
+          "type": "Resource",
+          "impacted": false,
+          "link": {
+            "label": "from",
+            "direction": "self"
+          }
+        },
+        {
+          "name": "Windows 7",
+          "type": "Resource",
+          "impacted": true,
+          "reason": "Hardware Dependency 2 requires all 'from' requirements to be consistent.",
+          "link": {
+            "label": "to",
+            "direction": "self"
+          },
+          "children": [
+            {
+              "name": "Software Dependency 3",
+              "type": "Dependency",
+              "dependencyType": "Conjunctive",
+              "intention": "Compatibility",
+              "link": {
+                "label": "from",
+                "direction": "parent"
+              },
+              "children": [
+                {
+                  "name": "Windows 8",
+                  "type": "Resource",
+                  "impacted": false,
+                  "link": {
+                    "label": "from",
+                    "direction": "self"
+                  }
+                },
+                {
+                  "name": "Windows 10",
+                  "type": "Resource",
+                  "impacted": false,
+                  "link": {
+                    "label": "from",
+                    "direction": "self"
+                  }
+                },
+                {
+                  "name": "Windows Media Player 12",
+                  "type": "Resource",
+                  "impacted": true,
+                  "link": {
+                    "label": "to",
+                    "direction": "self"
+                  },
+                  "children": [
+                    {
+                      "name": "Software Dependency 1",
+                      "type": "Dependency",
+                      "dependencyType": "Disjunctive",
+                      "intention": "Compatibility",
+                      "link": {
+                        "label": "from",
+                        "direction": "parent"
+                      },
+                      "children": [
+                        {
+                          "name": "QuickTime Player",
+                          "type": "Resource",
+                          "impacted": false,
+                          "link": {
+                            "label": "from",
+                            "direction": "self"
+                          }
+                        },
+                        {
+                          "name": "VLC Media Player",
+                          "type": "Resource",
+                          "impacted": false,
+                          "link": {
+                            "label": "from",
+                            "direction": "self"
+                          }
+                        },
+                        {
+                          "name": "AVI",
+                          "type": "Resource",
+                          "impacted": false,
+                          "link": {
+                            "label": "to",
+                            "direction": "self"
+                          },
+                          "children": [
+                            {
+                              "name": "Digital Video 1",
+                              "type": "Resource",
+                              "impacted": false,
+                              "isTerminal": true,
+                              "link": {
+                                "label": "hasContainer",
+                                "direction": "parent"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
