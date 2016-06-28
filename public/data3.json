@@ -1,7 +1,6 @@
 {
   "name": "1 GHz Processor",
   "type": "Resource",
-  "impacted": true,
   "change": "deletion: 1 GB Processor",
   "children": [
     {
