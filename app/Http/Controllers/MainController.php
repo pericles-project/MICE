@@ -39,6 +39,8 @@ class MainController extends BaseController
     {
         $case = $request->session()->get('case');
         $filename = 'data' . $case . '.json';
+        
+        header('Content-Type: application/json');
         echo file_get_contents($filename);
     }
 }
