@@ -17,13 +17,15 @@ class MainController extends BaseController
      */
     public function index(Request $request)
     {
-        $action = Input::get("action");
-        $uuid = Input::get("uuid");
-        $repository_name = Input::get("repository_name");
-        $resource_uri = Input::get("resource_uri");
-        $change = Input::get("change");
+        $params = array(
+            'uuid' => Input::get("uuid"),
+            'repository_name' => Input::get("repository_name"),
+            'change' => Input::get("change"),
+            'callback_url' => Input::get("callback_url") ? : $request->server('HTTP_REFERER')
+        );
+        $params['callback_url'] = strstr('?', $params['callback_url']) ? '&amp;' : '?' . 'uuid=' . $params['uuid'];
 
-        if (!$uuid) {
+        if (!$params['uuid']) {
             $case = Input::get("case") ? : 1;
             $request->session()->put('case', $case);
         }
