@@ -1,12 +1,23 @@
 (function () {
   $(document).ready(function(){
-      $.get( "/graph", function( data ) {
-        createGraph(data);
+      function getGraph(url) {
+          $("#graph").html("");
+          url = url ? url : "/graph";
+          $.get(url, function( data ) {
+            createGraph(data);
+          });
+      }
+
+      $(".updateGraph").click(function(e){
+        e.preventDefault();
+        getGraph($(this).attr('href'));
       });
+
+      getGraph();
   });
 
   function createGraph(data) {
-    var width = 1200,
+    var width = 900,
         height = 800,
         root,
         nodes,
