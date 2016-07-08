@@ -4,5 +4,4 @@
 Homestead.yaml
 Homestead.json
 .env
-public/build/
 .env.local
