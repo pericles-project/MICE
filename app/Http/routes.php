@@ -12,4 +12,4 @@
 */
 
 Route::get('/', array('uses'=>'MainController@index'));
-Route::get('graph', array('uses'=>'MainController@graph'));
+Route::get('graph/{index?}', array('uses'=>'MainController@graph'));
