@@ -27,6 +27,7 @@ elixir(function(mix) {
     // Minify
     mix.styles([
         'bootstrap.css',
+        'font-awesome.min.css',
         'theme.css',
         'app.css'
       ])
