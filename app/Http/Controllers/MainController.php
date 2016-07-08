@@ -58,6 +58,8 @@ class MainController extends BaseController
             }
         }
         // var_dump($results);
+        $this->calculateStatistics($results);
+
         // var_dump($results);
         $request->session()->put('results', $results);
 
@@ -108,5 +110,34 @@ class MainController extends BaseController
         $name = array_pop($tmp);
         return $name;
     }
+
+    /**
+     * Calculate statistics from dependency trees
+     *
+     * @params $dependencyTreesResults Dependency trees containing impact for individual resources
+     * @return $statistics Statistics eg total, impacted, not impacted resources
+     */
+    public function calculateStatistics($dependencyTreesResults)
+    {
+        foreach($dependencyTreesResults['statements'] as &$statement) {
+            $statement['statistics'] = array(
+                'total' => 0,
+                'impacted' => 0,
+                'not_impacted' => 0
+            );
+            if (isset($statement['impacted']) == true) {
+                $statement['statistics']['total']++;
+                if ($statement['impacted'] == true) {
+                  $statement['statistics']['impacted']++;
+                } else {
+                  $statement['statistics']['not_impacted']++;
+                }
+            }
+
+            if (isset($statement['children']) == true && $statement['children']) {
+                // $this->calculateStatistics($statement['children']);
+            }
+        }
+        return $dependencyTreesResults;
     }
 }
