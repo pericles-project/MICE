@@ -114,3 +114,10 @@ body.page-header-fixed {
 .container-fluid {
   padding-right: 0;
   padding-left: 0; }
+
+.btn-toolbar {
+  margin-top: 20px; }
+
+.table tr td [class*="fa"] {
+  margin-right: 3px;
+  font-size: 14px; }
