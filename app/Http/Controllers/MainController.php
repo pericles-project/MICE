@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 class MainController extends BaseController
 {
     /**
-     * Display change impact
+     * Displays change impact
      *
      * @return Response
      */
@@ -67,9 +67,9 @@ class MainController extends BaseController
     }
 
     /**
-     * Get the dependency trees
+     * Gets the dependency trees
      *
-     * @return $results The dependency trees in json format
+     * @return string $results The dependency trees in json format
      */
     public function getDependencyTrees()
     {
@@ -85,10 +85,10 @@ class MainController extends BaseController
     }
 
     /**
-     * Get the dependency graph for a specific delta statement
+     * Gets the dependency graph for a specific delta statement
      *
-     * @params $index Index of delta statement
-     * @return Response Graph in json format
+     * @params int $index Index of delta statement
+     * @return string Response Graph in json format
      */
     public function graph(Request $request, Response $response, $index = 0)
     {
@@ -98,10 +98,10 @@ class MainController extends BaseController
     }
 
     /**
-     * Extract a resource's name from it's URI
+     * Extracts a resource's name from it's URI
      *
-     * @params $uri The resource's URI
-     * @return $name The resource's name
+     * @params string $uri The resource's URI
+     * @return string $name The resource's name
      */
     public function getResourceNameFromURI($uri)
     {
