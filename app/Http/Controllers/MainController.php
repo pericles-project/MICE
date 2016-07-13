@@ -58,7 +58,7 @@ class MainController extends BaseController
             }
         }
         // var_dump($results);
-        $this->calculateStatistics($results);
+        $results['statements'] = $this->calculateStatistics($results['statements']);
 
         // var_dump($results);
         $request->session()->put('results', $results);
@@ -105,25 +105,28 @@ class MainController extends BaseController
      */
     public function calculateStatistics($dependencyTreesResults)
     {
-        foreach($dependencyTreesResults['statements'] as &$statement) {
-            $statement['statistics'] = array(
+        foreach($dependencyTreesResults as &$node) {
+
+            $node['statistics'] = array(
                 'total' => 0,
                 'impacted' => 0,
                 'not_impacted' => 0
             );
-            if (isset($statement['impacted']) == true) {
-                $statement['statistics']['total']++;
-                if ($statement['impacted'] == true) {
-                  $statement['statistics']['impacted']++;
-                } else {
-                  $statement['statistics']['not_impacted']++;
+
+            $childNodes = flatten(array($node), 0);
+
+            foreach($childNodes as $childNode) {
+                if (isset($childNode['impacted']) == true) {
+                    $node['statistics']['total']++;
+                    if ($childNode['impacted'] == true) {
+                      $node['statistics']['impacted']++;
+                    } else {
+                      $node['statistics']['not_impacted']++;
+                    }
                 }
             }
-
-            if (isset($statement['children']) == true && $statement['children']) {
-                // $this->calculateStatistics($statement['children']);
-            }
         }
+
         return $dependencyTreesResults;
     }
 }

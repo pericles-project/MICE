@@ -45,8 +45,14 @@
                 <td>{{ $row['subject'] }}</td>
                 <td>{{ $row['predicate'] }}</td>
                 <td>{{ $row['object'] }}</td>
-                <td><span class="label label-success">No Impact</span></td>
-                <td>0</td>
+                <td>
+                  @if ($row['statistics']['impacted'] == 0)
+                    <span class="label label-success">No impact</span>
+                  @else
+                    <span class="label label-danger">Impact found</span>
+                  @endif
+                </td>
+                <td>{{ $row['statistics']['impacted'] }}</td>
                 <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph">View graph</a></td>
               </tr>
               @endforeach
