@@ -25,12 +25,16 @@ class MainController extends BaseController
         );
         $params['callback_url'] = strstr('?', $params['callback_url']) ? '&amp;' : '?' . 'uuid=' . $params['uuid'];
 
+        foreach($params as $paramName => $paramValue) {
+            if (empty($paramValue)) {
+              return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
+            }
+        }
+
         if (!$params['uuid']) {
             $case = Input::get("case") ? : 1;
             $request->session()->put('case', $case);
         }
-
-        // TODO validate inputs
 
         // Get trees from script
         // $results = $this->getDependencyTrees();
