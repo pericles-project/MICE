@@ -53,7 +53,7 @@ class MainController extends BaseController
             }
             foreach($uris as $uri) {
               if (array_key_exists($uri, $row)) {
-                $row[$uri] = $this->getResourceNameFromURI($row[$uri]);
+                $row[$uri] = getResourceNameFromURI($row[$uri]);
               }
             }
         }
@@ -98,24 +98,10 @@ class MainController extends BaseController
     }
 
     /**
-     * Extracts a resource's name from it's URI
+     * Calculates statistics from dependency trees
      *
-     * @params string $uri The resource's URI
-     * @return string $name The resource's name
-     */
-    public function getResourceNameFromURI($uri)
-    {
-        $delimiter = strstr($uri, '#') ? '#' : '/';
-        $tmp = explode($delimiter, $uri);
-        $name = array_pop($tmp);
-        return $name;
-    }
-
-    /**
-     * Calculate statistics from dependency trees
-     *
-     * @params $dependencyTreesResults Dependency trees containing impact for individual resources
-     * @return $statistics Statistics eg total, impacted, not impacted resources
+     * @params array $dependencyTreesResults Dependency trees
+     * @return array $dependencyTreesResults Dependency trees containing statistics eg total, impacted, not impacted resources
      */
     public function calculateStatistics($dependencyTreesResults)
     {
