@@ -45,7 +45,7 @@ class MainController extends BaseController
         unset($results['deletions']);
         unset($results['insertions']);
 
-        foreach($results['statements'] as &$row) {
+        foreach($results['statements'] as $key => &$row) {
             $uris = array('subject', 'predicate', 'object');
             // TODO remove this when it's added to the json
             if (!array_key_exists('subject', $row)) {
@@ -57,8 +57,10 @@ class MainController extends BaseController
               }
             }
         }
+
         // var_dump($results);
         $results['statements'] = $this->calculateStatistics($results['statements']);
+        $results = $this->calculateTotalStatistics($results);
 
         // var_dump($results);
         $request->session()->put('results', $results);
@@ -128,5 +130,40 @@ class MainController extends BaseController
         }
 
         return $dependencyTreesResults;
+    }
+
+    /**
+     * Calculates the total impact statistics for all statements
+     *
+     * @params array $results Dependency trees
+     * @return array $results Dependency trees containing total impact statistics
+     */
+    public function calculateTotalStatistics($results)
+    {
+        $totalImpact = 0;
+
+        // Group statements by predicate
+        $statements = groupByKey($results['statements'], 'predicate');
+
+        foreach($statements as $predicate => $statements) {
+            if (isset($statements) == true) {
+                if (count($statements) == 1) {
+                    $keyToCheck = current((array_keys($statements)));
+                    if ($statements[$keyToCheck]['statistics']['impacted'] == true)
+                        $totalImpact += $statements[$keyToCheck]['statistics']['impacted'];
+                } else if (count($statements) > 1) {
+                    foreach($statements as $statement) {
+                        if ($statement['action'] == 'insertion' && $statement['statistics']['impacted'] == true) {
+                            $totalImpact += $statement['statistics']['impacted'];
+                            break;
+                        }
+                      }
+                }
+            }
+        }
+
+        $results['totalImpact'] = $totalImpact;
+
+        return $results;
     }
 }

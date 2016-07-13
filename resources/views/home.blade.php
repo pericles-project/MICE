@@ -6,9 +6,12 @@
   <div class="row widget-container fluid-height">
     <div class="col-md-12">
       <div class="widget-content padded">
-        <h4 class="text-success text-center">
-          No impact found.
-        </h4>
+          @if ($results['totalImpact'] == 0)
+            <h4 class="text-center"><span class="text-success"><i class="fa fa-check"></i> No impact found</span></h4>
+          @else
+            <h4 class="text-center"><span class="text-danger"><i class="fa fa-exclamation-circle"></i> Impact found</span></h4>
+            <p class="text-center">{{ $results['totalImpact'] }} resources might be impacted by this change.</p>
+          @endif
       </div>
     </div>
   </div>
@@ -34,27 +37,27 @@
                 <th></th>
               </tr>
               @foreach ($results['statements'] as $k => $row)
-              <tr>
-                <td>
-                  @if ($row['action'] == 'insertion')
-                    <span class="text-success"><i class="fa fa-plus-square"></i> {{ $row['action'] }}</span>
-                  @else
-                    <span class="text-danger"><i class="fa fa-minus-square"></i> {{ $row['action'] }}</span>
-                  @endif
-                </td>
-                <td>{{ $row['subject'] }}</td>
-                <td>{{ $row['predicate'] }}</td>
-                <td>{{ $row['object'] }}</td>
-                <td>
-                  @if ($row['statistics']['impacted'] == 0)
-                    <span class="label label-success">No impact</span>
-                  @else
-                    <span class="label label-danger">Impact found</span>
-                  @endif
-                </td>
-                <td>{{ $row['statistics']['impacted'] }}</td>
-                <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph">View graph</a></td>
-              </tr>
+                <tr>
+                  <td>
+                    @if ($row['action'] == 'insertion')
+                      <span class="text-success"><i class="fa fa-plus-square"></i> {{ $row['action'] }}</span>
+                    @else
+                      <span class="text-danger"><i class="fa fa-minus-square"></i> {{ $row['action'] }}</span>
+                    @endif
+                  </td>
+                  <td>{{ $row['subject'] }}</td>
+                  <td>{{ $row['predicate'] }}</td>
+                  <td>{{ $row['object'] }}</td>
+                  <td>
+                    @if ($row['statistics']['impacted'] == 0)
+                      <span class="label label-success">No impact</span>
+                    @else
+                      <span class="label label-danger">Impact found</span>
+                    @endif
+                  </td>
+                  <td>{{ $row['statistics']['impacted'] }}</td>
+                  <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph">View graph</a></td>
+                </tr>
               @endforeach
             </table>
           </div>
