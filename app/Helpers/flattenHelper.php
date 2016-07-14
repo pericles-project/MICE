@@ -32,32 +32,3 @@ function flatten($elements, $depth) {
 
     return $result;
 }
-
-/**
- * Extracts a resource's name from it's URI
- *
- * @params string $uri The resource's URI
- * @return string $name The resource's name
- */
-function getResourceNameFromURI($uri)
-{
-    $delimiter = strstr($uri, '#') ? '#' : '/';
-    $tmp = explode($delimiter, $uri);
-    $name = array_pop($tmp);
-    return $name;
-}
-
-/**
- * Groups an array by key
- *
- * @params array $array The given array
- * @params string $key The key to be used for grouping
- * @return string $array The array grouped by the key given
- */
- function groupByKey($array, $key) {
-     $return = array();
-     foreach($array as $val) {
-         $return[$val[$key]][] = $val;
-     }
-     return $return;
- }
