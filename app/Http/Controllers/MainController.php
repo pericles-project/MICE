@@ -11,11 +11,11 @@ use Illuminate\Http\Response;
 class MainController extends BaseController
 {
     /**
-     * Displays change impact
+     * Initializes app
      *
-     * @return Response
+     * @return void
      */
-    public function index(Request $request)
+    public function init(Request $request)
     {
         $params = array(
             'uuid' => Input::get("uuid"),
@@ -25,24 +25,41 @@ class MainController extends BaseController
         );
         $params['callback_url'] = strstr('?', $params['callback_url']) ? '&amp;' : '?' . 'uuid=' . $params['uuid'];
 
+        $request->session()->put('params', $params);
+        return redirect()->route('main', ['uuid' => $params['uuid']]);
+    }
+
+    /**
+     * Displays change impact
+     *
+     * @return Response
+     */
+    public function index(Request $request)
+    {
+        $params = $request->session()->get('params');
+
         foreach($params as $paramName => $paramValue) {
             if (empty($paramValue)) {
               return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
             }
         }
 
-        if (!$params['uuid']) {
-            $case = Input::get("case") ? : 1;
-            $request->session()->put('case', $case);
-        }
+        // Store deltas in json file
+        // TODO remove this
+        file_put_contents(base_path() . '\\libraries\\script\\deltas\\' . $params['uuid'] . '.n3', $params['change']);
+
+        // if (!$params['uuid']) {
+        //     $case = Input::get("case") ? : 1;
+        //     $request->session()->put('case', $case);
+        // }
 
         // Get trees from script
-        // $results = $this->getDependencyTrees();
-        // $results = json_decode($results[0], true);
+        $results = $this->getDependencyTrees($request);
+        $results = json_decode($results[0], true);
 
         // Get trees from json file
-        $results = file_get_contents('data_insertion.json');
-        $results = json_decode($results, true);
+        // $results = file_get_contents('data_insertion.json');
+        // $results = json_decode($results, true);
 
         // Merge deletions and insertions into one array
         $results['statements'] = array_merge($results['deletions'], $results['insertions']);
@@ -77,9 +94,10 @@ class MainController extends BaseController
      *
      * @return string $results The dependency trees in json format
      */
-    public function getDependencyTrees()
+    public function getDependencyTrees(Request $request)
     {
-        $scriptPath = addcslashes(base_path() . "\libraries\script\\", "\\");
+        $params = $request->session()->get('params');
+        $scriptPath = addcslashes(base_path() . "\\libraries\\script\\", "\\");
         $command = "C:\Python27\python.exe {$scriptPath}CreateDependencyTreesForDelta.py {$scriptPath}";
         exec($command, $results, $return);
 

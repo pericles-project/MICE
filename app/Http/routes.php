@@ -11,5 +11,6 @@
 |
 */
 
-Route::get('/', array('uses'=>'MainController@index'));
+Route::get('/', array('as' => 'main', 'uses'=>'MainController@index'));
+Route::post('/', array('as' => 'init', 'uses'=>'MainController@init'));
 Route::get('graph/{index?}', array('uses'=>'MainController@graph'));
