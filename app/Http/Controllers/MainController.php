@@ -69,7 +69,7 @@ class MainController extends BaseController
         foreach($results['statements'] as $key => &$row) {
             $uris = array('subject', 'predicate', 'object');
             // TODO remove this when it's added to the json
-            if (!array_key_exists('subject', $row)) {
+            if (array_key_exists('subject', $row) == false) {
                 $row['subject'] = $results['subject'];
             }
             foreach($uris as $uri) {
