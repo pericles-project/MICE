@@ -77,6 +77,9 @@ class MainController extends BaseController
                 $row[$uri] = getResourceNameFromURI($row[$uri]);
               }
             }
+            if (empty($row['name']) == true) {
+                $row['name'] = $row['subject'];
+            }
         }
 
         // var_dump($results);
