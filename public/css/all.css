@@ -3838,3 +3838,6 @@ body.page-header-fixed {
 .table tr td [class*="fa"] {
   margin-right: 3px;
   font-size: 14px; }
+
+.no-padding {
+  padding: 0 !important; }

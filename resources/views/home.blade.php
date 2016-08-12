@@ -16,9 +16,9 @@
     </div>
   </div>
 
-  <div class="row widget-container fluid-height">
-    <div class="col-md-12">
-      <div class="">
+  <div class="row">
+    <div class="col-md-12 no-padding">
+      <div class="widget-container scrollable">
         <div class="heading">
           <i class="fa fa-pencil-square-o"></i> Change description
           <a href="#confirmModalReject" class="btn btn-danger pull-right" data-toggle="modal" data-target="#confirmModalReject"><i class="fa fa-trash-o"></i> Reject change</a>
