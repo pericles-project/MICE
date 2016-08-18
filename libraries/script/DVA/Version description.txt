@@ -1,0 +1,25 @@
+- Includes DVA ontology with video containers, codecs, streams etc.
+- Integrates LRM Version of Feb-Mar 2015.
+- Imports CIDOC and CRMdig
+
+27/04/2015
+- Software class removed and its subclasses were moved into D14_Software class from CRMdig
+- Media player moved into D14_Software class from CRMdig
+
+14/12/2015
+object properties targetedByActivity/targetsResource were added
+
+15/1/2015
+instances created for example SPARQL queries (https://docs.google.com/document/d/1aFqgctuOcoZw2bH2wwXqjoDZwNI_iQupMUx-BqvUcjs/edit#) for SPIN Rules
+-hasWarningText and hasErrorText data properties were added.
+
+12/2/2016
+only three main types of dependencies were kept (hardware, software, data)
+Instances of Deltas were created. 
+
+01/03/2016
+Suggestions of JY for temporal information regarding deltas and the changed resources. 
+
+21/03/2016
+Creation of chain dependency example(s) for MICE.
+Reverse direction of use in lrm:from and lrm:to properties. 

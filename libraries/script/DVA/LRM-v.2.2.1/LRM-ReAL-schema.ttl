@@ -1,0 +1,348 @@
+#
+# PERICLES (see http://www.pericles-project.eu/main )is a four-year project that aims to address the challenge of ensuring that digital content remains 
+# accessible in an environment that is subject to continual change. This can encompass not only technological change, but also changes in semantics, 
+# academic or professional practice, or society itself, which can affect the attitudes and interests of the various stakeholders that interact with the content. 
+# PERICLES will take a ‘preservation by design’ approach that involves modelling, capturing and maintaining detailed and complex information about 
+# digital content, the environment in which it exists, and the processes and policies to which it is subject.
+#
+# This ontology is a work in progress produced by the WP3 (work package 3)lead by Xerox Research Center Europe (Jean-Pierre Chanod, Nikolaos Lagos, 
+# Jean-Yves Vion-Dury
+#
+# November 2014
+# last updated June 2015 by JYVD 
+#
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix lrm: <http://xrce.xerox.com/LRM#> .
+@prefix real: <http://xrce.xerox.com/ReAL#> .
+@prefix stx: <http://xrce.xerox.com/STX#> .
+
+@base  <file:///C:/Users/viondury/PERICLESEU/Ontology/> .
+
+lrm:LRM-ReAL-schema	rdf:type owl:Ontology;
+	owl:versionInfo "1.0.0";
+    rdfs:label "LRM-ReAL-schema"@en;
+    rdfs:comment "used to specify the dynamic behavior to maintain the consistency of the LRM representations (thus allowing the interpretion of changes)"@en;
+    rdfs:comment """     
+        ReAL semantic (informal explaination):
+        
+        Let us say that T is a triple pattern(eg  T =  rdf:type(?s, owl:Class) )
+        
+        T  alone is TRUE if one or several matching instances of T can be found directly in the store ; 
+        
+        -T same than T alone, but withdraw from the store all occurences matching T;  FALSE if no occurence of T can be found in the store,
+        
+        +T  means add T in the store (the triple pattern must be completely instanciated: all variables must be bound when the operation occurs);  is false if T is already in the store 
+        
+        ++T  is equivalent to  (+T EITHER TRUE) :  like +T, but do not fails if T is already in the store
+        
+        !T  is true if the triple pattern T can be solved by inference in the current context(through the underlying backward chaining mechanism)
+                      
+        brackets [A]  denotes an transactional execution of action A: 
+             if all binding of A (solution), the undertaken triple addition/deletion actions become effective in the current store; transactional actions may be embedded
+            
+         all instuctions can be articulated through order-sensitive and stream-oriented logical connectors (AND, UNION, NO, EITHER, ONE, REPEAT):
+                AND is an ordered product connector:  
+                        (T1 AND T2) returns all bindings for b(T2) for every binding b found when evaluating T1; therefore T2 is dependent on T1
+                        (T1 AND T2) will fail if the evaluation of T1 fails, or if all evaluations of b(T2) fails for all binding b returned by evaluating T1
+                UNION is an ordered inclusive-or connector:  
+                        (T1 UNION T2) returns all bindings for T1 and all bindings for T2; T2 is not dependent on T1 (T2 will not be affected by T1 bindings)
+                NO is a monadic connector:
+                        (NO T) return an empty binding if T has no solution; fails otherwise
+                EITHER is an ordered exclusive-or connector: 
+                        (T1 EITHER T2) returns all bindings for T1, or all bindings for T2 if T1 has no solution (~ T1 evaluation fails)
+                FIRST, LAST are monadic connectors:
+                        (FIRST T) return the first binding found for T ; fails if T fails
+                        (LAST T) return the last binding found for T ; fails if T fails
+                REPEAT is a monadic connector:
+                        (REPEAT T) returns an empty binding if the evaluation of T return one or more solutions (all solutions for T will be explored) ; fails if T fails
+            
+            
+        example:            
+        
+            rdf:type(?s, lrm:Resource) AND   @primitive:timestamp(?c) AND   +time:modified(?s, ?c)            
+            
+        when evaluated in the store  { ex:a1 rdf:type lrm:Resource . ex:a2 rdf:type lrm:Resource .}
+        
+        will succeed and change the store into (time is only indicative):  
+            { 
+            ex:a1 rdf:type lrm:Resource; lrm:modified \"2015-02-26T18:15:03.000Z\" . 
+            ex:a2 rdf:type lrm:Resource; lrm:modified \"2015-02-26T18:15:03.001Z\" .
+            }               
+        """@en
+    
+    .
+
+stx:BTree rdfs:subClassOf rdfs:Datatype.
+stx:btree a owl:DatatypeProperty;
+    rdfs:domain rdfs:Datatype;
+    rdfs:range stx:BTree
+    .
+    
+stx:Syntax rdfs:subClassOf rdfs:Datatype.
+stx:grammar a owl:ObjectProperty;
+    rdfs:domain stx:Syntax;
+    rdfs:range stx:Grammar
+    .
+    
+stx:axiom a owl:DatatypeProperty;
+    rdfs:subPropertyOf stx:provides;
+    rdfs:domain stx:Syntax;
+    rdfs:range stx:BTree
+    .
+    
+stx:requires a owl:DatatypeProperty;
+    rdfs:comment "G stx:requires 'A'  makes use of syntactic rules with shape 'A(?)⇨ ... '  or, in binary shape, all rules matching  [STX [A ?] ?]"@en;
+    rdfs:domain stx:Syntax;
+    rdfs:range stx:BTree
+    .
+stx:provides a owl:DatatypeProperty;
+    rdfs:comment "G stx:provides 'A'  makes visible all syntactic rules with shape 'A(?)⇨ ... '  or, in binary shape, all rules matching  [STX [A ?] ?]"@en;
+    rdfs:domain stx:Syntax;
+    rdfs:range stx:BTree
+    . 
+    
+stx:example a owl:DatatypeProperty;
+    rdfs:domain stx:Syntax;
+    rdfs:range xsd:string
+    .
+    
+stx:Grammar a stx:Syntax;
+    rdfs:subClassOf rdfs:Datatype;
+    stx:btree  
+        " [STX  [G [[STX ?x ] ?y]  ]  Space [STX ?x] Space '\n' [G ?y] NIL]"^^stx:BTree,
+        " [STX [G NIL] Space NIL]"^^stx:BTree,
+        " [STX [RegS ?x]  [REGEX [ '([^/]|(?<=\\/) )+' ?x] ] NIL]"^^stx:BTree
+        # to be continued"
+    ;
+    stx:axiom "G(?)"^^stx:BTree;
+    stx:grammar """
+        G([[STX ?x ] ?y] )  ⇨   Space  STX(?x) Space  '\\n'  G(?y)
+        G(NIL)  ⇨   Space
+        STX([[LHS ?x ]  ?y] )  ⇨    LHS(?x) Space   '⇨'  Space  RHS(?y)
+         LHS(?x)   ⇨    GCall(?x)  
+         LHS(?x) ⇨    Token(?x)  
+        GCall([APPLY [ ?nm ?x ] ] ) ⇨   Token(?nm) '(' Space Term(?x)Space  ')' 
+         Token(?nm)  ⇨   / [A-Za-z][A-Za-z_0-9]*/   :  ?nm
+         Term([?x ?y] )  ⇨    '['  Space Term(?x) LTerm(?y) Space  ']'
+         LTerm([?x ?y] )  ⇨      Space Term(?x) LTerm(?y)
+         LTerm(?x )  ⇨      Space Term(?x)         
+         Term(?x )  ⇨      Token(?x)
+         Term(?x )  ⇨       /'[^']'/  : ?x
+         Term([VAR ?x] )  ⇨      '?' Token(?x)
+         RHS([?x ?y] ) ⇨   Item(?x)Space  RHS(?y)
+         RHS(NIL) ⇨   
+         Item([STRING ?x] )  ⇨    /'[^']'/  : ?x
+         Item([REGEX [?x ?y]] )  ⇨  '/'  RegS(?x)'/'   Space  Matches(?y)
+         RegS(?x) ⇨   / ([^\\/]|(?<=\\\\/))*/  : ?x
+         Matches([VAR ?x]) ⇨  ':'  Space Term([VAR ?x])
+         Matches(NIL) ⇨  
+         Space  ⇨  /\\s+/
+         Space  ⇨  
+        """^^stx:Grammar
+    .
+real:Code a stx:Syntax ; 
+    rdfs:subClassOf rdfs:Datatype;
+    rdfs:label "ReAL-code";
+    rdfs:comment "Resource oriented Action Language";
+    rdfs:comment "defines the syntactic structure of ReAL language"@en;
+    stx:axiom "ReAL(?)"^^stx:BTree;
+    stx:provides 
+        "Symbol(?)"^^stx:BTree, 
+        "Pattern(?)"^^stx:BTree, 
+        "Iri(?)"^^stx:BTree;
+    stx:grammar """
+                    ReAL( ?x  ) ⇨    ROr(?x) 
+                    ROr( [UNION ?x ?y]  ) ⇨    REither(?x) 'UNION'   ROr(?y)
+                    ROr( ?x  ) ⇨    REither(?x) 
+                    REither( [OR ?x ?y]  ) ⇨    RAnd(?x) 'OR'   REither(?y)
+                    REither( ?x  ) ⇨    RAnd(?x) 
+                    RAnd( [AND ?x ?y]  ) ⇨    RBase(?x) 'AND'   RAnd(?y)
+                    RAnd( ?x  ) ⇨    RBase(?x) 
+                    RBase([TRANSACTION ?x] ) ⇨  '['  ReAL(?x) ']'  
+                    RBase([SANDBOX ?x] ) ⇨  '{'  ReAL(?x) '}'  
+                    RBase([ON ?g ?x] ) ⇨   'ON' Space Pattern(?g) Space '{'  ReAL(?x) '}'  
+                    RBase([IN ?g ?x] ) ⇨   'IN' Space Pattern(?g) Space '{'  ReAL(?x) '}'  
+                    RBase([NO ?x] ) ⇨   'NO'  ReAL(?x)
+                    RBase([FIRST ?x] ) ⇨   'FIRST'  ReAL(?x)
+                    RBase([LAST ?x] ) ⇨   'LAST'  ReAL(?x)
+                    RBase([REPEAT ?x] ) ⇨   'REPEAT'  ReAL(?x)
+                    RBase([REPEAT ?n ?x] ) ⇨   'REPEAT' Integer(?n) ReAL(?x)
+                    RBase([REPEAT ?count ?x] ) ⇨   'REPEAT' Var(?count) ReAL(?x)
+                    RBase([COUNT [?num ?x]] ) ⇨   'COUNT'  Iteration(?num) ReAL(?x)
+                    Iteration([?q ?x] ) ⇨   Qualifier(?q) Integer(?x)
+                    Iteration([?q ?x] ) ⇨   Qualifier(?q) Var(?x)
+                    Qualifier(EQ)⇨  'EXACTLY'
+                    Qualifier(EQ)⇨  
+                    Qualifier(LT)⇨  'STRICTLY' Comp(LE)
+                    Qualifier(GT)⇨  'STRICTLY' Comp(GE)
+                    Qualifier(LE)⇨  'LESS THAN'
+                    Qualifier(GE)⇨  'GREATER THAN'
+                    RBase(?x ) ⇨   '('  ReAL(?x)')' 
+                    RBase(TRUE) ⇨   'TRUE'  
+                    RBase(FALSE) ⇨   'FALSE'  
+                    RBase(?x) ⇨   RAction(?x) 
+                    RAction([READ ?x]) ⇨   RTriple(?x) 
+                    RAction([PUT ?x]) ⇨   '+' RTriple(?x) 
+                    RAction([OR [PUT ?x] TRUE]) ⇨   '++' RTriple(?x) 
+                    RAction([TAKE ?x]) ⇨   '-' RTriple(?x) 
+                    RAction([INFER ?x]) ⇨   '!' RTriple(?x) 
+                    RAction([CALL ?x]) ⇨   'CALL' RTriple(?x) 
+                    RAction([SPAWN ?x]) ⇨   'SPAWN' RTriple(?x) 
+                    RAction([EXPAND ?x]) ⇨   'EXPAND' RTriple(?x) 
+                    RTriple(?p(?s, ?o)) ⇨  Pattern(?p) '(' Pattern(?s)Space  ',' Space Item(?o) Space ')'
+                    RTriple(?p(?s, ?btree)) ⇨  Pattern(?p) '(' Pattern(?s) ','  BTree(?btree) ')'
+                    RTriple(?p (?s , ?o | ?datatype)) ⇨  Pattern(?p) '(' Pattern(?s) ','  Item(?o)'|'  Pattern(?datatype) ')'
+                    Item(?x)  ⇨   Pattern(?x)
+                    Item(?x)  ⇨   Atom(?x)
+                    Pattern(?x)  ⇨   Iri(?x)
+                    Pattern(?x)  ⇨   Var(?x)
+                    Iri(?x) ⇨  Symbol(?prefix) ':'  Symbol(?suffix) {@primitive:DOWN([IRI ?prefix ?suffix], ?x) }
+                    Iri(?x) ⇨  '<'  /[^\\s><]*/ : ?s '>' { DOWN([IRI ?s ''], ?x) }
+                    Symbol(?x) ⇨  /[A-Za-z]\\w+/ :?symb  { DOWN([SYMBOL ?symb], ?x) }
+                    Atom(?x) ⇨  Symbol(?x)
+                    Atom(?x) ⇨  String(?x)
+                    Atom(?x) ⇨  Number(?x)        
+                    String(?x) ⇨  '"' /[^"]*/ : ?x '"'
+                    String(?x) ⇨  "'" /[^']*/ : ?x "'"
+                    Number(?x) ⇨  Integer(?x)
+                    Number(?x) ⇨  Decimal(?x)        
+                    Integer(?x)  ⇨  /\\d+/ : ?s  {DOWN([INTEGER ?s], ?x)}
+                    Decimal(?x)  ⇨  /\\d+\\.\\d+/ : ?s  {DOWN([DECIMAL ?s], ?x)}
+                    BTree([?x ?y]) ⇨  '[ ' BItem(?x)   BTreeList(?y) Space  ']'  
+                    BTree([LIST ?x ]) ⇨  '{ '  BList(?x) Space  '}'  
+                    BTreeList([?x ?y])⇨  BItem(?x)  BTreeList(?y)   |
+                    BTreeList(?x )⇨  BItem(?x)
+                    BList([?x ?y])⇨  BItem(?x) ','  BList(?y)   |
+                    BList([?x ?y])⇨  BItem(?x) '|'  BItem(?y)   |
+                    BList([?x NIL] )⇨  BItem(?x)
+                    BItem(?x) ⇨  Space BTree(?x) 
+                    BItem(?x) ⇨   Space Item(?x)
+                    Space  ⇨  /\\s+/
+                    Space  ⇨  
+        """^^stx:Grammar;
+    rdfs:comment """  EBNF Grammar (NB <string> denotes any lexical unit of type 'string')
+    
+         ReAL ::=  '[' ReAL ']'   |                       // transactional actions:  [ A ]  commits all actions resulting from evaluating A if A succeeds, otherwise, the context will stay unchanged
+                        '{' ReAL '}'   |                 // sandbox actions:  { A }  perform all actions possibly resulting from evaluating A, but always let the context unchanged (no triples added/deleted) in the current context
+                        'IN' Pattern '{' ReAL '}'   |                 // graph actions:   p { A }  perform all actions possibly resulting from evaluating A, but always let the context unchanged (no triples added/deleted)
+                        ReAL 'AND'  ReAL  |           // joint actions: (a1 AND a2) do a2 for each solution returned by a1 (each binding found for a1 is applied to a2 before evaluation)
+                        ReAL 'UNION'  ReAL  |            //  inclusive: (a1 UNION a2) do a2  even if a1 succeeds
+                        ReAL 'OR'  ReAL  |    //  exclusive: (a1 OR a2) do not try a2 if a1 succeeds
+                        'NO'  ReAL  |                    //  negation:  NO A  never changes the store, and is TRUE if A fails, FALSE if A succeeds
+                         'FIRST'  ReAL    |       //  just do one action: FIRST A perform only one action resulting from the evaluation of A if any (also yield only one binding, the first solution found)
+                         'LAST'  ReAL    |       //  just do one action: LAST A perform only one action resulting from the evaluation of A if any (also yield only one binding, the last solution found)
+                        'REPEAT'  ReAL     |   // REPEAT A  performs all possible actions A; TRUE if at least one action was performed (return the empty binding when finished)
+                        '(' ReAL ')'     |
+                        'TRUE'  |                       // yield the empty binding; do nothing
+                        'FALSE' |                       // does not yield anything ; do nothing
+                        Action
+                        
+          Action  ::=  '+' TriplePattern    |       //  +T add a triple T to the store: FALSE if the triple is already stored or not fully grounded (some variables have not been substituted)
+                            '++' TriplePattern    |    //  ++T is equivallent to (+T EITHER TRUE)
+                            '-' TriplePattern    |       //  find triples matching the pattern in the store, and withdraw them (yield a binding for each solution)
+                            'CALL' CallPattern      |    // invoke a synchronous action  (defined through a lrm:Action instance ; yield a binding for each solution)
+                            'SPAWN' CallPattern      |    // launch an asynchronous action  thread (defined through a lrm:ActionThread instance ; yield a unique empty binding if successful)
+                            'EXPAND' CallPattern   |    // invoke a substitution action  (the IRI of the call pattern should refer to a ReAL tamplate (real:Template instance); 
+                                                                   // this one will be expanded by unifying its open variables with the signature; if the call pattern is defined at analysis time, this will be done statically )
+                            '!' TriplePattern      |    // invoke backward reasoning to find all solutions for the pattern (yield a binding for each solution)
+                            Iri '!' TriplePattern      |    // invoke backward reasoning with the tactic designated by the Iri component to find all solutions for the pattern (yield a binding for each solution)
+                            '$' <symbol>        |   create a fresh IRI, and yield the corresponding binding (e.g. $x will stream bindings for ?x variable)
+                            TriplePattern               // find a triple matching the pattern in the store, do nothing (yield a binding for each solution)
+                            
+          TriplePattern  ::=  Pattern '(' Pattern ',' Item ')'  |    // simple triple
+                            Pattern '(' Pattern ',' Item, '|' Pattern ')'  |   // triple with string and datatype as object
+                            Pattern '(' Pattern ',' BTree  ')'              // triple with binary tree as object (computed internally for compatible datatypes - as result of parsing)
+          CallPattern  ::=  Iri '(' ItemList?  ')'
+          Item ::= Pattern |  Atom
+          Pattern ::= Iri  |  Var 
+          Iri ::=  <symbol> ':' <symbol>   
+          Var ::=  '?'  |   '?' <symbol>            # matches everything
+          Atom ::= <string> |  <number> |  <symbol>
+          ItemList  ::=  Item ',' ItemList  |  Item 
+          BTree  ::= '[ ' BItem   BTreeList ']'  
+          BTreeList ::= BItem  BTreeList   |  BItem 
+          BTree  ::= '{ '  BList '}'  
+          BList ::= BItem  "," BList   |  BItem  BList   |   '|' BItem  |  BItem 
+          BItem ::= BTree | Item
+         """ ;
+    .
+
+real:Signature a stx:Syntax ; 
+    rdfs:subClassOf rdfs:Datatype;
+    rdfs:label "ReAL-signature";
+    rdfs:comment "used to specify the signature of lrm:Action objects";
+    rdfs:seeAlso "EBNF grammar";
+    rdfs:comment """  
+        // EBNF Grammar
+          ReALSignature ::= SVarList
+          SVarList  ::= Sign Var  ',' SVarList  |  Sign Var 
+          Var ::=  '?'  |   '?' <symbol>            # matches everything
+          Var ::=   '?%'  |   '?%' <symbol>     # matches only IRI 
+          Sign ::= '+' | '-'
+        """;
+    stx:grammar """
+          ReALSignature([LIST ?x]) ⇨  Space  SList(?x) Space
+          SList ([?x ?y]) ⇨  Symbol(?x) Space  ',' Space  SList(?y)  
+          SList ([?x NIL]) ⇨  Symbol(?x)
+         """;
+    stx:example "x", "x, y, z"
+    .
+    
+real:Specification a owl:Class;
+    rdfs:label "real:Specification"@en;
+    rdfs:subClassOf lrm:Specification;
+    rdfs:comment "Used to characterizes the behavior of ReAL code"@en
+    .
+    
+real:invariant a owl:ObjectProperty;
+    rdfs:subPropertyOf lrm:invariant;
+    rdfs:comment "should hold before and after the chunk of ReAL code is executed "@en;
+    rdfs:domain real:Template;
+    rdfs:range real:Specification
+    .
+    
+real:before a owl:ObjectProperty;
+    rdfs:subPropertyOf lrm:specifiedBy;
+    rdfs:comment "required to hold before the chunk of ReAL code is executed (similar to the 'before' assertion of Hoare Logic)"@en;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Hoare_logic>;
+    rdfs:domain real:Template;
+    rdfs:range real:Specification
+    .
+    
+real:after a owl:ObjectProperty;
+    rdfs:subPropertyOf lrm:specifiedBy;
+    rdfs:comment "should always hold after the chunk of ReAL code is executed, assuming that real:before (if any) holds, as well as does the invariant (similar to the 'after' assertion of Hoare Logic)"@en;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Hoare_logic>;
+    rdfs:domain real:Template;
+    rdfs:range real:Specification
+    .
+    
+real:Template a owl:Class;
+    rdfs:subClassOf lrm:Description;
+    rdfs:comment "Used to define a block of ReAL instructions. Open variables, if any may be specified using the open-variables property ."@en
+    .
+
+real:variables a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "used to specify explicitly the open variables of the ReAL code template";
+    rdfs:domain real:Template;
+    rdfs:range real:Signature
+    .
+    
+real:code a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "ReAL code to be used as a substitution pattern";
+    rdfs:domain real:Template;
+    rdfs:range real:Code
+    .
+
+    
+real:verifies a owl:ObjectProperty;
+    rdfs:subPropertyOf lrm:specifiedBy;
+    rdfs:domain real:Template;
+    rdfs:range real:Specification
+    .
+    
+

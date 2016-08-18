@@ -1,0 +1,73 @@
+@prefix lrm: <http://xrce.xerox.com/LRM#> .
+@prefix ndva: <http://www.semanticweb.org/agrant3/ontologies/2016/4/ndva#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ndva:delta_WFVXSs lrm:insertion ndva:insertion_statement_1pTKez,
+        ndva:insertion_statement_47WDxM,
+        ndva:insertion_statement_5o1oPr,
+        ndva:insertion_statement_6u6Zd5,
+        ndva:insertion_statement_81u16d,
+        ndva:insertion_statement_8P38o8,
+        ndva:insertion_statement_Kgg3zr,
+        ndva:insertion_statement_L9xFee,
+        ndva:insertion_statement_Lfenzy,
+        ndva:insertion_statement_QwcwMA,
+        ndva:insertion_statement_a18g2x,
+        ndva:insertion_statement_mMLyCh,
+        ndva:insertion_statement_qBgNDt .
+
+ndva:insertion_statement_1pTKez rdf:object <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+    rdf:predicate rdf:type ;
+    rdf:subject ndva:epccCyclesArt .
+
+ndva:insertion_statement_47WDxM rdf:object ndva:qt ;
+    rdf:predicate ndva:usesWrapper ;
+    rdf:subject ndva:epccCycles .
+
+ndva:insertion_statement_5o1oPr rdf:object ndva:epccCycles ;
+    rdf:predicate ndva:contains ;
+    rdf:subject ndva:epccCyclesArt .
+
+ndva:insertion_statement_6u6Zd5 rdf:object <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+    rdf:predicate rdf:type ;
+    rdf:subject ndva:epccCyclesMetadata .
+
+ndva:insertion_statement_81u16d rdf:object ndva:epccCyclesMetadata ;
+    rdf:predicate ndva:contains ;
+    rdf:subject ndva:epccCyclesArt .
+
+ndva:insertion_statement_8P38o8 rdf:object ndva:Video ;
+    rdf:predicate rdf:type ;
+    rdf:subject ndva:epccCycles .
+
+ndva:insertion_statement_Kgg3zr rdf:object "/Users/eilidhtroup/Documents/Pericles/mediaInfoTool/mediainfotool/MediaInfoTool/test_data"^^xsd:string ;
+    rdf:predicate ndva:Path ;
+    rdf:subject ndva:epccCyclesMetadata .
+
+ndva:insertion_statement_L9xFee rdf:object ndva:CFHD ;
+    rdf:predicate ndva:usesCodec ;
+    rdf:subject ndva:epccCycles .
+
+ndva:insertion_statement_Lfenzy rdf:object ndva:FileServer ;
+    rdf:predicate ndva:storedBy ;
+    rdf:subject ndva:epccCyclesArt .
+
+ndva:insertion_statement_QwcwMA rdf:object <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+    rdf:predicate rdf:type ;
+    rdf:subject ndva:epccCycles .
+
+ndva:insertion_statement_a18g2x rdf:object ndva:DigitalVideo ;
+    rdf:predicate rdf:type ;
+    rdf:subject ndva:epccCyclesArt .
+
+ndva:insertion_statement_mMLyCh rdf:object ndva:Metadata ;
+    rdf:predicate rdf:type ;
+    rdf:subject ndva:epccCyclesMetadata .
+
+ndva:insertion_statement_qBgNDt rdf:object "warn.xml"^^xsd:string ;
+    rdf:predicate ndva:Filename ;
+    rdf:subject ndva:epccCyclesMetadata .
+

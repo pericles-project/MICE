@@ -4,26 +4,26 @@ Model Impact Change Explorer (MICE) is a component responsible for visualizing t
 
 ## Requirements
 
-* Install [Node.js] (https://nodejs.org/)
-* Install [Ruby] (https://www.ruby-lang.org/)
-* Install Compass
-
-        gem install compass
-* Install yeomann, grunt-CLI, bower, generator-angular, generator-karma
-
-        npm install -g yo grunt-cli bower generator-angular generator-karma
+* Apache Web Server
 
 ## Installation
 
-Install node & bower packages
+Add virtual host:
 
-    npm install
-    bower install
+```
+<VirtualHost *:{portNo}>
+    DocumentRoot "{projectRootPath}/public"
+    <Directory "{projectRootPath}/public">
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
+Install composer packages
+
+    composer install
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+Use `gulp` command to run automatic tasks
