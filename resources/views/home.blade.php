@@ -23,8 +23,6 @@
           <i class="fa fa-pencil-square-o"></i> Change description
           <a href="#confirmModalReject" class="btn btn-danger pull-right" data-toggle="modal" data-target="#confirmModalReject"><i class="fa fa-trash-o"></i> Reject change</a>
           <a href="#confirmModalAccept" class="btn btn-success pull-right" data-toggle="modal" data-target="#confirmModalAccept"><i class="fa fa-check"></i> Accept change</a>
-          {{modal('confirmModalReject', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=0'])}}
-          {{modal('confirmModalAccept', 'Accept change?', 'Are you sure you want to accept the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=1'])}}
         </div>
         <div class="widget-content padded">
           <div class="table-responsive">
@@ -224,4 +222,7 @@
     <!-- </div> -->
   </div>
 <!-- </div> -->
+
+{{modal('confirmModalReject', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=0'])}}
+{{modal('confirmModalAccept', 'Accept change?', 'Are you sure you want to accept the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=1'])}}
 @endsection
