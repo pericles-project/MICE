@@ -2,11 +2,16 @@ import Functions
 from Functions import Tree
 from rdflib import Graph, util, URIRef
 import json
+import sys
 
 if __name__ == '__main__':
     # ARGUMENTS
-    my_model_path = "DVA\\dva_t_rdfxlm.owl"
-    delta_path = 'deltas\\delta_processor_deletion.n3'
+    if len(sys.argv) > 1:
+        path = sys.argv[1]
+    else:
+        path = ""
+    my_model_path = path + "DVA\\dva_t_rdfxlm.owl"
+    delta_path = path + "deltas\\delta_processor_deletion.n3"
 
     my_graph = Graph()
     my_graph.parse(my_model_path, model=util.guess_format(my_model_path))
