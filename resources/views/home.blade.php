@@ -104,6 +104,9 @@
           <div class="heading">
             <i class="fa fa-bar-chart-o"></i>Dependency graph
           </div>
+          <div id="graph-loading" class="text-center">
+              <i class="fa fa-spinner fa fa-spin"></i> Loading...
+          </div>
           <div id="graph">
             <!-- Show graph -->
           </div>
