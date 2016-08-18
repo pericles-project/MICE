@@ -127,3 +127,8 @@ body.page-header-fixed {
 
 .widget-container.scrollable {
   height: 320px; }
+
+.btn-primary.focus, .btn-primary:focus {
+  background: #007aff;
+  border-color: #007aff;
+  color: #fff; }
