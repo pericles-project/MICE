@@ -38,28 +38,30 @@ class MainController extends BaseController
     {
         $params = $request->session()->get('params');
 
-        foreach($params as $paramName => $paramValue) {
-            if (empty($paramValue)) {
-              return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
+        if (isset($params) == true) {
+            foreach($params as $paramName => $paramValue) {
+                if (empty($paramValue)) {
+                  return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
+                }
             }
+
+            // Store deltas in json file
+            // TODO remove this
+            file_put_contents(base_path() . '\\libraries\\script\\deltas\\' . $params['uuid'] . '.n3', $params['change']);
+
+            // Get trees from script
+            $results = $this->getDependencyTrees($request);
+            $results = json_decode($results[0], true);
+        } else {
+            // if (!$params['uuid']) {
+            //     $case = Input::get("case") ? : 1;
+            //     $request->session()->put('case', $case);
+            // }
+
+            // Get trees from json file
+            $results = file_get_contents('new_video_delta_RESULTS.json');
+            $results = json_decode($results, true);
         }
-
-        // Store deltas in json file
-        // TODO remove this
-        file_put_contents(base_path() . '\\libraries\\script\\deltas\\' . $params['uuid'] . '.n3', $params['change']);
-
-        // if (!$params['uuid']) {
-        //     $case = Input::get("case") ? : 1;
-        //     $request->session()->put('case', $case);
-        // }
-
-        // Get trees from script
-        $results = $this->getDependencyTrees($request);
-        $results = json_decode($results[0], true);
-
-        // Get trees from json file
-        // $results = file_get_contents('data_insertion.json');
-        // $results = json_decode($results, true);
 
         // Merge deletions and insertions into one array
         $results['statements'] = array_merge($results['deletions'], $results['insertions']);
@@ -100,6 +102,8 @@ class MainController extends BaseController
     public function getDependencyTrees(Request $request)
     {
         $params = $request->session()->get('params');
+
+        // TODO pass params to the script
         $scriptPath = addcslashes(base_path() . "\\libraries\\script\\", "\\");
         $command = "C:\Python27\python.exe {$scriptPath}CreateDependencyTreesForDelta.py {$scriptPath}";
         exec($command, $results, $return);
