@@ -124,3 +124,6 @@ body.page-header-fixed {
 
 .no-padding {
   padding: 0 !important; }
+
+.widget-container.scrollable {
+  height: 320px; }
