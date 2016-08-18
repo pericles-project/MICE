@@ -286,7 +286,7 @@
     root = data;
     root.isRoot = true;
     root.fixed = true;
-    root.x = width / 2;
+    root.x = realWidth / 2;
     root.y = 20;
 
     update();
