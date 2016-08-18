@@ -56,7 +56,7 @@
                     @endif
                   </td>
                   <td>{{ $row['statistics']['impacted'] }}</td>
-                  <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph">View graph</a></td>
+                  <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph ladda-button" data-style="slide-right"><span class="ladda-label">View graph</span></a></td>
                 </tr>
               @endforeach
             </table>

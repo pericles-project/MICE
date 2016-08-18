@@ -1,16 +1,23 @@
 (function () {
   $(document).ready(function(){
-      function getGraph(url) {
+      function getGraph(url, loading) {
           $("#graph").html("");
           url = url ? url : "/graph";
+          if (loading) {
+               loading.start();
+          }
           $.get(url, function( data ) {
             createGraph(data);
+            if (loading) {
+                loading.stop();
+            }
           });
       }
 
       $(".updateGraph").click(function(e){
         e.preventDefault();
-        getGraph($(this).attr('href'));
+        var l = Ladda.create(this);
+         getGraph($(this).attr('href'), l);
       });
 
       getGraph();
