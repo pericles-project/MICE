@@ -1,15 +1,17 @@
 (function () {
   $(document).ready(function(){
-      function getGraph(url, loading) {
+      function getGraph(url, btnLoading) {
           $("#graph").html("");
           url = url ? url : "/graph";
-          if (loading) {
-               loading.start();
+          $('#graph-loading').show();
+          if (btnLoading) {
+               btnLoading.start();
           }
           $.get(url, function( data ) {
             createGraph(data);
-            if (loading) {
-                loading.stop();
+            $('#graph-loading').hide();
+            if (btnLoading) {
+                btnLoading.stop();
             }
           });
       }
