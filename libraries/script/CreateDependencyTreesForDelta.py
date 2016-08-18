@@ -87,9 +87,11 @@ if __name__ == '__main__':
         main_dictionary['insertions'] = insertion_dictionary_list
 
 
-    json_string = json.dumps(main_dictionary, indent=4)
+    #json_string = json.dumps(main_dictionary, indent=4)
+    json_string = json.dumps(main_dictionary)
+    print json_string
 
     # Write to file
-    f = open(delta_path[:-3] + '_RESULTS.json', 'w')
-    f.write(json_string)
-    f.close()
+    #f = open(delta_path[:-3] + '_RESULTS.json', 'w')
+    #f.write(json_string)
+    #f.close()
