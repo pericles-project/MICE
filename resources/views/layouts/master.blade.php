@@ -39,6 +39,5 @@
        ga('send', 'pageview');
     </script>
     <script src="{{ elixir("js/all.js") }}"></script>
-    <script src="js/graph.js"></script>
 </body>
 </html>

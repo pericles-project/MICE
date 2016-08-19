@@ -35,11 +35,11 @@ elixir(function(mix) {
       .scripts([
         'jquery.js',
         'bootstrap.js',
-        'spin.min.js',
-        'ladda.min.js',
         'd3.js',
         'd3-tip.js',
-        // 'graph.js'
+        'spin.min.js',
+        'ladda.min.js',
+        'graph.js'
       ]);
 
     // Version
