@@ -1,16 +1,25 @@
 (function () {
   $(document).ready(function(){
-      function getGraph(url) {
+      function getGraph(url, btnLoading) {
           $("#graph").html("");
           url = url ? url : "/graph";
+          $('#graph-loading').show();
+          if (btnLoading) {
+               btnLoading.start();
+          }
           $.get(url, function( data ) {
             createGraph(data);
+            $('#graph-loading').hide();
+            if (btnLoading) {
+                btnLoading.stop();
+            }
           });
       }
 
       $(".updateGraph").click(function(e){
         e.preventDefault();
-        getGraph($(this).attr('href'));
+        var l = Ladda.create(this);
+         getGraph($(this).attr('href'), l);
       });
 
       getGraph();
@@ -277,7 +286,7 @@
     root = data;
     root.isRoot = true;
     root.fixed = true;
-    root.x = width / 2;
+    root.x = realWidth / 2;
     root.y = 20;
 
     update();

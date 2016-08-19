@@ -132,3 +132,10 @@ body.page-header-fixed {
   background: #007aff;
   border-color: #007aff;
   color: #fff; }
+
+#graph-loading {
+  font-size: 16px;
+  padding: 50px; }
+
+#graph-loading i {
+  margin-right: 20px; }
