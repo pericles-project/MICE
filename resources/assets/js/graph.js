@@ -26,7 +26,8 @@
   });
 
   function createGraph(data) {
-    var width = 900,
+    var realWidth = $("#graph").width(),
+        width = realWidth,
         height = 800,
         root,
         nodes,
@@ -46,8 +47,7 @@
     var svg = d3.select("#graph").append("svg")
        .attr("width", '100%')
        .attr("height", '100%');
-   var realWidth = $("svg").parent().width();
-   svg.attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
+    svg.attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
        .attr('preserveAspectRatio','xMinYMin')
        .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
 
