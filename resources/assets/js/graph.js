@@ -147,6 +147,7 @@
           .attr({'class':'linklabel',
                  'dx':60,
                  'dy':0,
+                 'text-anchor': 'middle',
                  'font-size':10,
                  'fill':function(d){return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";}})
           .append('textPath')
