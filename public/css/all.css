@@ -3775,7 +3775,7 @@ body.page-header-fixed {
   stroke-width: 1.5px; }
 
 .node text {
-  font: 13px sans-serif; }
+  font-size: 13px; }
 
 .node .diamond {
   font-size: 10px; }

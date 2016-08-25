@@ -178,7 +178,7 @@
           .style("fill", color);
       nodeEnter.append("text")
           .attr("class", function(d) { return d.type == 'Dependency' ? "diamond" : "circle"; })
-          .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1em"; })
+          .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1.2em"; })
           .attr("dy", ".35em")
           .text(function(d) { return d.name; });
     }
