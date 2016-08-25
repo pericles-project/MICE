@@ -145,13 +145,13 @@
       var linklabel = linkEnter.append('text')
           .style("pointer-events", "none")
           .attr({'class':'linklabel',
-                 'dx':60,
-                 'dy':0,
                  'text-anchor': 'middle',
                  'font-size':10,
                  'fill':function(d){return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";}})
           .append('textPath')
-            .attr('xlink:href',function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id})
+            // .attr('xlink:href',function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id})
+            .attr({'startOffset':'50%',
+                'xlink:href': function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id}})
             .style("pointer-events", "none")
             .text(function(d,i){return d.target.link.label;});
 
