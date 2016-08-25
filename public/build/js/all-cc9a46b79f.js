@@ -377,8 +377,6 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
 
       $(".updateGraph").click(function(e){
         e.preventDefault();
-        $('.selected').removeClass('selected');
-        $(this).closest('tr').addClass('selected');
         var l = Ladda.create(this);
          getGraph($(this).attr('href'), l);
       });
@@ -399,9 +397,11 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
 
     var force = d3.layout.force()
         .linkDistance(120)
-        .charge([-500])
+        .charge([-1500])
         .theta(0.1)
         .gravity(0.05)
+        // .friction(0.2)
+        // .linkStrength(5)
         .size([width, height])
         .on("tick", tick);
 
@@ -506,13 +506,13 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
       var linklabel = linkEnter.append('text')
           .style("pointer-events", "none")
           .attr({'class':'linklabel',
+                 'dx':60,
+                 'dy':0,
                  'text-anchor': 'middle',
                  'font-size':10,
                  'fill':function(d){return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";}})
           .append('textPath')
-            // .attr('xlink:href',function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id})
-            .attr({'startOffset':'50%',
-                'xlink:href': function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id}})
+            .attr('xlink:href',function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id})
             .style("pointer-events", "none")
             .text(function(d,i){return d.target.link.label;});
 
@@ -539,7 +539,7 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
           .style("fill", color);
       nodeEnter.append("text")
           .attr("class", function(d) { return d.type == 'Dependency' ? "diamond" : "circle"; })
-          .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1.2em"; })
+          .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1em"; })
           .attr("dy", ".35em")
           .text(function(d) { return d.name; });
     }

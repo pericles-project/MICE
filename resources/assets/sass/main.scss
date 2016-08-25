@@ -81,7 +81,7 @@ body.page-header-fixed {
 }
 
 .node text {
-  font: 13px sans-serif;
+  font-size: 13px;
 }
 
 .node .diamond {
@@ -169,6 +169,10 @@ body.page-header-fixed {
     font-size: 14px;
 }
 
+.table tr.selected {
+    background-color: #f5f5f5;
+}
+
 .no-padding {
     padding: 0 !important;
 }
@@ -190,4 +194,8 @@ body.page-header-fixed {
 
 #graph-loading i {
     margin-right: 20px;
+}
+
+#footer {
+    text-align: center;
 }
