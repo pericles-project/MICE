@@ -26,7 +26,7 @@
         </div>
         <div class="widget-content padded">
           <div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover">
               <tr>
                 <th>Action</th>
                 <th>Subject</th>
