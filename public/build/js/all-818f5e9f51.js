@@ -377,6 +377,8 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
 
       $(".updateGraph").click(function(e){
         e.preventDefault();
+        $('.selected').removeClass('selected');
+        $(this).closest('tr').addClass('selected');
         var l = Ladda.create(this);
          getGraph($(this).attr('href'), l);
       });

@@ -18,6 +18,8 @@
 
       $(".updateGraph").click(function(e){
         e.preventDefault();
+        $('.selected').removeClass('selected');
+        $(this).closest('tr').addClass('selected');
         var l = Ladda.create(this);
          getGraph($(this).attr('href'), l);
       });
