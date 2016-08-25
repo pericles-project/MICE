@@ -35,4 +35,4 @@ Use `gulp` command to run automatic tasks
  <a href="http://ec.europa.eu/research/fp7"><img src="https://github.com/pericles-project/MICE/blob/master/public/images/LogoEU.png" width="110"/></a>
  <a href="http://www.pericles-project.eu/"> <img src="https://github.com/pericles-project/MICE/blob/master/public/images/PERICLES_logo_black.jpg" width="200" align="right"/> </a>
 
-<a href="http://www.dotsoft.gr/"><img src="http://www.dotsoft.gr/resources/images/logo.png" width="300"/></a>
+<a href="http://www.dotsoft.gr/"><img src="http://www.dotsoft.gr/resources/images/logo.png" width="250"/></a>
