@@ -103,6 +103,10 @@
     <div class="col-md-8">
           <div class="heading">
             <i class="fa fa-bar-chart-o"></i>Dependency graph
+            <span class="pull-right">
+                <a class="btn btn-primary" href="#" id="expandAllBtn"><i class="fa fa-plus-square"></i> Expand all</a>
+                <a class="btn btn-primary"href="#" id="collapseAllBtn"><i class="fa fa-minus-square"></i>Collapse all</a>
+            </span>
           </div>
           <div id="graph-loading" class="text-center">
               <i class="fa fa-spinner fa fa-spin"></i> Loading...

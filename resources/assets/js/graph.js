@@ -269,7 +269,45 @@ function Graph() {
         d.children = d._children;
         d._children = null;
       }
-      return null;
+    },
+
+    expand: function(d){
+        var self = this;
+        var children = (d.children)?d.children:d._children;
+        if (d._children) {
+            d.children = d._children;
+            d._children = null;
+        }
+        // TODO fix as in collapse?
+        if(children)
+          children.forEach(function(c){
+            self.expand(c);
+          });
+    },
+
+    expandAll: function(){
+        this.expand(root);
+        this.update();
+    },
+
+    collapse: function(d) {
+      var self = this;
+      if (d.children) {
+        d._children = d.children;
+        d._children.forEach(function(c){
+          self.collapse(c);
+        });
+        d.children = null;
+      }
+    },
+
+    collapseAll: function(){
+        var self = this;
+        root.children.forEach(function(c){
+          self.collapse(c);
+        });
+        this.collapse(root);
+        this.update();
     },
 
     // Toggle children on click.

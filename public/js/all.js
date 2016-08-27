@@ -357,128 +357,142 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
 
 (function(t,e){"object"==typeof exports?module.exports=e():"function"==typeof define&&define.amd?define(["spin"],e):t.Ladda=e(t.Spinner)})(this,function(t){"use strict";function e(t){if(t===void 0)return console.warn("Ladda button target must be defined."),void 0;t.querySelector(".ladda-label")||(t.innerHTML='<span class="ladda-label">'+t.innerHTML+"</span>");var e=o(t),n=document.createElement("span");n.className="ladda-spinner",t.appendChild(n);var r,a={start:function(){return t.setAttribute("disabled",""),t.setAttribute("data-loading",""),clearTimeout(r),e.spin(n),this.setProgress(0),this},startAfter:function(t){return clearTimeout(r),r=setTimeout(function(){a.start()},t),this},stop:function(){return t.removeAttribute("disabled"),t.removeAttribute("data-loading"),clearTimeout(r),r=setTimeout(function(){e.stop()},1e3),this},toggle:function(){return this.isLoading()?this.stop():this.start(),this},setProgress:function(e){e=Math.max(Math.min(e,1),0);var n=t.querySelector(".ladda-progress");0===e&&n&&n.parentNode?n.parentNode.removeChild(n):(n||(n=document.createElement("div"),n.className="ladda-progress",t.appendChild(n)),n.style.width=(e||0)*t.offsetWidth+"px")},enable:function(){return this.stop(),this},disable:function(){return this.stop(),t.setAttribute("disabled",""),this},isLoading:function(){return t.hasAttribute("data-loading")}};return u.push(a),a}function n(t,e){for(;t.parentNode&&t.tagName!==e;)t=t.parentNode;return t}function r(t){for(var e=["input","textarea"],n=[],r=0;e.length>r;r++)for(var a=t.getElementsByTagName(e[r]),i=0;a.length>i;i++)a[i].hasAttribute("required")&&n.push(a[i]);return n}function a(t,a){a=a||{};var i=[];"string"==typeof t?i=s(document.querySelectorAll(t)):"object"==typeof t&&"string"==typeof t.nodeName&&(i=[t]);for(var o=0,u=i.length;u>o;o++)(function(){var t=i[o];if("function"==typeof t.addEventListener){var s=e(t),u=-1;t.addEventListener("click",function(){for(var e=!0,i=n(t,"FORM"),o=r(i),d=0;o.length>d;d++)""===o[d].value.replace(/^\s+|\s+$/g,"")&&(e=!1);e&&(s.startAfter(1),"number"==typeof a.timeout&&(clearTimeout(u),u=setTimeout(s.stop,a.timeout)),"function"==typeof a.callback&&a.callback.apply(null,[s]))},!1)}})()}function i(){for(var t=0,e=u.length;e>t;t++)u[t].stop()}function o(e){var n,r=e.offsetHeight;r>32&&(r*=.8),e.hasAttribute("data-spinner-size")&&(r=parseInt(e.getAttribute("data-spinner-size"),10)),e.hasAttribute("data-spinner-color")&&(n=e.getAttribute("data-spinner-color"));var a=12,i=.2*r,o=.6*i,s=7>i?2:3;return new t({color:n||"#fff",lines:a,radius:i,length:o,width:s,zIndex:"auto",top:"auto",left:"auto",className:""})}function s(t){for(var e=[],n=0;t.length>n;n++)e.push(t[n]);return e}var u=[];return{bind:a,create:e,stopAll:i}});
 
-(function () {
-  $(document).ready(function(){
-      function getGraph(url, btnLoading) {
-          $("#graph").html("");
-          url = url ? url : "/graph";
-          $('#graph-loading').show();
-          if (btnLoading) {
-               btnLoading.start();
-          }
-          $.get(url, function( data ) {
-            createGraph(data);
-            $('#graph-loading').hide();
-            if (btnLoading) {
-                btnLoading.stop();
+/*
+* Creates dynamic graph using D3 library (https://d3js.org/)
+*
+* Uses D3 force layout to render the graph
+*/
+
+function Graph() {
+  var realWidth = $("#graph").width(),
+      width = realWidth,
+      height = 800,
+      root,
+      nodes,
+      links,
+      force,
+      svg,
+      tip,
+      total_resources = [],
+      impacted_resources = [],
+      not_impacted_resources = [];
+
+  return {
+    createGraph: function(data) {
+      force = d3.layout.force()
+          .linkDistance(120)
+          .charge([-500])
+          .theta(0.1)
+          .gravity(0.05)
+          .size([width, height])
+          .on("tick", this.tick);
+
+      svg = d3.select("#graph").append("svg")
+         .attr("width", '100%')
+         .attr("height", '100%');
+      svg.attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
+         .attr('preserveAspectRatio','xMinYMin')
+         .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
+
+      tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+          var allowedProperties = ["name", "type", "dependencyType", "intention", "value", "change", "impacted", "reason"];
+          var mapProperties = ["Name", "Type", "Dependency type", "Intention", "Value", "Change", "Status", "Reason"];
+          var body = '', value;
+          for(var propt in d){
+            var index = allowedProperties.indexOf(propt);
+            if (index >= 0) {
+              if (propt == 'dependencyType') {
+                value = d[propt] + " dependency (" + (d[propt] == 'Conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent" + ")";
+              } else if (propt == 'impacted') {
+                value = d[propt] ? "Impacted" : "Not impacted";
+              } else {
+                value = d[propt];
+              }
+
+              body += '<p>' + mapProperties[index] + ': ' + value + '</p>'
             }
-          });
-      }
-
-      $(".updateGraph").click(function(e){
-        e.preventDefault();
-        $('.selected').removeClass('selected');
-        $(this).closest('tr').addClass('selected');
-        var l = Ladda.create(this);
-         getGraph($(this).attr('href'), l);
-      });
-
-      getGraph();
-  });
-
-  function createGraph(data) {
-    var realWidth = $("#graph").width(),
-        width = realWidth,
-        height = 800,
-        root,
-        nodes,
-        links,
-        total_resources = [],
-        impacted_resources = [],
-        not_impacted_resources = [];
-
-    var force = d3.layout.force()
-        .linkDistance(120)
-        .charge([-500])
-        .theta(0.1)
-        .gravity(0.05)
-        .size([width, height])
-        .on("tick", tick);
-
-    var svg = d3.select("#graph").append("svg")
-       .attr("width", '100%')
-       .attr("height", '100%');
-    svg.attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
-       .attr('preserveAspectRatio','xMinYMin')
-       .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
-
-
-    var tip = d3.tip()
-      .attr('class', 'd3-tip')
-      .offset([-10, 0])
-      .html(function(d) {
-        var allowedProperties = ["name", "type", "dependencyType", "intention", "value", "change", "impacted", "reason"];
-        var mapProperties = ["Name", "Type", "Dependency type", "Intention", "Value", "Change", "Status", "Reason"];
-        var body = '', value;
-        for(var propt in d){
-          var index = allowedProperties.indexOf(propt);
-          if (index >= 0) {
-            if (propt == 'dependencyType') {
-              value = d[propt] + " dependency (" + (d[propt] == 'Conjunctive' ? "ALL" : "ANY") + " of the 'from' requirements must be consistent" + ")";
-            } else if (propt == 'impacted') {
-              value = d[propt] ? "Impacted" : "Not impacted";
-            } else {
-              value = d[propt];
-            }
-
-            body += '<p>' + mapProperties[index] + ': ' + value + '</p>'
           }
+          return body;
+        });
+      svg.call(tip);
+
+      var link = svg.selectAll(".link"),
+          node = svg.selectAll(".node"),
+          linkline = svg.selectAll(".linkline"),
+          linkpath = svg.selectAll(".linkpath"),
+          linklabel = svg.selectAll(".linklabel");
+
+      // build the arrow.
+      var defs = svg.append('defs');
+      defs.append('marker')
+          .attr({'id':'arrowhead',
+                 'viewBox':'-0 -5 10 10',
+                 'refX':20,
+                 'refY':0,
+                 //'markerUnits':'strokeWidth',
+                 'orient':'auto',
+                 'markerWidth':10,
+                 'markerHeight':10,
+                 'xoverflow':'visible'})
+          .append('svg:path')
+              .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+              .attr('fill', '#ccc')
+              .attr('stroke','#ccc');
+
+      defs.append('marker')
+          .attr({'id':'arrowhead-dark',
+                 'viewBox':'-0 -5 10 10',
+                 'refX':20,
+                 'refY':0,
+                 //'markerUnits':'strokeWidth',
+                 'orient':'auto',
+                 'markerWidth':10,
+                 'markerHeight':10,
+                 'xoverflow':'visible'})
+          .append('svg:path')
+              .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+              .attr('fill', '#000')
+              .attr('stroke','#000');
+
+      // Initialize
+      root = data;
+      root.isRoot = true;
+      root.fixed = true;
+      root.x = realWidth / 2;
+      root.y = 20;
+
+      this.update();
+
+      // Find counts of total, impacted, not impacted nodes.
+      // nodes.forEach(function(d){
+      //     if (d.type == 'Resource') {
+      //         total_resources.push(d);
+      //         if (d.impacted == true) {
+      //             impacted_resources.push(d);
+      //         } else if (d.impacted == false) {
+      //             not_impacted_resources.push(d);
+      //         }
+      //     }
+      // });
+
+      // Make all nodes collapsed by default. This is needed due to possible bug in d3 force layout.
+      nodes.forEach(function(d){
+        if (d.children) {
+          d._children = d.children;
+          d.children = null;
         }
-        return body;
       });
-    svg.call(tip);
+      this.click(root);
+      // update();
+    },
 
-    var link = svg.selectAll(".link"),
-        node = svg.selectAll(".node"),
-        linkline = svg.selectAll(".linkline"),
-        linkpath = svg.selectAll(".linkpath"),
-        linklabel = svg.selectAll(".linklabel");
-
-    // build the arrow.
-    var defs = svg.append('defs');
-    defs.append('marker')
-        .attr({'id':'arrowhead',
-               'viewBox':'-0 -5 10 10',
-               'refX':20,
-               'refY':0,
-               //'markerUnits':'strokeWidth',
-               'orient':'auto',
-               'markerWidth':10,
-               'markerHeight':10,
-               'xoverflow':'visible'})
-        .append('svg:path')
-            .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
-            .attr('fill', '#ccc')
-            .attr('stroke','#ccc');
-
-    defs.append('marker')
-        .attr({'id':'arrowhead-dark',
-               'viewBox':'-0 -5 10 10',
-               'refX':20,
-               'refY':0,
-               //'markerUnits':'strokeWidth',
-               'orient':'auto',
-               'markerWidth':10,
-               'markerHeight':10,
-               'xoverflow':'visible'})
-        .append('svg:path')
-            .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
-            .attr('fill', '#000')
-            .attr('stroke','#000');
-
-    function update() {
-      nodes = flatten(root);
+    update: function() {
+      nodes = this.flatten(root);
       links = d3.layout.tree().links(nodes);
+      var self = this;
 
       // Restart the force layout.
       force
@@ -486,6 +500,7 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
           .links(links)
           .start();
 
+      link = svg.selectAll(".link");
       link = link.data(links, function(d) {return d.source.id + "_" + d.target.id; });
       link.exit().remove();
       var linkEnter = link.enter().insert("g")
@@ -493,7 +508,7 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
       var linkline = linkEnter.append("line")
         .attr('marker-end', function(d) {return d.target.children || d.target._children || d.target.isTerminal ? "url(#arrowhead-dark)" : 'url(#arrowhead)';})
         .attr("class", "linkline")
-        .style("stroke", function(d) {console.info(d); return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";})
+        .style("stroke", function(d) {return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";})
         // .style("stroke-dasharray", function(d) {return d.target.children || d.target.isTerminal ? ("0, 0") : ("3", "3");})
         .style("pointer-events", "none");
 
@@ -517,13 +532,14 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
             .text(function(d,i){return d.target.link.label;});
 
       // Update nodes.
+      node = svg.selectAll(".node");
       node = node.data(nodes, function(d) {return d.id; });
       node.exit().remove();
 
       var nodeEnter = node.enter().append("g")
           .attr("class", function(d){return "node" + (d.children || d._children ? "" : " terminal") + (d.type == "Resource" ? " resource" : " dependency")})
           .on("click", function(d){
-              click(d);
+              self.click(d);
               tip.hide(d);
           })
           .on('mouseover', tip.show)
@@ -536,15 +552,15 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
             .style("stroke", function(d) {return d.children || d._children ? "none" : "#444";})
             .style("stroke-width", function(d) {return d.children || d._children ? "none" : "2px";})
           // .attr("r", function(d) { return d.type == 'Dependency' ? 4.5 : 10; })
-          .style("fill", color);
+          .style("fill", this.color);
       nodeEnter.append("text")
           .attr("class", function(d) { return d.type == 'Dependency' ? "diamond" : "circle"; })
           .attr("dx", function(d) { return d.type == 'Dependency' ? "-5em" : "1.2em"; })
           .attr("dy", ".35em")
           .text(function(d) { return d.name; });
-    }
+    },
 
-    function tick() {
+    tick: function() {
       // Custom function that swaps the link's source and target. This is needed in order to change the direction of the arrows for nodes of type dependency.
       function getPositionFrom(d, type) {
         var posFrom;
@@ -581,9 +597,9 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
 
       //if (d.isRoot) {d.x=480; d.y=50;};
       node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-    }
+    },
 
-    function color(d) {
+    color: function(d) {
       // return d._children ? "#3182bd" // collapsed package
       //     : d.children ? "#c6dbef" // expanded package
       //     : "#fd8d3c"; // leaf node
@@ -602,25 +618,9 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
         }
       }
       return color;
-    }
+    },
 
-    // Toggle children on click.
-    function click(d) {
-      if (d3.event && d3.event.defaultPrevented) return; // ignore drag
-      if (d.type != 'Dependency') {
-        toggleChildren(d);
-      }
-      if (d.children) {
-        d.children.forEach(function(c){
-          if (c.type == 'Dependency' && !c.children) {
-            toggleChildren(c);
-          }
-        });
-      }
-      update();
-    }
-
-    function toggleChildren(d) {
+    toggleChildren: function(d) {
       if (d.children) {
         d._children = d.children;
         d.children = null;
@@ -628,10 +628,66 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
         d.children = d._children;
         d._children = null;
       }
-    }
+    },
+
+    expand: function(d){
+        var self = this;
+        var children = (d.children)?d.children:d._children;
+        if (d._children) {
+            d.children = d._children;
+            d._children = null;
+        }
+        // TODO fix as in collapse?
+        if(children)
+          children.forEach(function(c){
+            self.expand(c);
+          });
+    },
+
+    expandAll: function(){
+        this.expand(root);
+        this.update();
+    },
+
+    collapse: function(d) {
+      var self = this;
+      if (d.children) {
+        d._children = d.children;
+        d._children.forEach(function(c){
+          self.collapse(c);
+        });
+        d.children = null;
+      }
+    },
+
+    collapseAll: function(){
+        var self = this;
+        root.children.forEach(function(c){
+          self.collapse(c);
+        });
+        this.collapse(root);
+        this.update();
+    },
+
+    // Toggle children on click.
+    click: function(d) {
+      var self = this;
+      if (d3.event && d3.event.defaultPrevented) return; // ignore drag
+      if (d.type != 'Dependency') {
+        this.toggleChildren(d);
+      }
+      if (d.children) {
+        d.children.forEach(function(c){
+          if (c.type == 'Dependency' && !c.children) {
+            self.toggleChildren(c);
+          }
+        });
+      }
+      this.update();
+    },
 
     // Returns a list of all nodes under the root.
-    function flatten(root) {
+    flatten: function(root) {
       var nodes = [], i = 0;
 
       function recurse(node) {
@@ -643,39 +699,45 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
       recurse(root);
       return nodes;
     }
-
-    // Initialize
-    root = data;
-    root.isRoot = true;
-    root.fixed = true;
-    root.x = realWidth / 2;
-    root.y = 20;
-
-    update();
-
-    // Find counts of total, impacted, not impacted nodes.
-    nodes.forEach(function(d){
-        if (d.type == 'Resource') {
-            total_resources.push(d);
-            if (d.impacted == true) {
-                impacted_resources.push(d);
-            } else if (d.impacted == false) {
-                not_impacted_resources.push(d);
-            }
-        }
-    });
-    $('#totalResourcesCount').html(total_resources.length);
-    $('#impactedResourcesCount').html(impacted_resources.length);
-    $('#notImpactedResourcesCount').html(not_impacted_resources.length);
-
-    // Make all nodes collapsed by default. This is needed due to possible bug in d3 force layout.
-    nodes.forEach(function(d){
-      if (d.children) {
-        d._children = d.children;
-        d.children = null;
-      }
-    });
-    click(root);
-    // update();
   }
-})();
+}
+
+$(document).ready(function(){
+    var graph = Graph ();
+
+    function getGraph(url, btnLoading) {
+      $("#graph").html("");
+      url = url ? url : "/graph";
+      $('#graph-loading').show();
+      if (btnLoading) {
+           btnLoading.start();
+      }
+      $.get(url, function( data ) {
+        graph.createGraph(data);
+        $('#graph-loading').hide();
+        if (btnLoading) {
+            btnLoading.stop();
+        }
+      });
+    }
+
+    $(".updateGraph").click(function(e){
+      e.preventDefault();
+      $('.selected').removeClass('selected');
+      $(this).closest('tr').addClass('selected');
+      var l = Ladda.create(this);
+       getGraph($(this).attr('href'), l);
+    });
+
+    $('#expandAllBtn').click(function(e){
+      e.preventDefault();
+      graph.expandAll();
+    });
+
+    $('#collapseAllBtn').click(function(e){
+      e.preventDefault();
+      graph.collapseAll();
+    });
+
+    getGraph();
+});

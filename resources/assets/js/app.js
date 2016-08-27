@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    var graph = Graph ();
+
     function getGraph(url, btnLoading) {
       $("#graph").html("");
       url = url ? url : "/graph";
@@ -7,7 +9,6 @@ $(document).ready(function(){
            btnLoading.start();
       }
       $.get(url, function( data ) {
-        var graph = Graph ();
         graph.createGraph(data);
         $('#graph-loading').hide();
         if (btnLoading) {
@@ -22,6 +23,16 @@ $(document).ready(function(){
       $(this).closest('tr').addClass('selected');
       var l = Ladda.create(this);
        getGraph($(this).attr('href'), l);
+    });
+
+    $('#expandAllBtn').click(function(e){
+      e.preventDefault();
+      graph.expandAll();
+    });
+
+    $('#collapseAllBtn').click(function(e){
+      e.preventDefault();
+      graph.collapseAll();
     });
 
     getGraph();
