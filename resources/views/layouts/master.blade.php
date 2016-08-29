@@ -15,11 +15,9 @@
         <div class="container-fluid top-bar">
           <!-- <div id="appHeading"> -->
           <div class="navbar-brand">Model Impact Change Explorer</div>
-            <!-- <ul class="nav navbar-nav pull-right">
-              <li><a ui-sref="app" class="pull-right">Case 1</a></li>
-              <li><a ui-sref="case2" class="pull-right">Case 2</a></li>
-              <li><a ui-sref="case3" class="pull-right">Case 3</a></li>
-           </ul> -->
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="https://github.com/pericles-project/MICE/wiki" target="_blank" class="pull-right">Quick Start Guide</a></li>
+           </ul>
           <!-- </div> -->
         </div>
       </div>

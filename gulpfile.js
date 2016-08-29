@@ -39,7 +39,8 @@ elixir(function(mix) {
         'd3-tip.js',
         'spin.min.js',
         'ladda.min.js',
-        'graph.js'
+        'graph.js',
+        'app.js'
       ]);
 
     // Version
