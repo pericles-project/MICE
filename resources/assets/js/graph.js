@@ -21,7 +21,7 @@ function Graph() {
   return {
     createGraph: function(data) {
       force = d3.layout.force()
-          .linkDistance(120)
+          .linkDistance(100)
           .charge([-500])
           .theta(0.1)
           .gravity(0.05)
