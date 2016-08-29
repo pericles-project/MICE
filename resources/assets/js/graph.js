@@ -30,8 +30,8 @@ function Graph() {
 
       svg = d3.select("#graph").append("svg")
          .attr("width", '100%')
-         .attr("height", '100%');
-      svg.attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
+         .attr("height", '100%')
+         .attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
          .attr('preserveAspectRatio','xMinYMin')
          .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
 
