@@ -36,11 +36,13 @@ class MainController extends BaseController
      */
     public function index(Request $request)
     {
+        $allParams = array('uuid', 'repository_name', 'change', 'callback_url');
         $params = $request->session()->get('params');
+        $results = array();
 
         if (isset($params) == true) {
-            foreach($params as $paramName => $paramValue) {
-                if (empty($paramValue)) {
+            foreach($allParams as $paramName) {
+                if (array_key_exists($paramName, $params) == true && empty($params[$paramName]) == true) {
                   return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
                 }
             }
@@ -53,45 +55,47 @@ class MainController extends BaseController
             $results = $this->getDependencyTrees($request);
             $results = json_decode($results[0], true);
         } else {
-            // if (!$params['uuid']) {
-            //     $case = Input::get("case") ? : 1;
-            //     $request->session()->put('case', $case);
-            // }
+            $case = Input::get("case");
 
-            // Get trees from json file
-            $results = file_get_contents('new_video_delta_RESULTS.json');
-            $results = json_decode($results, true);
-        }
-
-        // Merge deletions and insertions into one array
-        $results['statements'] = array_merge($results['deletions'], $results['insertions']);
-        unset($results['deletions']);
-        unset($results['insertions']);
-
-        foreach($results['statements'] as $key => &$row) {
-            $uris = array('subject', 'predicate', 'object');
-            // TODO remove this when it's added to the json
-            if (array_key_exists('subject', $row) == false) {
-                $row['subject'] = $results['subject'];
-            }
-            foreach($uris as $uri) {
-              if (array_key_exists($uri, $row)) {
-                $row[$uri] = getResourceNameFromURI($row[$uri]);
-              }
-            }
-            if (empty($row['name']) == true) {
-                $row['name'] = $row['subject'];
+            if (isset($case) == true) {
+                // Get trees from json file
+                $results = file_get_contents('data' . $case . '.json');
+                // $results = file_get_contents('data_deletion.json');
+                $results = json_decode($results, true);
             }
         }
 
-        // var_dump($results);
-        $results['statements'] = $this->calculateStatistics($results['statements']);
-        $results = $this->calculateTotalStatistics($results);
+        if (empty($results) == false) {
+            // Merge deletions and insertions into one array
+            $results['statements'] = array_merge($results['deletions'], $results['insertions']);
+            unset($results['deletions']);
+            unset($results['insertions']);
 
-        // var_dump($results);
-        $request->session()->put('results', $results);
+            foreach($results['statements'] as $key => &$row) {
+                $uris = array('subject', 'predicate', 'object');
+                // TODO remove this when it's added to the json
+                if (array_key_exists('subject', $row) == false) {
+                    $row['subject'] = $results['subject'];
+                }
+                foreach($uris as $uri) {
+                  if (array_key_exists($uri, $row)) {
+                    $row[$uri] = getResourceNameFromURI($row[$uri]);
+                  }
+                }
+                if (empty($row['name']) == true) {
+                    $row['name'] = $row['subject'];
+                }
+            }
 
-        return view('home', ['results' => $results, 'params' => $params]);
+            // var_dump($results);
+            $results['statements'] = $this->calculateStatistics($results['statements']);
+            $results = $this->calculateTotalStatistics($results);
+
+            $request->session()->put('results', $results);
+            return view('home', ['results' => $results, 'params' => $params]);
+        } else {
+            return view('intro');
+        }
     }
 
     /**
