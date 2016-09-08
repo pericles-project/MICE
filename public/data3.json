@@ -1,132 +1,140 @@
 {
-  "name": "1 GHz Processor",
-  "type": "Resource",
-  "change": "deletion: 1 GB Processor",
-  "children": [
-    {
-      "name": "Hardware Dependency 2",
-      "type": "Dependency",
-      "dependencyType": "Conjunctive",
-      "intention": "Functional",
-      "link": {
-        "label": "from",
-        "direction": "parent"
-      },
-      "children": [
+    "action": "deletion",
+    "deletions": [
         {
-          "name": "1 GB RAM",
-          "type": "Resource",
-          "impacted": false,
-          "link": {
-            "label": "from",
-            "direction": "self"
-          }
-        },
-        {
-          "name": "Windows 7",
-          "type": "Resource",
-          "impacted": true,
-          "reason": "Hardware Dependency 2 requires all 'from' requirements to be consistent.",
-          "link": {
-            "label": "to",
-            "direction": "self"
-          },
-          "children": [
-            {
-              "name": "Software Dependency 3",
-              "type": "Dependency",
-              "dependencyType": "Conjunctive",
-              "intention": "Compatibility",
-              "link": {
-                "label": "from",
-                "direction": "parent"
-              },
-              "children": [
+            "predicate": "http://xrce.xerox.com/LRM#from",
+            "name": "1 GHz processor",
+            "impacted": true,
+            "object": "https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#processor_1",
+            "action": "deletion",
+            "type": "Resource",
+            "children": [
                 {
-                  "name": "Windows 8",
-                  "type": "Resource",
-                  "impacted": false,
-                  "link": {
-                    "label": "from",
-                    "direction": "self"
-                  }
-                },
-                {
-                  "name": "Windows 10",
-                  "type": "Resource",
-                  "impacted": false,
-                  "link": {
-                    "label": "from",
-                    "direction": "self"
-                  }
-                },
-                {
-                  "name": "Windows Media Player 12",
-                  "type": "Resource",
-                  "impacted": true,
-                  "link": {
-                    "label": "to",
-                    "direction": "self"
-                  },
-                  "children": [
-                    {
-                      "name": "Software Dependency 1",
-                      "type": "Dependency",
-                      "dependencyType": "Disjunctive",
-                      "intention": "Compatibility",
-                      "link": {
-                        "label": "from",
-                        "direction": "parent"
-                      },
-                      "children": [
+                    "name": "Hardware Dependency 2",
+                    "dependencyType": "Conjunctive",
+                    "intention": "functional intention",
+                    "link": {
+                        "direction": "parent",
+                        "label": "from"
+                    },
+                    "type": "Dependency",
+                    "children": [
                         {
-                          "name": "QuickTime Player",
-                          "type": "Resource",
-                          "impacted": false,
-                          "link": {
-                            "label": "from",
-                            "direction": "self"
-                          }
+                            "link": {
+                                "direction": "self",
+                                "label": "to"
+                            },
+                            "children": [
+                                {
+                                    "name": "Software Dependency 3",
+                                    "dependencyType": "Conjunctive",
+                                    "intention": "compatibility intention",
+                                    "link": {
+                                        "direction": "parent",
+                                        "label": "from"
+                                    },
+                                    "type": "Dependency",
+                                    "children": [
+                                        {
+                                            "link": {
+                                                "direction": "self",
+                                                "label": "to"
+                                            },
+                                            "children": [
+                                                {
+                                                    "name": "Software Dependency 1",
+                                                    "dependencyType": "Disjunctive",
+                                                    "intention": "compatibility intention",
+                                                    "link": {
+                                                        "direction": "parent",
+                                                        "label": "from"
+                                                    },
+                                                    "type": "Dependency",
+                                                    "children": [
+                                                        {
+                                                            "link": {
+                                                                "direction": "self",
+                                                                "label": "to"
+                                                            },
+                                                            "children": [
+                                                                {
+                                                                    "link": {
+                                                                        "direction": "parent",
+                                                                        "label": "hasContainer"
+                                                                    },
+                                                                    "type": "Resource",
+                                                                    "name": "Digital Video 1",
+                                                                    "impacted": false
+                                                                }
+                                                            ],
+                                                            "type": "Resource",
+                                                            "name": "AVI",
+                                                            "impacted": false
+                                                        },
+                                                        {
+                                                            "link": {
+                                                                "direction": "self",
+                                                                "label": "from"
+                                                            },
+                                                            "type": "Resource",
+                                                            "name": "VLC Media Player",
+                                                            "impacted": false
+                                                        },
+                                                        {
+                                                            "link": {
+                                                                "direction": "self",
+                                                                "label": "from"
+                                                            },
+                                                            "type": "Resource",
+                                                            "name": "QuickTime Player",
+                                                            "impacted": false
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "type": "Resource",
+                                            "name": "Windows Media Player 12",
+                                            "impacted": true
+                                        },
+                                        {
+                                            "link": {
+                                                "direction": "self",
+                                                "label": "from"
+                                            },
+                                            "type": "Resource",
+                                            "name": "Windows 10",
+                                            "impacted": false
+                                        },
+                                        {
+                                            "link": {
+                                                "direction": "self",
+                                                "label": "from"
+                                            },
+                                            "type": "Resource",
+                                            "name": "Windows 8",
+                                            "impacted": false
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "Resource",
+                            "name": "Windows 7",
+                            "impacted": true
                         },
                         {
-                          "name": "VLC Media Player",
-                          "type": "Resource",
-                          "impacted": false,
-                          "link": {
-                            "label": "from",
-                            "direction": "self"
-                          }
-                        },
-                        {
-                          "name": "AVI",
-                          "type": "Resource",
-                          "impacted": false,
-                          "link": {
-                            "label": "to",
-                            "direction": "self"
-                          },
-                          "children": [
-                            {
-                              "name": "Digital Video 1",
-                              "type": "Resource",
-                              "impacted": false,
-                              "isTerminal": true,
-                              "link": {
-                                "label": "hasContainer",
-                                "direction": "parent"
-                              }
-                            }
-                          ]
+                            "link": {
+                                "direction": "self",
+                                "label": "from"
+                            },
+                            "type": "Resource",
+                            "name": "1 GB RAM",
+                            "impacted": false
                         }
-                      ]
-                    }
-                  ]
+                    ]
                 }
-              ]
-            }
-          ]
+            ],
+            "subject": "https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#hardware_dependency_2"
         }
-      ]
-    }
-  ]
+    ],
+    "insertions": []
 }

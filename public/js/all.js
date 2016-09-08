@@ -506,10 +506,9 @@ function Graph() {
       var linkEnter = link.enter().insert("g")
         .attr("class", "link");
       var linkline = linkEnter.append("line")
-        .attr('marker-end', function(d) {return d.target.children || d.target._children || d.target.isTerminal ? "url(#arrowhead-dark)" : 'url(#arrowhead)';})
+        .attr('marker-end', function(d) {return d.target.link.label != 'from' || (d.target.link.label == 'from' && (d.target.children || d.target._children)) ? "url(#arrowhead-dark)" : 'url(#arrowhead)';})
         .attr("class", "linkline")
-        .style("stroke", function(d) {return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";})
-        // .style("stroke-dasharray", function(d) {return d.target.children || d.target.isTerminal ? ("0, 0") : ("3", "3");})
+        .style("stroke", function(d) {return d.target.link.label != 'from' || (d.target.link.label == 'from' && (d.target.children || d.target._children)) ? "#000" : "#ccc";})
         .style("pointer-events", "none");
 
       var linkpath = linkEnter.append('path')
@@ -523,7 +522,7 @@ function Graph() {
           .attr({'class':'linklabel',
                  'text-anchor': 'middle',
                  'font-size':10,
-                 'fill':function(d){return d.target.children || d.target._children || d.target.isTerminal ? "#000" : "#ccc";}})
+                 'fill':function(d){return d.target.link.label != 'from' || (d.target.link.label == 'from' && (d.target.children || d.target._children)) ? "#000" : "#ccc";}})
           .append('textPath')
             // .attr('xlink:href',function(d,i) {return '#linkpath'+ d.source.id + "_" + d.target.id})
             .attr({'startOffset':'50%',

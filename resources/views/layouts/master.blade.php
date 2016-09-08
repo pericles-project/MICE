@@ -17,6 +17,22 @@
           <div class="navbar-brand">Model Impact Change Explorer</div>
             <ul class="nav navbar-nav pull-right">
               <li><a href="https://github.com/pericles-project/MICE/wiki" target="_blank" class="pull-right">Quick Start Guide</a></li>
+              <li class="dropdown hidden-xs">
+                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    Test Cases<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ url('') }}?case=1">
+                    <i class="fa fa-arrow-circle-right"></i>Case 1</a>
+                  </li>
+                  <li><a href="{{ url('/') }}?case=2">
+                    <i class="fa fa-arrow-circle-right"></i>Case 2</a>
+                  </li>
+                  <li><a href="{{ url('/') }}?case=3">
+                    <i class="fa fa-arrow-circle-right"></i>Case 3</a>
+                  </li>
+                </ul>
+              </li>
            </ul>
           <!-- </div> -->
         </div>
