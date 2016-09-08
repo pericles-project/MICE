@@ -4,6 +4,12 @@
     "keywords": [],
     "license": "Apache-2.0",
     "type": "project",
+    "authors": [
+        {
+            "name": "Maria Akritidou",
+            "email": "maria@dotsoft.gr"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
