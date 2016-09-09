@@ -125,9 +125,10 @@ class MainController extends BaseController
      * @params int $index Index of delta statement
      * @return string Response Graph in json format
      */
-    public function graph(Request $request, Response $response, $index = 0)
+    public function graph(Request $request, Response $response, $index = null)
     {
         $results = $request->session()->get('results');
+        $index = isset($index) == true ? $index : count($results['statements']) - 1;
         $graph = $results['statements'][$index];
         return response()->json($graph);
     }
