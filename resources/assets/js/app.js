@@ -8,7 +8,8 @@ $(document).ready(function(){
       if (btnLoading) {
            btnLoading.start();
       }
-      $.get(url, function( data ) {
+      
+      $.get(APP_URL + url, function( data ) {
         graph.createGraph(data);
         $('#graph-loading').hide();
         if (btnLoading) {
