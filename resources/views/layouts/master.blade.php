@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="{{ url('') }}/{{ elixir("css/all.css") }}">
+    <link rel="stylesheet" href="{{ url('') }}{{ elixir("css/all.css") }}">
   </head>
   <body class="page-header-fixed bg-1" ng-app="app">
     <div class="modal-shiftfix">
@@ -65,6 +65,9 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
-    <script src="{{ url('') }}/{{ elixir("js/all.js") }}"></script>
+    <script type="text/javascript">
+        var APP_URL = {!! json_encode(url('/')) !!}
+    </script>
+    <script src="{{ url('') }}{{ elixir("js/all.js") }}"></script>
 </body>
 </html>
