@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use GuzzleHttp\Client;
 
 class MainController extends BaseController
 {
@@ -26,7 +27,7 @@ class MainController extends BaseController
         $params['callback_url'] = strstr('?', $params['callback_url']) ? '&amp;' : '?' . 'uuid=' . $params['uuid'];
 
         $request->session()->put('params', $params);
-        return redirect()->route('main', ['uuid' => $params['uuid']]);
+        return redirect()->route('main');
     }
 
     /**
@@ -47,20 +48,16 @@ class MainController extends BaseController
                 }
             }
 
-            // Store deltas in json file
-            // TODO remove this
-            file_put_contents(base_path() . '\\libraries\\script\\deltas\\' . $params['uuid'] . '.n3', $params['change']);
-
             // Get trees from script
             $results = $this->getDependencyTrees($request);
-            $results = json_decode($results[0], true);
+            $results = json_decode($results, true);
         } else {
             $case = Input::get("case");
 
             if (isset($case) == true) {
                 // Get trees from json file
-                $results = file_get_contents('data' . $case . '.json');
-                // $results = file_get_contents('data_deletion.json');
+                // $results = file_get_contents('data' . $case . '.json');
+                $results = file_get_contents('new_video_delta_RESULTS.json');
                 $results = json_decode($results, true);
             }
         }
@@ -107,14 +104,23 @@ class MainController extends BaseController
     {
         $params = $request->session()->get('params');
 
-        // TODO pass params to the script
-        $scriptPath = addcslashes(base_path() . "\\libraries\\script\\", "\\");
-        $command = "C:\Python27\python.exe {$scriptPath}CreateDependencyTreesForDelta.py {$scriptPath}";
-        exec($command, $results, $return);
+        $client = new Client();
 
-        if ($return) {
-            throw new \Exception("Error executing command - error code:" . $return);
+        try {
+            $response = $client->request('POST', 'http://127.0.0.1:5000/', array(
+                'form_params' => array(
+                    'repository_name' => $params['repository_name'],
+                    'change' => $params['change'])
+                )
+            );
         }
+        catch (GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            throw new \Exception("Error executing command - error code:" . $responseBodyAsString);
+        }
+
+        $results = $response->getBody();
 
         return $results;
     }
