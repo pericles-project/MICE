@@ -56,8 +56,8 @@ class MainController extends BaseController
 
             if (isset($case) == true) {
                 // Get trees from json file
-                // $results = file_get_contents('data' . $case . '.json');
-                $results = file_get_contents('new_video_delta_RESULTS.json');
+                $results = file_get_contents('data' . $case . '.json');
+                // $results = file_get_contents('new_video_delta_RESULTS.json');
                 $results = json_decode($results, true);
             }
         }
