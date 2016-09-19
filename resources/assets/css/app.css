@@ -145,3 +145,7 @@ body.page-header-fixed {
 
 #footer {
   text-align: center; }
+
+.layout-boxed .container-fluid.main-content {
+  max-width: 1200px;
+  margin: 0 auto; }

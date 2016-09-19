@@ -37,7 +37,7 @@
                 <th></th>
               </tr>
               @foreach ($results['statements'] as $k => $row)
-                <tr>
+                <tr @if ($row == end($results['statements'])) class="selected" @endif>
                   <td>
                     @if ($row['action'] == 'insertion')
                       <span class="text-success"><i class="fa fa-plus-square"></i> {{ $row['action'] }}</span>

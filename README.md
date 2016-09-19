@@ -37,6 +37,12 @@ Run command to execute automated tasks
 gulp
 ```
 
+## License
+
+MICE is licensed under the Apache License, Version 2.0.
+
+You may obtain a copy of the License at: [Apache v2](http://www.apache.org/licenses/LICENSE-2.0)
+
 ## Credits
 
  _This project has received funding from the European Union’s Seventh Framework Programme for research, technological development and demonstration under grant agreement no FP7- 601138 PERICLES._   
