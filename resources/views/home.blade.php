@@ -23,12 +23,10 @@
           <i class="fa fa-pencil-square-o"></i> Change description
           <a href="#confirmModalReject" class="btn btn-danger pull-right" data-toggle="modal" data-target="#confirmModalReject"><i class="fa fa-trash-o"></i> Reject change</a>
           <a href="#confirmModalAccept" class="btn btn-success pull-right" data-toggle="modal" data-target="#confirmModalAccept"><i class="fa fa-check"></i> Accept change</a>
-          {{modal('confirmModalReject', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=0'])}}
-          {{modal('confirmModalAccept', 'Accept change?', 'Are you sure you want to accept the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=1'])}}
         </div>
         <div class="widget-content padded">
           <div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover">
               <tr>
                 <th>Action</th>
                 <th>Subject</th>
@@ -39,7 +37,7 @@
                 <th></th>
               </tr>
               @foreach ($results['statements'] as $k => $row)
-                <tr>
+                <tr @if ($row == end($results['statements'])) class="selected" @endif>
                   <td>
                     @if ($row['action'] == 'insertion')
                       <span class="text-success"><i class="fa fa-plus-square"></i> {{ $row['action'] }}</span>
@@ -58,7 +56,7 @@
                     @endif
                   </td>
                   <td>{{ $row['statistics']['impacted'] }}</td>
-                  <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph">View graph</a></td>
+                  <td><a href="/graph/{{ $k }}" class="btn btn-primary updateGraph ladda-button" data-style="slide-right"><span class="ladda-label">View graph</span></a></td>
                 </tr>
               @endforeach
             </table>
@@ -105,6 +103,13 @@
     <div class="col-md-8">
           <div class="heading">
             <i class="fa fa-bar-chart-o"></i>Dependency graph
+            <span class="pull-right">
+                <a class="btn btn-primary" href="#" id="expandAllBtn"><i class="fa fa-plus-square"></i> Expand all</a>
+                <a class="btn btn-primary"href="#" id="collapseAllBtn"><i class="fa fa-minus-square"></i>Collapse all</a>
+            </span>
+          </div>
+          <div id="graph-loading" class="text-center">
+              <i class="fa fa-spinner fa fa-spin"></i> Loading...
           </div>
           <div id="graph">
             <!-- Show graph -->
@@ -224,4 +229,7 @@
     <!-- </div> -->
   </div>
 <!-- </div> -->
+
+{{modal('confirmModalReject', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=0'])}}
+{{modal('confirmModalAccept', 'Accept change?', 'Are you sure you want to accept the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=1'])}}
 @endsection

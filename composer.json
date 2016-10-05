@@ -4,12 +4,19 @@
     "keywords": [],
     "license": "Apache-2.0",
     "type": "project",
+    "authors": [
+        {
+            "name": "Maria Akritidou",
+            "email": "maria@dotsoft.gr"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "components/jquery": "^2.2",
         "twbs/bootstrap": "^3.3",
-        "mbostock/d3": "3.5.16"
+        "mbostock/d3": "3.5.16",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

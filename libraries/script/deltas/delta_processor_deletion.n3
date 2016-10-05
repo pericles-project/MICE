@@ -1,5 +1,0 @@
-<https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#hardware_dependency_2> <http://xrce.xerox.com/LRM#changedBy> <https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#delta_1> .
-
-<https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#delta_1> <http://xrce.xerox.com/LRM#deletion> <https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#deletion_statement_1> .
-<https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#deletion_statement_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate> <http://xrce.xerox.com/LRM#from> .
-<https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#deletion_statement_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#object> <https://dl.dropboxusercontent.com/u/27469926/dva_t.owl#processor_1> .
