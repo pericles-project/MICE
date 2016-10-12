@@ -40,26 +40,22 @@ class MainController extends BaseController
         $allParams = array('uuid', 'repository_name', 'change', 'callback_url');
         $params = $request->session()->get('params');
         $results = array();
+        $case = Input::get("case");
 
-        if (isset($params) == true) {
+        if (isset($case) == true) {
+            // Get trees from json file
+            $results = file_get_contents('data' . $case . '.json');
+            $results = json_decode($results, true);
+        } else if (isset($params) == true) {
             foreach($allParams as $paramName) {
                 if (array_key_exists($paramName, $params) == true && empty($params[$paramName]) == true) {
                   return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
                 }
             }
-
+            
             // Get trees from script
             $results = $this->getDependencyTrees($request);
             $results = json_decode($results, true);
-        } else {
-            $case = Input::get("case");
-
-            if (isset($case) == true) {
-                // Get trees from json file
-                $results = file_get_contents('data' . $case . '.json');
-                // $results = file_get_contents('new_video_delta_RESULTS.json');
-                $results = json_decode($results, true);
-            }
         }
 
         if (empty($results) == false) {
