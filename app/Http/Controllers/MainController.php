@@ -85,7 +85,7 @@ class MainController extends BaseController
             $results = $this->calculateTotalStatistics($results);
 
             $request->session()->put('results', $results);
-            return view('home', ['results' => $results, 'params' => $params]);
+            return view('home', ['results' => $results, 'params' => $params, 'api_update_url' => env('API_UPDATE_URL')]);
         } else {
             return view('intro');
         }
@@ -103,7 +103,7 @@ class MainController extends BaseController
         $client = new Client();
 
         try {
-            $response = $client->request('POST', 'http://127.0.0.1:5000/', array(
+            $response = $client->request('POST', env('API_DEPENDENCY_GRAPH_URL'), array(
                 'form_params' => array(
                     'repository_name' => $params['repository_name'],
                     'change' => $params['change'])
