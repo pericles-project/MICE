@@ -11,7 +11,13 @@ function modal ($id, $title, $body, $data) {
                       <div class="modal-body">' . $body .'</div>
                       <div class="modal-footer">
                           <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                          <a href="' . $data['confirm_url'] .'" class="btn btn-primary" id="confirm">Confirm</a>
+                          <a href="#" class="btn btn-primary" id="'.$id.'-confirm">Confirm</a>';
+
+      if ($id == 'modal-accept-change') {
+        $html .= '<p id="update-success" class="bg-success update-message hidden">The change has been saved successfully.</p>
+                  <p id="update-failure" class="bg-danger update-message hidden">The change could not be saved.</p>';
+      }
+      $html .= '
                       </div>
                     </div>
                   </div>
