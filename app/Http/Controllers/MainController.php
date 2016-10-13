@@ -19,12 +19,10 @@ class MainController extends BaseController
     public function init(Request $request)
     {
         $params = array(
-            'uuid' => Input::get("uuid"),
             'repository_name' => Input::get("repository_name"),
             'change' => Input::get("change"),
             'callback_url' => Input::get("callback_url") ? : $request->server('HTTP_REFERER')
         );
-        $params['callback_url'] = strstr('?', $params['callback_url']) ? '&amp;' : '?' . 'uuid=' . $params['uuid'];
 
         $request->session()->put('params', $params);
         return redirect()->route('main');
@@ -37,13 +35,18 @@ class MainController extends BaseController
      */
     public function index(Request $request)
     {
-        $allParams = array('uuid', 'repository_name', 'change', 'callback_url');
+        $requiredParams = array('repository_name', 'change', 'callback_url');
         $params = $request->session()->get('params');
         $results = array();
+        $case = Input::get("case");
 
-        if (isset($params) == true) {
-            foreach($allParams as $paramName) {
-                if (array_key_exists($paramName, $params) == true && empty($params[$paramName]) == true) {
+        if (isset($case) == true) {
+            // Get trees from json file
+            $results = file_get_contents('data' . $case . '.json');
+            $results = json_decode($results, true);
+        } else if (isset($params) == true) {
+            foreach($requiredParams as $paramName) {
+                if (array_key_exists($paramName, $params) == false || empty($params[$paramName]) == true) {
                   return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
                 }
             }
@@ -51,15 +54,6 @@ class MainController extends BaseController
             // Get trees from script
             $results = $this->getDependencyTrees($request);
             $results = json_decode($results, true);
-        } else {
-            $case = Input::get("case");
-
-            if (isset($case) == true) {
-                // Get trees from json file
-                $results = file_get_contents('data' . $case . '.json');
-                // $results = file_get_contents('new_video_delta_RESULTS.json');
-                $results = json_decode($results, true);
-            }
         }
 
         if (empty($results) == false) {
@@ -89,7 +83,7 @@ class MainController extends BaseController
             $results = $this->calculateTotalStatistics($results);
 
             $request->session()->put('results', $results);
-            return view('home', ['results' => $results, 'params' => $params]);
+            return view('home', ['results' => $results, 'params' => $params, 'api_update_url' => env('API_UPDATE_URL')]);
         } else {
             return view('intro');
         }
@@ -107,7 +101,7 @@ class MainController extends BaseController
         $client = new Client();
 
         try {
-            $response = $client->request('POST', 'http://127.0.0.1:5000/', array(
+            $response = $client->request('POST', env('API_DEPENDENCY_GRAPH_URL'), array(
                 'form_params' => array(
                     'repository_name' => $params['repository_name'],
                     'change' => $params['change'])

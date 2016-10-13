@@ -21,8 +21,8 @@
       <div class="widget-container scrollable">
         <div class="heading">
           <i class="fa fa-pencil-square-o"></i> Change description
-          <a href="#confirmModalReject" class="btn btn-danger pull-right" data-toggle="modal" data-target="#confirmModalReject"><i class="fa fa-trash-o"></i> Reject change</a>
-          <a href="#confirmModalAccept" class="btn btn-success pull-right" data-toggle="modal" data-target="#confirmModalAccept"><i class="fa fa-check"></i> Accept change</a>
+          <a href="#modal-reject-change" class="btn btn-danger pull-right" data-toggle="modal" data-target="#modal-reject-change"><i class="fa fa-trash-o"></i> Reject change</a>
+          <a href="#modal-accept-change" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-accept-change"><i class="fa fa-check"></i> Accept change</a>
         </div>
         <div class="widget-content padded">
           <div class="table-responsive">
@@ -230,6 +230,6 @@
   </div>
 <!-- </div> -->
 
-{{modal('confirmModalReject', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=0'])}}
-{{modal('confirmModalAccept', 'Accept change?', 'Are you sure you want to accept the change?', ['confirm_url' => $params['callback_url'] . '&amp;accept=1'])}}
+{{modal('modal-reject-change', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '?accept=0'])}}
+{{modal('modal-accept-change', 'Accept change?', 'Are you sure you want to accept and save the change?', ['confirm_url' => $params['callback_url'] . '?accept=1'])}}
 @endsection

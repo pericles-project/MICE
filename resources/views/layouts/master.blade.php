@@ -66,7 +66,13 @@
        ga('send', 'pageview');
     </script>
     <script type="text/javascript">
-        var APP_URL = {!! json_encode(url('/')) !!}
+        var APP_URL = "{!! url('/') !!}";
+        var API_UPDATE_URL = "{!! $api_update_url !!}";
+        var PARAMS = {
+          change: "{!! $params['change'] !!}",
+          repository_name: "{!! $params['repository_name'] !!}",
+          callback_url: "{!! $params['callback_url'] !!}"
+        };
     </script>
     <script src="{{ url('') }}{{ elixir("js/all.js") }}"></script>
 </body>

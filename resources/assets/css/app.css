@@ -149,3 +149,8 @@ body.page-header-fixed {
 .layout-boxed .container-fluid.main-content {
   max-width: 1200px;
   margin: 0 auto; }
+
+.update-message {
+  text-align: center;
+  padding: 10px;
+  margin-top: 15px; }
