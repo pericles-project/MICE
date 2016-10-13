@@ -22,14 +22,15 @@ Add virtual host:
         Allow from all
     </Directory>
 </VirtualHost>
+
+## Build & development
+
 ```
 Install composer packages
 
 ```
 composer install
 ```
-
-## Build & development
 
 Run command to execute automated tasks
 
