@@ -8,7 +8,7 @@ $(document).ready(function(){
       if (btnLoading) {
            btnLoading.start();
       }
-      
+
       $.get(APP_URL + url, function( data ) {
         graph.createGraph(data);
         $('#graph-loading').hide();
@@ -40,8 +40,8 @@ $(document).ready(function(){
 
     $('#modal-accept-change-confirm').click(function(e){
       $.post( API_UPDATE_URL, {
-        change: PARAMS.change,
-        repository_name: PARAMS.repository_name
+        delta_stream: PARAMS.change,
+        ermr_repository: PARAMS.repository_name
       })
       .done(function() {
         if (PARAMS.callback_url) {
