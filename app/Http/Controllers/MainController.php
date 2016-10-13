@@ -85,7 +85,7 @@ class MainController extends BaseController
             $request->session()->put('results', $results);
             return view('home', ['results' => $results, 'params' => $params, 'api_update_url' => env('API_UPDATE_URL')]);
         } else {
-            return view('intro');
+            return view('intro', ['params' => $params, 'api_update_url' => env('API_UPDATE_URL')]);
         }
     }
 
