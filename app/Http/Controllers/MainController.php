@@ -19,12 +19,10 @@ class MainController extends BaseController
     public function init(Request $request)
     {
         $params = array(
-            'uuid' => Input::get("uuid"),
             'repository_name' => Input::get("repository_name"),
             'change' => Input::get("change"),
             'callback_url' => Input::get("callback_url") ? : $request->server('HTTP_REFERER')
         );
-        $params['callback_url'] = strstr('?', $params['callback_url']) ? '&amp;' : '?' . 'uuid=' . $params['uuid'];
 
         $request->session()->put('params', $params);
         return redirect()->route('main');
@@ -37,7 +35,7 @@ class MainController extends BaseController
      */
     public function index(Request $request)
     {
-        $allParams = array('uuid', 'repository_name', 'change', 'callback_url');
+        $requiredParams = array('repository_name', 'change', 'callback_url');
         $params = $request->session()->get('params');
         $results = array();
         $case = Input::get("case");
@@ -47,12 +45,12 @@ class MainController extends BaseController
             $results = file_get_contents('data' . $case . '.json');
             $results = json_decode($results, true);
         } else if (isset($params) == true) {
-            foreach($allParams as $paramName) {
-                if (array_key_exists($paramName, $params) == true && empty($params[$paramName]) == true) {
+            foreach($requiredParams as $paramName) {
+                if (array_key_exists($paramName, $params) == false || empty($params[$paramName]) == true) {
                   return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
                 }
             }
-            
+
             // Get trees from script
             $results = $this->getDependencyTrees($request);
             $results = json_decode($results, true);
