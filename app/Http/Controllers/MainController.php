@@ -21,7 +21,7 @@ class MainController extends BaseController
         $params = array(
             'repository_name' => Input::get("repository_name"),
             'change' => Input::get("change"),
-            'callback_url' => Input::get("callback_url") ? : $request->server('HTTP_REFERER')
+            'callback_url' => Input::get("callback_url")
         );
 
         $request->session()->put('params', $params);
@@ -102,9 +102,9 @@ class MainController extends BaseController
 
         try {
             $response = $client->request('POST', env('API_DEPENDENCY_GRAPH_URL'), array(
-                'form_params' => array(
-                    'repository_name' => $params['repository_name'],
-                    'change' => $params['change'])
+                'json' => array(
+                    'ERMR_repository' => $params['repository_name'], // old repository_name
+                    'delta_stream' => $params['change']) // old change
                 )
             );
         }

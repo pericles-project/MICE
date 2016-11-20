@@ -39,13 +39,15 @@ $(document).ready(function(){
     getGraph();
 
     $('#modal-accept-change-confirm').click(function(e){
+		console.info(API_UPDATE_URL);
       $.post( API_UPDATE_URL, {
         delta_stream: PARAMS.change,
-        ermr_repository: PARAMS.repository_name
+        ERMR_repository: PARAMS.repository_name
       })
       .done(function() {
         if (PARAMS.callback_url) {
-            window.location.href = PARAMS.callback_url;
+			console.info('redirect to' + PARAMS.callback_url);
+            // window.location.href = PARAMS.callback_url;
         } else {
           $('#update-success').removeClass('hidden');
           $('#update-failure').addClass('hidden');
@@ -53,7 +55,7 @@ $(document).ready(function(){
       })
       .fail(function() {
         if (PARAMS.callback_url) {
-            window.location.href = PARAMS.callback_url;
+			console.info('redirect to' + PARAMS.callback_url);
         } else {
           $('#update-success').addClass('hidden');
           $('#update-failure').removeClass('hidden');

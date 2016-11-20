@@ -7,6 +7,9 @@ Model Impact Change Explorer (MICE) is a component responsible for visualizing t
 * PHP >= 5.5.9, with the following extensions enabled: OpenSSL, Mbstring, Tokenizer
 * Web Server e.g. Apache, Nginx
 * [Composer](https://getcomposer.org/) for dependency management
+
+For build & development:
+* [Node JS] (https://nodejs.org/)
 * [Gulp](http://gulpjs.com/) for running automated tasks
 
 ## Installation
@@ -23,16 +26,28 @@ Add virtual host:
     </Directory>
 </VirtualHost>
 
-## Build & development
-
-```
-Install composer packages
+ * Install composer packages
 
 ```
 composer install
 ```
 
-Run command to execute automated tasks
+ * Copy .env.example to .env
+
+ * Generate application key
+
+```
+php artisan key:generate
+```
+
+## Build & development
+
+ * Install node packages
+```
+npm install
+```
+
+ * Run command to execute automated tasks
 
 ```
 gulp
