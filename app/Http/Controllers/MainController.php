@@ -120,6 +120,36 @@ class MainController extends BaseController
     }
 
     /**
+     * Updates the ERMR repository
+     *
+     * @return string $r Response
+     */
+    public function updateRepository(Request $request)
+    {
+        $params = $request->session()->get('params');
+
+        $client = new Client();
+
+        try {
+            $response = $client->request('POST', env('API_UPDATE_URL'), array(
+                'json' => array(
+                    'ERMR_repository' => $params['repository_name'], // old repository_name
+                    'delta_stream' => $params['change']) // old change
+                )
+            );
+        }
+        catch (GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            throw new \Exception("Error executing command - error code:" . $responseBodyAsString);
+        }
+
+        $r = $response->getBody();
+
+        return $r;
+    }
+
+    /**
      * Gets the dependency graph for a specific delta statement
      *
      * @params int $index Index of delta statement
