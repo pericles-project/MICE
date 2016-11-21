@@ -35,7 +35,7 @@ class MainController extends BaseController
      */
     public function index(Request $request)
     {
-        $requiredParams = array('repository_name', 'change', 'callback_url');
+        $requiredParams = array('repository_name', 'change');
         $params = $request->session()->get('params');
         $results = array();
         $case = Input::get("case");
