@@ -19,8 +19,8 @@ class MainController extends BaseController
     public function init(Request $request)
     {
         $params = array(
-            'repository_name' => Input::get("repository_name"),
-            'change' => Input::get("change"),
+            'ERMR_repository' => Input::get("ERMR_repository"),
+            'delta_stream' => Input::get("delta_stream"),
             'callback_url' => Input::get("callback_url")
         );
 
@@ -35,7 +35,7 @@ class MainController extends BaseController
      */
     public function index(Request $request)
     {
-        $requiredParams = array('repository_name', 'change');
+        $requiredParams = array('ERMR_repository', 'delta_stream');
         $params = $request->session()->get('params');
         $results = array();
         $case = Input::get("case");
@@ -117,8 +117,8 @@ class MainController extends BaseController
         try {
             $response = $client->request('POST', env('API_DEPENDENCY_GRAPH_URL'), array(
                 'json' => array(
-                    'ERMR_repository' => $params['repository_name'], // old repository_name
-                    'delta_stream' => $params['change']) // old change
+                    'ERMR_repository' => $params['ERMR_repository'],
+                    'delta_stream' => $params['delta_stream'])
                 )
             );
         }
@@ -147,8 +147,8 @@ class MainController extends BaseController
         try {
             $response = $client->request('POST', env('API_UPDATE_URL'), array(
                 'json' => array(
-                    'ERMR_repository' => $params['repository_name'], // old repository_name
-                    'delta_stream' => $params['change']) // old change
+                    'ERMR_repository' => $params['ERMR_repository'],
+                    'delta_stream' => $params['delta_stream'])
                 )
             );
         }

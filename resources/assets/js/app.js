@@ -44,8 +44,8 @@ $(document).ready(function(){
     //     type: "POST",
     //     crossDomain: true,
     //     data: JSON.stringify({
-    //       delta_stream: PARAMS.change,
-    //       ERMR_repository: PARAMS.repository_name
+    //       delta_stream: PARAMS.delta_stream,
+    //       ERMR_repository: PARAMS.ERMR_repository
     //     }),
     //     dataType: "json",
     //     contentType: "application/json",
