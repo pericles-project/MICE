@@ -38,32 +38,37 @@ $(document).ready(function(){
 
     getGraph();
 
-    $('#modal-accept-change-confirm').click(function(e){
-		console.info(API_UPDATE_URL);
-      $.post( API_UPDATE_URL, {
-        delta_stream: PARAMS.change,
-        ERMR_repository: PARAMS.repository_name
-      })
-      .done(function() {
-        if (PARAMS.callback_url) {
-			console.info('redirect to' + PARAMS.callback_url);
-            // window.location.href = PARAMS.callback_url;
-        } else {
-          $('#update-success').removeClass('hidden');
-          $('#update-failure').addClass('hidden');
-        }
-      })
-      .fail(function() {
-        if (PARAMS.callback_url) {
-			console.info('redirect to' + PARAMS.callback_url);
-        } else {
-          $('#update-success').addClass('hidden');
-          $('#update-failure').removeClass('hidden');
-        }
-      });
-    });
-
-    $('#modal-reject-change-confirm').click(function(e){
-      $('#modal-reject-change').modal('hide');
-    });
+    // $('#modal-accept-change-confirm').click(function(e){
+    //   $.ajax({
+    //     url: API_UPDATE_URL,
+    //     type: "POST",
+    //     crossDomain: true,
+    //     data: JSON.stringify({
+    //       delta_stream: PARAMS.change,
+    //       ERMR_repository: PARAMS.repository_name
+    //     }),
+    //     dataType: "json",
+    //     contentType: "application/json",
+    //     success: function (response) {
+    //       if (PARAMS.callback_url) {
+    //           window.location.href = PARAMS.callback_url;
+    //       } else {
+    //         $('#update-success').removeClass('hidden');
+    //         $('#update-failure').addClass('hidden');
+    //       }
+    //     },
+    //     error: function (xhr, status) {
+    //       if (PARAMS.callback_url) {
+    //         window.location.href = PARAMS.callback_url;
+    //       } else {
+    //         $('#update-success').addClass('hidden');
+    //         $('#update-failure').removeClass('hidden');
+    //       }
+    //     }
+    //   });
+    // });
+    //
+    // $('#modal-reject-change-confirm').click(function(e){
+    //   $('#modal-reject-change').modal('hide');
+    // });
 });

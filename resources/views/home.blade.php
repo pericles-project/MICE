@@ -3,6 +3,24 @@
 @section('content')
 <!-- End Navigation -->
 <div class="container-fluid main-content">
+  @if (empty($action) == false)
+  <div class="row widget-container fluid-height">
+    <div class="col-md-12">
+      <div class="widget-content padded">
+          @if (isset($action) == true)
+              @if ($action == 'accept')
+                <h4 class="text-center"><span class="text-success">Change accepted</span></h4>
+                <p class="text-center">The change has been accepted and saved.</p>
+              @elseif ($action == 'reject')
+                <h4 class="text-center"><span class="text-danger">Change rejected</span></h4>
+                <p class="text-center">The change has been rejected.</p>
+            @endif
+          @endif
+        </div>
+      </div>
+    </div>
+  @endif
+
   <div class="row widget-container fluid-height">
     <div class="col-md-12">
       <div class="widget-content padded">
@@ -21,8 +39,10 @@
       <div class="widget-container scrollable">
         <div class="heading">
           <i class="fa fa-pencil-square-o"></i> Change description
+          @if (isset($action) == false)
           <a href="#modal-reject-change" class="btn btn-danger pull-right" data-toggle="modal" data-target="#modal-reject-change"><i class="fa fa-trash-o"></i> Reject change</a>
           <a href="#modal-accept-change" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-accept-change"><i class="fa fa-check"></i> Accept change</a>
+          @endif
         </div>
         <div class="widget-content padded">
           <div class="table-responsive">
@@ -230,6 +250,6 @@
   </div>
 <!-- </div> -->
 
-{{modal('modal-reject-change', 'Reject change?', 'Are you sure you want to reject the change?', ['confirm_url' => $params['callback_url'] . '?accept=0'])}}
-{{modal('modal-accept-change', 'Accept change?', 'Are you sure you want to accept and save the change?', ['confirm_url' => $params['callback_url'] . '?accept=1'])}}
+{{modal('modal-reject-change', 'Reject change?', 'Are you sure you want to reject the change?', ['action' => 'reject'])}}
+{{modal('modal-accept-change', 'Accept change?', 'Are you sure you want to accept and save the change?', ['action' => 'accept'])}}
 @endsection

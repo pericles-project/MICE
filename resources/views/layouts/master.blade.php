@@ -67,8 +67,8 @@
     </script>
     <script type="text/javascript">
         var APP_URL = "{!! url('/') !!}";
-        var API_UPDATE_URL = "{!! $api_update_url !!}";
-		var PARAMS = {!! json_encode($params) !!};
+        var API_UPDATE_URL = "{!! env('API_UPDATE_URL') !!}";
+        var PARAMS = {!! json_encode($params) !!};
     </script>
     <script src="{{ url('') }}{{ elixir("js/all.js") }}"></script>
 </body>

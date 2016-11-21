@@ -39,15 +39,29 @@ class MainController extends BaseController
         $params = $request->session()->get('params');
         $results = array();
         $case = Input::get("case");
+        $action = Input::get("action");
+        $updateResponse = null;
 
         if (isset($case) == true) {
             // Get trees from json file
             $results = file_get_contents('data' . $case . '.json');
             $results = json_decode($results, true);
-        } else if (isset($params) == true) {
+        } else if (isset($action) == true) {
+          if ($action == 'accept') {
+            $updateResponse = $this->updateRepository($request);
+            $updateResponse = json_decode($updateResponse, true);
+          }
+
+          if (empty($params['callback_url']) == false) {
+            header('Location:' . $params['callback_url'] . '?action=' . $action . '&success=1');
+            exit;
+          }
+        }
+
+        if (isset($params) == true) {
             foreach($requiredParams as $paramName) {
                 if (array_key_exists($paramName, $params) == false || empty($params[$paramName]) == true) {
-                  return response()->view('errors.400', ['message' => "Required parameter {$paramName} is missing."], 400);
+                  return response()->view('errors.400', ['params' => array(), 'message' => "Required parameter {$paramName} is missing."], 400);
                 }
             }
 
@@ -83,9 +97,9 @@ class MainController extends BaseController
             $results = $this->calculateTotalStatistics($results);
 
             $request->session()->put('results', $results);
-            return view('home', ['results' => $results, 'params' => $params, 'api_update_url' => env('API_UPDATE_URL')]);
+            return view('home', ['results' => $results, 'params' => $params, 'action' => $action, 'updateResponse' => $updateResponse]);
         } else {
-            return view('intro', ['params' => $params, 'api_update_url' => env('API_UPDATE_URL')]);
+            return view('intro', ['params' => $params]);
         }
     }
 
