@@ -28,7 +28,7 @@
             <h4 class="text-center"><span class="text-success"><i class="fa fa-check"></i> No impact found</span></h4>
           @else
             <h4 class="text-center"><span class="text-danger"><i class="fa fa-exclamation-circle"></i> Impact found</span></h4>
-            <p class="text-center">{{ $results['totalImpact'] }} resources might be impacted by this change.</p>
+            <p class="text-center">{{ $results['totalImpact'] }} @if(count($results['totalImpact'] == 1)) resources @else resource @endif might be impacted by this change.</p>
           @endif
       </div>
     </div>
