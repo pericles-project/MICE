@@ -3406,8 +3406,8 @@ body.fourofour {
 /*  Mobile Styles */
 /*----------------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
-  .row + .row {
-    margin-top: 0; }
+  /*.row + .row {
+    margin-top: 0; }*/
 
   [class*="col-sm"], [class*="col-md"], [class*="col-lg"], [class*="col-xs"] {
     margin-bottom: 20px; } }
