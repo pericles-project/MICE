@@ -25,16 +25,16 @@ Add virtual host:
         Allow from all
     </Directory>
 </VirtualHost>
+```
 
- * Install composer packages
+* Install composer packages
 
 ```
 composer install
 ```
 
- * Copy .env.example to .env
-
- * Generate application key
+* Copy .env.example to .env
+* Generate application key
 
 ```
 php artisan key:generate
@@ -47,7 +47,7 @@ php artisan key:generate
 npm install
 ```
 
- * Run command to execute automated tasks
+* Run command to execute automated tasks
 
 ```
 gulp
