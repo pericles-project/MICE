@@ -25,7 +25,7 @@ class MainController extends BaseController
         );
 
         $request->session()->put('params', $params);
-        return redirect()->route('main');
+        return redirect()->route('main', ['show_results' => 1]);
     }
 
     /**
@@ -40,6 +40,7 @@ class MainController extends BaseController
         $results = array();
         $case = Input::get("case");
         $action = Input::get("action");
+        $showResults = Input::get("show_results");
         $updateResponse = null;
 
         if (isset($case) == true) {
@@ -58,7 +59,7 @@ class MainController extends BaseController
           }
         }
 
-        if (isset($params) == true) {
+        if ($showResults == true && isset($params) == true) {
             foreach($requiredParams as $paramName) {
                 if (array_key_exists($paramName, $params) == false || empty($params[$paramName]) == true) {
                   return response()->view('errors.400', ['params' => array(), 'message' => "Required parameter {$paramName} is missing."], 400);
