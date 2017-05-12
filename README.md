@@ -9,7 +9,7 @@ Model Impact Change Explorer (MICE) is a component responsible for visualizing t
 * [Composer](https://getcomposer.org/) for dependency management
 
 For build & development:
-* [Node JS] (https://nodejs.org/)
+* [Node JS](https://nodejs.org/)
 * [Gulp](http://gulpjs.com/) for running automated tasks
 
 ## Installation
