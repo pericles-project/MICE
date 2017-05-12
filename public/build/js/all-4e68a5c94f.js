@@ -391,8 +391,10 @@ function Graph() {
          .attr("width", '100%')
          .attr("height", '100%')
          .attr('viewBox','0 0 '+Math.min(realWidth,realWidth)+' '+Math.min(realWidth,realWidth))
-         .attr('preserveAspectRatio','xMinYMin')
-         .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
+         .attr('preserveAspectRatio','xMinYMin');
+         // .attr("transform", "translate(" + Math.min(realWidth,realWidth) / 2 + "," + Math.min(realWidth,realWidth) / 2 + ")");
+
+
 
       tip = d3.tip()
         .attr('class', 'd3-tip')
