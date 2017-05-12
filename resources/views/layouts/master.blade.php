@@ -14,7 +14,7 @@
       <div class="navbar navbar-fixed-top scroll-hide">
         <div class="container-fluid top-bar">
           <!-- <div id="appHeading"> -->
-          <div class="navbar-brand"><a href="{{ url('') }}" title="Model Impact Change Explorer"><img src="{{ url('') }}/images/MICE_logo.png" alt="MICE - Model Impact Change Explorer" height="57" id="logo"/></a></div>
+          <div class="navbar-brand"><a href="{{ url('') }}" title="Model Impact Change Explorer"><img src="{{ url('') }}/images/mice_logo.png" alt="MICE - Model Impact Change Explorer" height="57" id="logo"/></a></div>
             <ul class="nav navbar-nav pull-right">
               <li><a href="https://github.com/pericles-project/MICE/wiki" target="_blank" class="pull-right">Quick Start Guide</a></li>
               <li class="dropdown hidden-xs">
