@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     function getGraph(url, btnLoading) {
       $("#graph").html("");
-      url = url ? url : "/graph";
+      url = url ? url : "/graph/";
       $('#graph-loading').show();
       if (btnLoading) {
            btnLoading.start();
@@ -23,7 +23,10 @@ $(document).ready(function(){
       $('.selected').removeClass('selected');
       $(this).closest('tr').addClass('selected');
       var l = Ladda.create(this);
-       getGraph($(this).attr('href'), l);
+      getGraph($(this).attr('href'), l);
+      $('html, body').animate({
+        scrollTop: $("#graph-container").offset().top - 50
+      }, 2000);
     });
 
     $('#expandAllBtn').click(function(e){

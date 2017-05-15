@@ -119,7 +119,7 @@
     </div>
   </div> -->
 
-  <div class="row widget-container fluid-height">
+  <div class="row widget-container fluid-height" id="graph-container">
     <div class="col-md-8">
           <div class="heading">
             <i class="fa fa-bar-chart-o"></i>Dependency graph
