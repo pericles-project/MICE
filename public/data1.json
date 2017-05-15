@@ -12,7 +12,7 @@
                 {
                     "name": "Hardware Dependency 2",
                     "dependencyType": "Conjunctive",
-                    "intention": "functional intention",
+                    "intention": "Functional intention",
                     "link": {
                         "direction": "parent",
                         "label": "from"
@@ -28,7 +28,7 @@
                                 {
                                     "name": "Software Dependency 3",
                                     "dependencyType": "Disjunctive",
-                                    "intention": "compatibility intention",
+                                    "intention": "Compatibility intention",
                                     "link": {
                                         "direction": "parent",
                                         "label": "from"
@@ -44,7 +44,7 @@
                                                 {
                                                     "name": "Software Dependency 1",
                                                     "dependencyType": "Disjunctive",
-                                                    "intention": "compatibility intention",
+                                                    "intention": "Compatibility intention",
                                                     "link": {
                                                         "direction": "parent",
                                                         "label": "from"
