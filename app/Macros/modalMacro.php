@@ -11,7 +11,7 @@ function modal ($id, $title, $body, $data) {
                       <div class="modal-body">' . $body .'</div>
                       <div class="modal-footer">
                           <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                          <a href="' . url('/') . '?action=' . $data['action'] . '" class="btn btn-primary" id="'.$id.'-confirm">Confirm</a>
+                          <a href="' . url('/') . ($_GET['case'] ? '?case=' . $_GET['case'] . '&' : '?') . 'action=' . $data['action'] . '" class="btn btn-primary" id="'.$id.'-confirm">Confirm</a>
                       </div>
                     </div>
                   </div>
