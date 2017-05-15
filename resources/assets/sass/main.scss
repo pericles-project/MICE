@@ -25,7 +25,7 @@ h1 {
 }
 
 .navbar {
-  height: 30px;
+  height: 60px;
 }
 
 body.page-header-fixed {
@@ -212,10 +212,22 @@ body.page-header-fixed {
 }
 
 #logo {
-  height: 57px;
+  height: 53px;
   margin-top: -13px;
 }
 
 .navbar-brand {
   overflow: hidden;
+  height: 60px;
+}
+.navbar .container-fluid.top-bar {
+height: 60px;
+}
+
+.navbar .container-fluid.top-bar .nav > li > a {
+	padding: 18px 10px 14px;
+}
+
+.widget-container.fluid-height {
+	margin-top: 20px;
 }
